@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SoundDay</title>
+</head>
+<body>
+    <header>
+        <a href="/tp2/index.html" aria-label="Ir al inicio">
+            <img src="/tp2/assets/imagenes/logos/soundday_black.png" alt="Logo SoundDay"> 
+        </a> 
+       <nav>
+            <a href="/tp2/index.html">
+                Inicio
+            </a>
+            <a href="artistas.html">
+                Artistas
+            </a>
+             <a href="perfil.html">
+                <img src="/tp2/assets/imagenes/logos/usuario.png" alt="Logo usuario"> 
+            </a>
+       </nav> 
+    </header>
+
+    <main>
+        <h1>Explorador de Artistas</h1>
+
+        <section aria-labelledby="titulo-busqueda">
+            <h2 id="titulo-busqueda">Filtros de Artistas</h2>
+            <form action="#" method="get" role="search">
+                <div>
+                    <label for="buscar-artista">Buscar por nombre:</label>
+                    <input type="search" id="buscar-artista" name="q" placeholder="Ej: Coldplay, BTS...">
+                </div>
+
+                <fieldset>
+                    <legend>Filtrar por género musical</legend>
+                    <label>
+                        <input type="radio" name="genero" value="todos" checked>
+                        Todos
+                    </label>
+                    <label>
+                        <input type="radio" name="genero" value="pop">
+                        Pop
+                    </label>
+                    <label>
+                        <input type="radio" name="genero" value="rock">
+                        Rock
+                    </label>
+                    <label>
+                        <input type="radio" name="genero" value="k-pop">
+                        K-Pop
+                    </label>
+                    <label>
+                        <input type="radio" name="genero" value="urbano">
+                        Urbano
+                    </label>
+                </fieldset>
+            </form>
+        </section>
+
+        <section aria-labelledby="titulo-catalogo">
+            <h2 id="titulo-catalogo">Catálogo de Artistas</h2>
+
+            <article>
+                <figure>
+                    <img src="./assets/imagenes/artistas/coldplay.jpg" alt="Coldplay en concierto en vivo">
+                    <figcaption>Coldplay</figcaption>
+                </figure>
+                <h3>Coldplay</h3>
+                <p>Género: Pop / Rock Alternativo</p>
+                <p>Gira actual: Music of the Spheres</p>
+                <a href="#detalle-artista" role="button">Ver artista</a>
+            </article>
+
+            <article>
+                <figure>
+                    <img src="./assets/imagenes/artistas/bts.jpg" alt="Grupo BTS sobre el escenario">
+                    <figcaption>BTS</figcaption>
+                </figure>
+                <h3>BTS</h3>
+                <p>Género: K-Pop / Pop</p>
+                <p>Gira actual: ARIRANG World Tour</p>
+                <a href="#detalle-artista" role="button">Ver artista</a>
+            </article>
+        </section>
+
+        <section id="detalle-artista" aria-labelledby="nombre-artista-detalle">
+            <header>
+                <h2 id="nombre-artista-detalle">Coldplay</h2>
+                <button type="button" aria-pressed="false" id="btn-seguir">Seguir Artista</button>
+            </header>
+
+            <article aria-labelledby="titulo-fechas">
+                <h3 id="titulo-fechas">Próximos recitales y recintos</h3>
+                <ul>
+                    <li>
+                        <strong>Fecha:</strong> 25 de Octubre, 2026
+                    </li>
+                    <li>
+                        <strong>Recinto:</strong> Estadio River Plate
+                    </li>
+                    <li>
+                        <strong>Horarios:</strong> Apertura de puertas: 17:00 hs | Inicio show: 21:00 hs
+                    </li>
+                </ul>
+            </article>
+
+            <article aria-labelledby="titulo-setlist">
+                <h3 id="titulo-setlist">Setlist promedio del tour</h3>
+                <ol>
+                    <li>Higher Power</li>
+                    <li>Adventure of a Lifetime</li>
+                    <li>Paradise</li>
+                    <li>The Scientist</li>
+                    <li>Viva La Vida</li>
+                    <li>Yellow</li>
+                    <li>Fix You</li>
+                </ol>
+            </article>
+        </section>
+    </main>
+
+    <footer>
+        <ul>
+            <li>
+                <a href="https://instagram.com/@soundday" target="_blank">
+                    @soundday
+                </a>
+            </li>
+
+            <li>
+                Avenida Presidente Figueroa Alcorta 1354
+            </li>
+            <li>
+                <a href="contacto.html">
+                    Contacto
+                </a>
+            </li>
+        </ul>
+
+    </footer>
+</body>
+</html>
