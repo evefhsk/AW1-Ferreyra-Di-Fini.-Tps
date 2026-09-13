@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SoundDay/Perfil</title>
+</head>
+<body>
+    <header>
+        <a href="../../index.html">
+            <img src="../imagenes/logos/soundday_black.png" alt="Logo SoundDay"> 
+        </a>
+
+        <nav>
+            <a href="../../index.html">
+                Inicio
+            </a>
+
+            <a href="artistas.html">
+                Artistas
+            </a>
+
+            <a href="perfil.html">
+                <img src="../imagenes/logos/usuario.png" alt="Ir al perfil">
+            </a>
+        </nav>
+    </header>
+
+    <main>
+        <section aria-labelledby="titulo-perfil">
+            <h2 id="titulo-perfil">Mi perfil</h2>
+
+            <article>
+                <img src="../imagenes/logos/usuario.png" alt="Foto de perfil">
+                <h3>Carla Rinaldi</h3>
+                <p>Email: carlarinaldi@gmail.com</p>
+                <p>Teléfono: 123-456-7890</p>
+                <p>Artista mas escuchado: BTS</p>
+                <a href="#artistas-seguidos">Ver artistas seguidos</a>
+            </article>
+        </section>
+
+        <section aria-labelledby="titulo-proximos-eventos">
+            <h2 id="titulo-proximos-eventos">Mis próximos eventos</h2>
+
+            <article>
+                <p>25/10 - 21:00 - Estadio River Plate</p> 
+                <a href="#detalles-evento-bts">Ver detalles</a>
+                <p>13/11 - 21:00 - Estadio Kempes</p>
+                <a href="#detalles-evento-coldplay">Ver detalles</a>
+            </article>
+        </section>
+
+        <section aria-labelledby="titulo-mis-productos">
+            <h2 id="titulo-mis-productos">Mis productos guardados</h2>
+
+            <article>
+                <table>
+                    <thead>
+                        <tr>
+                            <th scope="col">Nombre producto</th>
+                            <th scope="col">Cantidad</th>
+                            <th scope="col">Precio final</th>
+                            <th scope="col">Estado</th>
+                        </tr>
+                    </thead>
+    
+                    <tbody>
+                        <tr>
+                            <td>Pack 1</td>
+                            <td>2</td>
+                            <td>$12.000</td>
+                            <td>Reservado</td>
+                        </tr>
+                        
+                        <tr>
+                            <td>Pack 2</td>
+                            <td>1</td>
+                            <td>$60.000</td>
+                            <td>Reservado</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <a href="#detalles-fanpack">Ver detalles del fan pack</a>
+            </article>
+        </section>
+
+        <section aria-labelledby="titulo-detalles-evento-bts">
+            <h2 id="titulo-detalles-evento-bts">Detalles del evento - BTS</h2>
+
+            <article>
+                <ul>
+                    <li>
+                        <p>Artista BTS</p>
+                    </li>
+
+                    <li>
+                        <p>Recinto: Estadio River Plate </p>
+                    </li>
+
+                    <li>
+                        <p>Fecha: 25/10</p>
+                    </li>
+
+                    <li>
+                        <p>Horarios: Apertura de puertas: 17:00 hs | Inicio show: 21:00 hs</p>
+                    </li>
+                </ul>
+            </article>
+        </section>
+
+        <section aria-labelledby="titulo-detalles-evento-coldplay">
+            <h2 id="titulo-detalles-evento-coldplay">Detalles del evento - Coldplay</h2>
+
+            <article>
+                <ul>
+                    <li>
+                        <p>Artista: Coldplay</p>
+                    </li>
+
+                    <li>
+                        <p>Recinto: Estadio Kempes</p>
+                    </li>
+
+                    <li>
+                        <p>Fecha: 13/11</p>
+                    </li>
+
+                    <li>
+                        <p>Horarios: Apertura de puertas: 17:00 hs | Inicio show: 21:00 hs</p>
+                    </li>
+                </ul>
+            </article>
+        </section>
+
+        <section aria-labelledby="artistas-seguidos">
+            <h2 id="artistas-seguidos">Artistas seguidos</h2>
+
+            <form action="#" method="get" role="search">
+                <fieldset>
+                    <legend>Filtrar por:</legend>
+
+                    <label>
+                        <input type="radio" name="filtro-evento" value="popular" checked>
+                        Todos
+                    </label>
+
+                    <label>
+                        <input type="radio"  name="filtro-evento" value="artista">
+                        Pop
+                    </label>
+
+                    <label>
+                        <input type="radio" name="filtro-evento" value="recinto">
+                        Rock
+                    </label>
+
+                    <label>
+                        <input type="radio" name="filtro-evento" value="fecha">
+                        Rap
+                    </label>
+                </fieldset>
+            </form>
+
+            <article>
+                <ul>
+                    <li>
+                        <figure>
+                            <img src="../imagenes/logos/usuario.png" alt="Foto de BTS">
+                            <figcaption>BTS</figcaption>
+                        </figure>
+                    </li>
+
+                    <li>
+                        <figure>
+                            <img src="../imagenes/logos/usuario.png" alt="Foto de Coldplay">
+                            <figcaption>Coldplay</figcaption>
+                        </figure>
+                    </li>
+
+                     <li>
+                        <figure>
+                            <img src="../imagenes/logos/usuario.png" alt="Foto de Coldplay">
+                            <figcaption>The Beatles</figcaption>
+                        </figure>
+                    </li>
+                </ul>
+            </article>
+        </section>
+
+         <section aria-labelledby="detalles-fanpack">
+            <h2 id="detalles-fanpack">Catálogo del fanpack</h2>
+
+            <form action="#" method="get" role="search">
+                <fieldset>
+                    <legend>Filtrar por:</legend>
+
+                    <label>
+                        <input type="radio" name="filtro-evento" value="popular" checked>
+                        Todos
+                    </label>
+
+                    <label>
+                        <input type="radio"  name="filtro-evento" value="artista">
+                        Pop
+                    </label>
+
+                    <label>
+                        <input type="radio" name="filtro-evento" value="recinto">
+                        Rock
+                    </label>
+
+                    <label>
+                        <input type="radio" name="filtro-evento" value="fecha">
+                        Rap
+                    </label>
+                </fieldset>
+            </form>
+
+            <article>
+                <figure>
+                    <img src="../imagenes/fanpacks/btspack.png" alt="Pack de stickers">
+                </figure>
+                <h3>Pack 1</h3>
+                <p>Artista: BTS</p>
+                <p>Gira actual: ARIRANG World Tour </p>
+                <p>Próximo:25/10 - 21:00</p>
+                <button> + Agregar al carrito</button>
+            </article>
+
+            <article>
+                <figure>
+                    <img src="../imagenes/fanpacks/coldplaypack.png" alt="Pack de stickers">
+                </figure>
+                <h3>Pack 2</h3>
+                <p>Artista: Coldplay</p>
+                <p>Gira actual: Music of the Spheres </p>
+                <p>Próximo:25/10 - 21:00</p>
+                <button> + Agregar al carrito</button>
+            </article>
+
+            <article>
+                <figure>
+                    <img src="../imagenes/fanpacks/beatlespack.png" alt="Pack de stickers">
+                </figure>
+                <h3>Pack 3</h3>
+                <p>Artista: The Beatles</p>
+                <p>Gira actual: USA Tour </p>
+                <p>Próximo:13/11 - 21:00</p>
+                <button> + Agregar al carrito</button>
+            </article>
+        </section>
+
+
+    </main>
+
+    <footer>
+        <ul>
+            <li>
+                <a href="https://instagram.com/soundday" target="_blank" rel="noopener noreferrer">
+                    @soundday
+                </a>
+            </li>
+
+            <li>
+                Avenida Presidente Figueroa Alcorta 1354
+            </li>
+
+            <li>
+                <a href="contacto.html">
+                    Contacto
+                </a>
+            </li>
+        </ul>
+    </footer>
+</body>
+</html>
