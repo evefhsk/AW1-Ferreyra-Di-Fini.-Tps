@@ -6,27 +6,22 @@
     <title>SoundDay</title>
 </head>
 <body>
-<header>
-        <a href="index.html" aria-label="Ir al inicio">
+    <header>
+        <a href="./index.html" aria-label="Ir al inicio">
             <img src="./assets/imagenes/logos/soundday_black.png" alt="Logo SoundDay"> 
         </a>
 
         <nav>
-            <a href="index.html">
-                Inicio
-            </a>
-
-            <a href="./artistas.html">
-                Artistas
-            </a>
-
+            <a href="./index.html">Inicio</a>
+            <a href="./artistas.html">Artistas</a>
+            <a href="./contacto.html">Contacto</a>
             <a href="./perfil.html">
                 <img src="./assets/imagenes/logos/usuario.png" alt="Ir al perfil">
             </a>
         </nav>
     </header>
 
-<main>
+    <main>
         <h1>Explorador de Artistas</h1>
         <p>Encontrá información actualizada sobre tus artistas favoritos, detalles de sus giras y Fan Packs oficiales.</p>
 
@@ -66,7 +61,7 @@
             <div id="artistas-app" aria-live="polite">
                 <article class="tarjeta-artista">
                     <figure>
-                        <img src="../imagenes/artistas/coldplay.jpeg" alt="Banda Coldplay">
+                        <img src="./assets/imagenes/artistas/coldplay.jpeg" alt="Banda Coldplay">
                         <figcaption>Coldplay</figcaption>
                     </figure>
                     <div class="tarjeta-artista__info">
@@ -74,12 +69,13 @@
                         <p><strong>Gira:</strong> Music of the Spheres World Tour</p>
                         <p><strong>Próxima fecha:</strong> 25 de Octubre - 21:00 hs</p>
                     </div>
-                    <a href="#detalle-coldplay" class="boton-enlace" role="button">Ver ficha de artista</a>
+                    <!-- Uso correcto de <a> para navegación interna mediante ancla -->
+                    <a href="#detalle-coldplay" class="boton-enlace">Ver ficha de artista</a>
                 </article>
 
                 <article class="tarjeta-artista">
                     <figure>
-                        <img src="../imagenes/artistas/bts.jpeg" alt="Integrantes de BTS">
+                        <img src="./assets/imagenes/artistas/bts.jpeg" alt="Integrantes de BTS">
                         <figcaption>BTS</figcaption>
                     </figure>
                     <div class="tarjeta-artista__info">
@@ -87,7 +83,8 @@
                         <p><strong>Gira:</strong> ARIRANG World Tour</p>
                         <p><strong>Próxima fecha:</strong> 12 de Noviembre - 21:00 hs</p>
                     </div>
-                    <a href="#detalle-bts" class="boton-enlace" role="button">Ver ficha de artista</a>
+                    <!-- Se removió el role="button" redundante por ser un enlace de navegación válido -->
+                    <a href="#detalle-bts" class="boton-enlace">Ver ficha de artista</a>
                 </article>
             </div>
         </section>
@@ -96,11 +93,12 @@
             <header>
                 <a href="#titulo-catalogo" class="enlace-volver">← Volver al explorador de artistas</a>
                 <h2 id="nombre-artista-coldplay">Coldplay</h2>
+                <!-- Uso correcto de <button> para acción interactiva con JavaScript -->
                 <button type="button" id="btn-seguir-coldplay" aria-pressed="false">+ Seguir Artista</button>
             </header>
 
             <figure>
-                <img src="../imagenes/artistas/coldplaytour.png" alt="Banner de tour de Coldplay">
+                <img src="./assets/imagenes/artistas/coldplaytour.png" alt="Banner de tour de Coldplay">
             </figure>
 
             <article aria-labelledby="titulo-recinto-coldplay">
@@ -132,7 +130,7 @@
             <article aria-labelledby="titulo-fanpack-coldplay">
                 <h3 id="titulo-fanpack-coldplay">Fan Packs Oficiales</h3>
                 <figure>
-                    <img src="../imagenes/fanpacks/coldplaypack.png" alt="Kit de Fan Pack oficial que incluye remera conmemorativa y credencial">
+                    <img src="./assets/imagenes/fanpacks/coldplaypack.png" alt="Kit de Fan Pack oficial que incluye remera conmemorativa y credencial">
                     <figcaption>Pack Experiencia Oficial - Coldplay</figcaption>
                 </figure>
                 <p>Incluye remera conmemorativa de la gira, credencial coleccionable y ecovaso oficial del tour.</p>
@@ -146,6 +144,7 @@
                         </select>
                     </div>
                     <p><strong>Precio total:</strong> $35.000 ARS</p>
+                    <!-- Uso correcto de <button type="submit"> para formularios -->
                     <button type="submit">Agregar al Carrito de Reservas</button>
                 </form>
             </article>
@@ -159,7 +158,7 @@
             </header>
 
             <figure>
-                <img src="../imagenes/artistas/btstour.jpg" alt="Banner de tour de BTS">
+                <img src="./assets/imagenes/artistas/btstour.jpg" alt="Banner de tour de BTS">
             </figure>
 
             <article aria-labelledby="titulo-recinto-bts">
@@ -191,7 +190,7 @@
             <article aria-labelledby="titulo-fanpack-bts">
                 <h3 id="titulo-fanpack-bts">Fan Packs Oficiales</h3>
                 <figure>
-                    <img src="../imagenes/fanpacks/btspack.png" alt="Kit de Fan Pack oficial de BTS con merchandising exclusivo">
+                    <img src="./assets/imagenes/fanpacks/btspack.png" alt="Kit de Fan Pack oficial de BTS con merchandising exclusivo">
                     <figcaption>ARMY Tour Pack Oficial - BTS</figcaption>
                 </figure>
                 <p>Incluye photocard exclusiva, remera conmemorativa del tour y lanyard oficial.</p>
@@ -214,21 +213,13 @@
     <footer>
         <ul>
             <li>
-                <a href="https://instagram.com/@soundday" target="_blank">
-                    @soundday
-                </a>
+                <a href="https://instagram.com/@soundday" target="_blank">@soundday</a>
             </li>
-
+            <li>Avenida Presidente Figueroa Alcorta 1354</li>
             <li>
-                Avenida Presidente Figueroa Alcorta 1354
-            </li>
-            <li>
-                <a href="contacto.html">
-                    Contacto
-                </a>
+                <a href="./contacto.html">Contacto</a>
             </li>
         </ul>
-
     </footer>
 </body>
 </html>
