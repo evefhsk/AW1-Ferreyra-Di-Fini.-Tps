@@ -6,23 +6,25 @@
     <title>SoundDay</title>
     <link rel="stylesheet" href="./assets/styles/style.css">
 </head>
-<body>
-    <header>
-        <a href="./index.html" aria-label="Ir al inicio">
-            <img src="./assets/imagenes/logos/soundday_black.png" alt="Logo SoundDay"> 
+<body class="pagina">
+    <!-- Encabezado principal -->
+    <header class="header">
+        <a class="header__logo-enlace" href="./index.html" aria-label="Ir al inicio">
+            <img class="header__logo-img" src="./assets/imagenes/logos/soundday_white.png" alt="Logo SoundDay"> 
         </a>
 
-        <nav>
-            <a href="./index.html">Inicio</a>
-            <a href="./artistas.html">Artistas</a>
-            <a href="./contacto.html">Contacto</a>
-            <a href="./perfil.html">
-                <img src="./assets/imagenes/logos/usuario.png" alt="Ir al perfil">
+        <nav class="header__nav">
+            <a class="header__nav-enlace" href="./index.html">Inicio</a>
+            <!-- Enlace de artistas con la clase activa -->
+            <a class="header__nav-enlace header__nav-enlace--activo" href="./artistas.html">Artistas</a>
+            <a class="header__nav-enlace" href="./contacto.html">Contacto</a>
+            <a class="header__nav-perfil" href="./perfil.html" aria-label="Ir al perfil">
+                <img class="header__perfil-img" src="./assets/imagenes/logos/usuario.png" alt="Ir al perfil">
             </a>
         </nav>
     </header>
 
-    <main>
+    <main class="main">
         <h1>Explorador de Artistas</h1>
         <p>Encontrá información actualizada sobre tus artistas favoritos, detalles de sus giras y Fan Packs oficiales.</p>
 
@@ -211,14 +213,24 @@
         </section>
     </main>
 
-    <footer>
-        <ul>
-            <li>
-                <a href="https://instagram.com/@soundday" target="_blank">@soundday</a>
+    <footer class="footer">
+        <p class="footer__copyright">© 2026 SoundDay.com.ar</p>
+        <ul class="footer__lista">
+            <li class="footer__item">
+                <a class="footer__enlace" href="https://instagram.com/soundday" target="_blank" rel="noopener noreferrer">
+                    @soundday
+                </a>
             </li>
-            <li>Avenida Presidente Figueroa Alcorta 1354</li>
-            <li>
-                <a href="./contacto.html">Contacto</a>
+            <li class="footer__item">
+                Av. Figueroa Alcorta 1354
+            </li>
+            <li class="footer__item">
+                <a class="footer__enlace" href="./contacto.html">Contacto</a>
+            </li>
+            <li class="mensajeria">
+                <a href="https://wa.me?tel=1111111" aria-label="enlace al whatsapp" target="_nueva" rel="noopener noreferrer">
+                    <img src="./assets/imagenes/iconos/mensajeria.svg" alt="icono mensajeria">
+                </a>
             </li>
         </ul>
     </footer>

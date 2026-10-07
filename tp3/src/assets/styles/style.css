@@ -121,6 +121,37 @@ ul {
     gap: 8px;
 }
 
+/* Estilos para el botón flotante de mensajería / WhatsApp en el footer */
+.footer .mensajeria {
+    list-style: none; /* Borra el punto */
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 1000; /* Asegura que esté por encima de otros elementos */
+}
+
+.footer .mensajeria a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--color-primario, #6366f1); /* Color azul/índigo principal */
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    transition: transform 0.2s ease, background-color 0.2s ease;
+}
+
+.footer .mensajeria a:hover {
+    transform: scale(1.1);
+    background-color: var(--color-primario-activo, #4f46e5); /* Tono azul más oscuro al pasar el cursor */
+}
+
+.footer .mensajeria img {
+    width: 26px;
+    height: 26px;
+    object-fit: contain;
+}
 
 @media (min-width: 768px) {
     .header {

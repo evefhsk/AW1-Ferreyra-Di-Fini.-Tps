@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SoundDay/Inicio</title>
     <!-- Vinculación de la hoja de estilos externa -->
-    <link rel="stylesheet" href="./assets/css/main.css">
+    <link rel="stylesheet" href="./assets/styles/index.css">
     <link rel="stylesheet" href="./assets/styles/style.css">
 </head>
 <body class="pagina">
@@ -25,57 +25,59 @@
         </nav>
     </header>
 
-    <main class="main">
+<main class="main">
         <!-- Banner de bienvenida -->
         <section class="banner-hero">
-            <h1 class="banner-hero__titulo">Bienvenido a SoundDay</h1>
-            <p class="banner-hero__subtitulo">Descubre y planifica tus próximos shows</p>
+            <h1 class="banner-hero-titulo">Bienvenido a SoundDay</h1>
+            <p class="banner-hero-subtitulo">Descubre y planifica tus próximos shows</p>
         </section>
 
         <!-- Sección Noticias y Novedades -->
         <section class="seccion-noticias" aria-labelledby="titulo-novedades">
-            <h2 class="seccion-noticias__titulo" id="titulo-novedades">Novedades</h2>
+            <h2 class="seccion-noticias-titulo" id="titulo-novedades">Anuncios y noticias destacadas</h2>
 
-            <div class="seccion-noticias__grilla">
+            <div class="seccion-noticias-grilla">
                 <article class="tarjeta">
-                    <p class="tarjeta__descripcion">Exclusivo show a las 21:00 hs el 25/09. ¡No te lo pierdas!</p>
-                    <a class="boton boton--primario" href="#seccion-eventos">Ver más</a>
+                    <p class="tarjeta-descripcion">Exclusivo show a las 21:00 hs el 25/09. ¡No te lo pierdas!</p>
+                    <p class="tarjeta-texto">Consulta los horarios del recinto, accesos y reserva tus fan packs antes de la fecha del show.</p>
+                    <a class="boton boton-primario" href="#seccion-eventos">Ver eventos top</a>
                 </article>
 
                 <article class="tarjeta">
-                    <p class="tarjeta__descripcion">Nuevas fechas confirmadas de giras oficiales</p>
-                    <a class="boton boton--primario" href="./assets/pages/artistas.html">Ver más</a>
+                    <p class="tarjeta-descripcion">Nuevas fechas confirmadas de giras oficiales</p>
+                    <p class="tarjeta-texto">Revisa las sedes programadas, recintos confirmados y repertorios en vivo de esta temporada</p>
+                    <a class="boton boton-primario" href="./artistas.html">Ver artistas del momento</a>
                 </article>
             </div>
         </section>
 
         <!-- Buscador y Filtros -->
         <section class="seccion-filtro" id="seccion-eventos" aria-labelledby="titulo-eventos">
-            <h2 class="seccion-filtro__titulo" id="titulo-eventos">Descubre los eventos top del año</h2>
+            <h2 class="seccion-filtro-titulo" id="titulo-eventos">Descubre los eventos top del año</h2>
 
             <form class="formulario-busqueda" action="#" method="get" role="search">
-                <label class="formulario-busqueda__label" for="buscar-evento">Buscar evento:</label>
-                <input class="formulario-busqueda__input" type="search" id="buscar-evento" name="q" placeholder="Ej: Estadio Kempes, BTS...">
+                <label class="formulario-busqueda-label" for="buscar-evento">Buscar evento:</label>
+                <input class="formulario-busqueda-input" type="search" id="buscar-evento" name="q" placeholder="Ej: Estadio Kempes, BTS...">
 
-                <fieldset class="formulario-busqueda__filtros">
-                    <legend class="formulario-busqueda__legend">Filtrar por:</legend>
+                <fieldset class="formulario-busqueda-filtros">
+                    <legend class="formulario-busqueda-legend">Filtrar por:</legend>
 
-                    <label class="formulario-busqueda__opcion">
+                    <label class="formulario-busqueda-opcion">
                         <input type="radio" name="filtro-evento" value="popular" checked>
                         Popular
                     </label>
 
-                    <label class="formulario-busqueda__opcion">
+                    <label class="formulario-busqueda-opcion">
                         <input type="radio" name="filtro-evento" value="artista">
                         Artista
                     </label>
 
-                    <label class="formulario-busqueda__opcion">
+                    <label class="formulario-busqueda-opcion">
                         <input type="radio" name="filtro-evento" value="recinto">
                         Recinto
                     </label>
 
-                    <label class="formulario-busqueda__opcion">
+                    <label class="formulario-busqueda-opcion">
                         <input type="radio" name="filtro-evento" value="fecha">
                         Fecha
                     </label>
@@ -85,29 +87,29 @@
 
         <!-- Resultados de Eventos -->
         <section class="seccion-resultados" aria-labelledby="titulo-resultados">
-            <h2 class="seccion-resultados__titulo" id="titulo-resultados">Resultados</h2>
+            <h2 class="seccion-resultados-titulo" id="titulo-resultados">Resultados</h2>
 
-            <div class="seccion-resultados__grilla">
+            <div class="seccion-resultados-grilla">
                 <article class="tarjeta-evento">
-                    <h3 class="tarjeta-evento__ranking">#1 POPULAR</h3>
-                    <ul class="tarjeta-evento__detalles">
-                        <li class="tarjeta-evento__item tarjeta-evento__item--destacado">The Beatles</li>
-                        <li class="tarjeta-evento__item">Recinto: Estadio Kempes</li>
-                        <li class="tarjeta-evento__item">Fecha: 25/09</li>
-                        <li class="tarjeta-evento__item">2500 interesados</li>
+                    <h3 class="tarjeta-evento-ranking">#1 POPULAR</h3>
+                    <ul class="tarjeta-evento-detalles">
+                        <li class="tarjeta-evento-item tarjeta-evento-item-destacado">The Beatles</li>
+                        <li class="tarjeta-evento-item">Recinto: Estadio Kempes</li>
+                        <li class="tarjeta-evento-item">Fecha: 25/09</li>
+                        <li class="tarjeta-evento-item">2500 interesados</li>
                     </ul>
-                    <button class="boton boton--secundario" type="button">Guardar</button>
+                    <button class="boton boton-secundario" type="button">Guardar</button>
                 </article>
-              
+            
                 <article class="tarjeta-evento">
-                    <h3 class="tarjeta-evento__ranking">#2 POPULAR</h3>
-                    <ul class="tarjeta-evento__detalles">
-                        <li class="tarjeta-evento__item tarjeta-evento__item--destacado">BTS</li>
-                        <li class="tarjeta-evento__item">Recinto: Vélez</li>
-                        <li class="tarjeta-evento__item">Fecha: 09/11</li>
-                        <li class="tarjeta-evento__item">2300 interesados</li>
+                    <h3 class="tarjeta-evento-ranking">#2 POPULAR</h3>
+                    <ul class="tarjeta-evento-detalles">
+                        <li class="tarjeta-evento-item tarjeta-evento-item-destacado">BTS</li>
+                        <li class="tarjeta-evento-item">Recinto: Vélez</li>
+                        <li class="tarjeta-evento-item">Fecha: 09/11</li>
+                        <li class="tarjeta-evento-item">2300 interesados</li>
                     </ul>
-                    <button class="boton boton--secundario" type="button">Guardar</button>
+                    <button class="boton boton-secundario" type="button">Guardar</button>
                 </article>
             </div>
         </section>
@@ -117,11 +119,20 @@
         <p class="footer__copyright">© 2026 SoundDay.com.ar</p>
         <ul class="footer__lista">
             <li class="footer__item">
-                <a class="footer__enlace" href="https://instagram.com/soundday" target="_blank" rel="noopener noreferrer">@soundday</a>
+                <a class="footer__enlace" href="https://instagram.com/soundday" target="_blank" rel="noopener noreferrer">
+                    @soundday
+                </a>
             </li>
-            <li class="footer__item">Av. Figueroa Alcorta 1354</li>
+            <li class="footer__item">
+                Av. Figueroa Alcorta 1354
+            </li>
             <li class="footer__item">
                 <a class="footer__enlace" href="./contacto.html">Contacto</a>
+            </li>
+            <li class="mensajeria">
+                <a href="https://wa.me?tel=1111111" aria-label="enlace al whatsapp" target="_nueva" rel="noopener noreferrer">
+                    <img src="./assets/imagenes/iconos/mensajeria.svg" alt="icono mensajeria">
+                </a>
             </li>
         </ul>
     </footer>
