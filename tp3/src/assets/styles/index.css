@@ -1,16 +1,17 @@
-/* --- Banner Hero --- */
-.banner-hero {
-    background: linear-gradient(135deg, var(--color-superficie), var(--color-borde));
+/* --- Banner Principal --- */
+.banner-principal {
+    background: linear-gradient(135deg, var(--color-superficie), var(--color-borde)); /*Crea variables para generar un degradado entre dos colores*/
     border: 1px solid var(--color-borde);
     border-radius: 12px;
     padding: 40px 24px;
     text-align: center;
     position: relative; /* Necesario para posicionar la línea */
-    overflow: hidden;   /* Mantiene la línea dentro de las esquinas redondeadas */
+    overflow: hidden;   /* Mantiene la línea dentro de las esquinas redondeadas evitando que se expanda*/
 }
 
-/* Línea azul decorativa en el borde izquierdo */
-.banner-hero::before {
+/* Línea azul decorativa en el borde izquierdo 
+    Utiliza un selector que apunta al pseudoelemento before, se usa para insertar contenido automáticamente*/
+.banner-principal::before { 
     content: "";
     position: absolute;
     top: 0;
@@ -20,14 +21,14 @@
     background-color: var(--color-primario-activo, #818cf8); /* Color azul */
 }
 
-.banner-hero-titulo {
+.banner-principal-titulo {
     font-size: 2.2rem;
     font-weight: 800;
     color: #ffffff;
     margin-bottom: 10px;
 }
 
-.banner-hero-subtitulo {
+.banner-principal-subtitulo {
     font-size: 1.1rem;
     color: var(--color-texto-secundario);
 }
