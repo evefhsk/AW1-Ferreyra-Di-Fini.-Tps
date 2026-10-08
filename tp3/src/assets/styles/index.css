@@ -9,8 +9,12 @@
     overflow: hidden;   /* Mantiene la línea dentro de las esquinas redondeadas evitando que se expanda*/
 }
 
-/* Línea azul decorativa en el borde izquierdo 
-    Utiliza un selector que apunta al pseudoelemento before, se usa para insertar contenido automáticamente*/
+/* 
+  Línea decorativa en el borde izquierdo. 
+  Utiliza el pseudoelemento ::before (un elemento virtual creado por CSS 
+  antes del contenido real) para insertar una barra vertical que abarca 
+  toda la altura del contenedor sin modificar el HTML.
+*/
 .banner-principal::before { 
     content: "";
     position: absolute;
