@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SoundDay / Perfil</title>
+    <link rel="stylesheet" href="./assets/styles/perfil.css">
+    <link rel="stylesheet" href="./assets/styles/style.css">
+</head>
+
+<body class="pagina">
+    <!-- Encabezado principal -->
+    <header class="header">
+        <a class="header__logo-enlace" href="./index.html" aria-label="Ir al inicio">
+            <img class="header__logo-img" src="./assets/imagenes/logos/soundday_white.png" alt="Logo SoundDay">
+        </a>
+
+        <nav class="header__nav">
+            <a class="header__nav-enlace" href="./index.html">Inicio</a>
+            <a class="header__nav-enlace" href="./artistas.html">Artistas</a>
+            <a class="header__nav-enlace" href="./contacto.html">Contacto</a>
+            <!-- Enlace de perfil con la clase activa -->
+            <a class="header__nav-perfil header__nav-perfil--activo" href="./perfil.html" aria-label="Ir al perfil">
+                <img class="header__perfil-img" src="./assets/imagenes/logos/usuario.png" alt="Ir al perfil">
+            </a>
+        </nav>
+    </header>
+
+    <main class="main">
+        <div class="perfil-layout-principal">
+
+            <!-- COLUMNA IZQUIERDA: Tarjeta de perfil -->
+            <div class="perfil-columna-izquierda">
+                <section class="perfil-seccion" aria-labelledby="titulo-perfil">
+                    <article class="perfil-tarjeta">
+                        <img class="perfil-avatar" src="./assets/imagenes/logos/usuario.png" alt="Foto de perfil">
+                        <h2 class="perfil-subtitulo">Carla Rinaldi</h2>
+                        <p class="perfil-texto">carlarinaldi@gmail.com</p>
+                        <p class="perfil-texto">Tel: 1111111</p>
+                        <p class="perfil-texto">Nueva Córdoba</p>
+
+                        <ul class="perfil-lista-enlaces">
+                            <li><a class="perfil-enlace-menu" href="#artistas-seguidos">Artistas seguidos &gt;</a></li>
+                            <li><a class="perfil-enlace-menu" href="#detalles-fanpack">Mis Fan Packs reservados &gt;</a>
+                            </li>
+                        </ul>
+                    </article>
+                </section>
+            </div>
+
+            <!-- COLUMNA DERECHA: Eventos y Entradas -->
+            <div class="perfil-columna-derecha">
+
+                <!-- Sección de Próximos Eventos -->
+                <section class="perfil-seccion" aria-labelledby="titulo-proximos-eventos">
+                    <h2 class="perfil-titulo-seccion" id="titulo-proximos-eventos">Mis próximos eventos:</h2>
+
+                    <div style="display: flex; flex-direction: column; gap: 16px;">
+                        <div class="perfil-evento-item">
+                            <div class="perfil-evento-info">
+                                <span class="perfil-evento-titulo">BTS</span>
+                                <span class="perfil-evento-detalle">Estadio Principal</span>
+                            </div>
+                            <div style="display: flex; align-items: center; gap: 20px;">
+                                <span class="perfil-evento-fecha">25/09 | 21:00 hs</span>
+                                <a href="#detalles-evento-bts" class="perfil-boton-tabla">Ver detalles</a>
+                            </div>
+                        </div>
+
+                        <div class="perfil-evento-item">
+                            <div class="perfil-evento-info">
+                                <span class="perfil-evento-titulo">Coldplay</span>
+                                <span class="perfil-evento-detalle">Recinto Cerrado</span>
+                            </div>
+                            <div style="display: flex; align-items: center; gap: 20px;">
+                                <span class="perfil-evento-fecha">04/10 | 20:30 hs</span>
+                                <a href="#detalles-evento-coldplay" class="perfil-boton-tabla">Ver detalles</a>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Sección de Entradas y Fan Packs Reservados -->
+                <section class="perfil-seccion" aria-labelledby="titulo-mis-productos">
+                    <h2 class="perfil-titulo-seccion" id="titulo-mis-productos">Mis Entradas y Fan Packs Reservados</h2>
+
+                    <div class="perfil-tabla-contenedor">
+                        <table class="perfil-tabla">
+                            <thead>
+                                <tr>
+                                    <th scope="col">Nombre producto</th>
+                                    <th scope="col">Cant.</th>
+                                    <th scope="col">Precio Final</th>
+                                    <th scope="col">Estado</th>
+                                    <th scope="col">Detalles</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>Pack 1 (BTS)</td>
+                                    <td>1</td>
+                                    <td>$35.000</td>
+                                    <td><span class="perfil-badge">Reservado</span></td>
+                                    <td><a href="#detalles-fanpack" class="perfil-boton-tabla">Ver pack</a></td>
+                                </tr>
+                                <tr>
+                                    <td>Pack 2 (The Beatles)</td>
+                                    <td>1</td>
+                                    <td>$40.000</td>
+                                    <td><span class="perfil-badge">Reservado</span></td>
+                                    <td><a href="#detalles-fanpack" class="perfil-boton-tabla">Ver pack</a></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </section>
+
+            </div>
+
+            <!-- SECCIONES INFERIORES: Ancho completo -->
+            <div class="perfil-secciones-completas">
+
+                <!-- Detalles Evento BTS -->
+                <section class="perfil-seccion" id="detalles-evento-bts" aria-labelledby="titulo-detalles-evento-bts">
+                    <h2 class="perfil-titulo-seccion" id="titulo-detalles-evento-bts">Detalles del evento - BTS</h2>
+                    <ul class="perfil-lista">
+                        <li class="perfil-item">
+                            <p class="perfil-texto">Artista: BTS</p>
+                        </li>
+                        <li class="perfil-item">
+                            <p class="perfil-texto">Recinto: Estadio Principal</p>
+                        </li>
+                        <li class="perfil-item">
+                            <p class="perfil-texto">Fecha: 25/09</p>
+                        </li>
+                        <li class="perfil-item">
+                            <p class="perfil-texto">Horarios: Apertura de puertas: 17:00 hs | Inicio show: 21:00 hs</p>
+                        </li>
+                    </ul>
+                </section>
+
+                <!-- Detalles Evento Coldplay -->
+                <section class="perfil-seccion" id="detalles-evento-coldplay"
+                    aria-labelledby="titulo-detalles-evento-coldplay">
+                    <h2 class="perfil-titulo-seccion" id="titulo-detalles-evento-coldplay">Detalles del evento -
+                        Coldplay</h2>
+                    <ul class="perfil-lista">
+                        <li class="perfil-item">
+                            <p class="perfil-texto">Artista: Coldplay</p>
+                        </li>
+                        <li class="perfil-item">
+                            <p class="perfil-texto">Recinto: Recinto Cerrado</p>
+                        </li>
+                        <li class="perfil-item">
+                            <p class="perfil-texto">Fecha: 04/10</p>
+                        </li>
+                        <li class="perfil-item">
+                            <p class="perfil-texto">Horarios: Apertura de puertas: 17:00 hs | Inicio show: 20:30 hs</p>
+                        </li>
+                    </ul>
+                </section>
+
+                <!-- Artistas Seguidos -->
+                <section class="perfil-seccion" id="artistas-seguidos" aria-labelledby="titulo-artistas-seguidos">
+                    <h2 class="perfil-titulo-seccion" id="titulo-artistas-seguidos">Artistas seguidos</h2>
+
+                    <form class="perfil-formulario-filtro" action="#" method="get" role="search">
+                        <fieldset class="perfil-fieldset">
+                            <legend class="perfil-legend">Filtrar por:</legend>
+                            <label class="perfil-label-radio"><input type="radio" name="filtro-artista" value="todos"
+                                    checked> Todos</label>
+                            <label class="perfil-label-radio"><input type="radio" name="filtro-artista" value="pop">
+                                Pop</label>
+                            <label class="perfil-label-radio"><input type="radio" name="filtro-artista" value="rock">
+                                Rock</label>
+                            <label class="perfil-label-radio"><input type="radio" name="filtro-artista" value="rap">
+                                Rap</label>
+                        </fieldset>
+                    </form>
+
+                    <ul class="perfil-grilla">
+                        <li class="perfil-item-grid">
+                            <figure>
+                                <img class="perfil-imagen-grid" src="./assets/imagenes/artistas/bts.jpeg"
+                                    alt="Foto de BTS">
+                                <figcaption class="perfil-figcaption">BTS</figcaption>
+                            </figure>
+                        </li>
+                        <li class="perfil-item-grid">
+                            <figure>
+                                <img class="perfil-imagen-grid" src="./assets/imagenes/artistas/coldplay.jpeg"
+                                    alt="Foto de Coldplay">
+                                <figcaption class="perfil-figcaption">Coldplay</figcaption>
+                            </figure>
+                        </li>
+                        <li class="perfil-item-grid">
+                            <figure>
+                                <img class="perfil-imagen-grid" src="./assets/imagenes/artistas/thebeatles.jpeg"
+                                    alt="Foto de The Beatles">
+                                <figcaption class="perfil-figcaption">The Beatles</figcaption>
+                            </figure>
+                        </li>
+                    </ul>
+                </section>
+
+                <!-- Catálogo del Fanpack -->
+                <section class="perfil-seccion" id="detalles-fanpack" aria-labelledby="titulo-fanpack">
+                    <h2 class="perfil-titulo-seccion" id="titulo-fanpack">Catálogo del fanpack</h2>
+
+                    <form class="perfil-formulario-filtro" action="#" method="get" role="search">
+                        <fieldset class="perfil-fieldset">
+                            <legend class="perfil-legend">Filtrar por:</legend>
+                            <label class="perfil-label-radio"><input type="radio" name="filtro-pack" value="todos"
+                                    checked> Todos</label>
+                            <label class="perfil-label-radio"><input type="radio" name="filtro-pack" value="pop">
+                                Pop</label>
+                            <label class="perfil-label-radio"><input type="radio" name="filtro-pack" value="rock">
+                                Rock</label>
+                            <label class="perfil-label-radio"><input type="radio" name="filtro-pack" value="rap">
+                                Rap</label>
+                        </fieldset>
+                    </form>
+
+                    <div class="perfil-grilla">
+                        <article class="perfil-item-grid">
+                            <figure>
+                                <img class="perfil-imagen-grid" src="./assets/imagenes/fanpacks/btspack.png"
+                                    alt="Pack de fan 1">
+                            </figure>
+                            <h3 class="perfil-subtitulo" style="font-size: 1rem;">Pack 1</h3>
+                            <p class="perfil-texto">Artista: BTS</p>
+                            <p class="perfil-texto">Precio: $35.000</p>
+                            <button class="perfil-boton" type="button"
+                                style="padding: 6px 12px; margin-top: 8px; font-size: 0.85rem;">+ Agregar</button>
+                        </article>
+
+                        <article class="perfil-item-grid">
+                            <figure>
+                                <img class="perfil-imagen-grid" src="./assets/imagenes/fanpacks/coldplaypack.png"
+                                    alt="Pack de fan 2">
+                            </figure>
+                            <h3 class="perfil-subtitulo" style="font-size: 1rem;">Pack 2</h3>
+                            <p class="perfil-texto">Artista: The Beatles</p>
+                            <p class="perfil-texto">Precio: $40.000</p>
+                            <button class="perfil-boton" type="button"
+                                style="padding: 6px 12px; margin-top: 8px; font-size: 0.85rem;">+ Agregar</button>
+                        </article>
+                    </div>
+                </section>
+
+            </div>
+
+        </div>
+    </main>
+
+    <!-- Footer con el botón flotante azul -->
+    <footer class="footer">
+        <p class="footer__copyright">© 2026 SoundDay.com.ar</p>
+        <ul class="footer__lista">
+            <li class="footer__item">
+                <a class="footer__enlace" href="https://instagram.com/soundday" target="_blank"
+                    rel="noopener noreferrer">
+                    @soundday
+                </a>
+            </li>
+            <li class="footer__item">
+                Av. Figueroa Alcorta 1354
+            </li>
+            <li class="footer__item">
+                <a class="footer__enlace" href="./contacto.html">Contacto</a>
+            </li>
+            <li class="mensajeria">
+                <a href="https://wa.me?tel=1111111" aria-label="enlace al whatsapp" target="_nueva"
+                    rel="noopener noreferrer">
+                    <img src="./assets/imagenes/iconos/mensaje.png" alt="icono mensajeria">
+                </a>
+            </li>
+        </ul>
+    </footer>
+</body>
+
+</html>

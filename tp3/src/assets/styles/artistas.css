@@ -1,0 +1,441 @@
+/* vista artistas catalogo y detalle spa */
+
+.visually-hidden {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+}
+
+/* comportamiento spa con target */
+.vista-detalle {
+    display: none;
+}
+
+/* muestra la ficha si coincide el id en el ancla */
+.vista-detalle:target {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+/* oculta el catalogo cuando se abre el detalle de cualquier artista */
+body:has(#detalle-coldplay:target) .vista-catalogo,
+body:has(#detalle-bts:target) .vista-catalogo,
+body:has(#detalle-thebeatles:target) .vista-catalogo {
+    display: none;
+}
+
+/* cabecera y buscador */
+.artistas-intro {
+    margin-bottom: 20px;
+}
+
+.artistas-intro__titulo {
+    font-size: 2.2rem;
+    font-weight: 800;
+    margin-bottom: 6px;
+}
+
+.artistas-intro__bajada {
+    font-size: 0.95rem;
+    color: var(--color-texto-secundario);
+}
+
+.seccion-busqueda {
+    margin-bottom: 25px;
+}
+
+.buscador-form {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.buscador-form__input {
+    width: 100%;
+    background-color: var(--color-superficie);
+    border: 1.5px solid var(--color-borde);
+    color: var(--color-texto-principal);
+    padding: 12px 16px;
+    border-radius: 6px;
+    font-size: 0.95rem;
+    outline: none;
+}
+
+.buscador-form__input::placeholder {
+    color: #64748b;
+}
+
+/* botones de filtros */
+.filtros-grupo {
+    border: none;
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.filtros-grupo__titulo {
+    font-weight: 700;
+    font-size: 0.9rem;
+    margin-right: 6px;
+}
+
+.filtros-grupo__etiqueta input[type="radio"] {
+    display: none;
+}
+
+.filtros-grupo__etiqueta {
+    background-color: var(--color-superficie);
+    border: 1.5px solid var(--color-borde);
+    color: var(--color-texto-secundario);
+    padding: 6px 14px;
+    border-radius: 6px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.filtros-grupo__etiqueta--activa,
+.filtros-grupo__etiqueta:has(input:checked) {
+    background-color: #000000;
+    border-color: var(--color-primario-activo);
+    color: #ffffff;
+}
+
+/* grilla de artistas mobile first */
+.artistas-grilla {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 20px;
+}
+
+.tarjeta-artista {
+    background-color: var(--color-superficie);
+    border: 1.5px solid var(--color-borde);
+    border-radius: 14px;
+    padding: 16px;
+    display: flex;
+    flex-direction: column;
+}
+
+.tarjeta-artista__marco-foto {
+    width: 100%;
+    height: 220px;
+    background-color: #1a2238;
+    border: 1.5px solid var(--color-borde);
+    border-radius: 8px;
+    overflow: hidden;
+    margin-bottom: 14px;
+}
+
+.tarjeta-artista__foto {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.tarjeta-artista__contenido {
+    margin-bottom: 14px;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.tarjeta-artista__nombre {
+    font-size: 1.15rem;
+    font-weight: 800;
+}
+
+.tarjeta-artista__tour {
+    font-size: 0.85rem;
+    color: var(--color-texto-secundario);
+}
+
+.tarjeta-artista__fecha {
+    font-size: 0.85rem;
+    font-weight: 700;
+}
+
+.tarjeta-artista__boton {
+    display: block;
+    width: 100%;
+    text-align: center;
+    background-color: transparent;
+    border: 1.5px solid #ffffff;
+    color: #ffffff;
+    padding: 8px 0;
+    border-radius: 8px;
+    font-size: 0.85rem;
+    font-weight: 700;
+}
+
+/* ficha de detalle del artista */
+.boton-volver {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 0.95rem;
+    font-weight: 700;
+    color: var(--color-texto-principal);
+    margin-bottom: 15px;
+}
+
+.detalle-hero {
+    background-color: var(--color-superficie);
+    border: 1.5px solid var(--color-borde);
+    border-radius: 14px;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+}
+
+.detalle-hero__marco-foto {
+    width: 100%;
+    height: 240px;
+    background-color: #1a2238;
+    border: 1.5px solid var(--color-borde);
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.detalle-hero__foto {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.detalle-hero__info {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.detalle-hero__nombre {
+    font-size: 1.6rem;
+    font-weight: 800;
+}
+
+.detalle-hero__descripcion {
+    font-size: 0.9rem;
+    color: var(--color-texto-secundario);
+}
+
+.detalle-hero__recinto,
+.detalle-hero__fecha {
+    font-size: 0.9rem;
+}
+
+.detalle-hero__acciones {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-top: 6px;
+}
+
+.boton-accion-negro {
+    width: 100%;
+    background-color: #000000;
+    color: #ffffff;
+    border: 1.5px solid var(--color-borde);
+    padding: 12px;
+    font-weight: 800;
+    font-size: 0.9rem;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+.boton-accion-borde {
+    width: 100%;
+    background-color: var(--color-superficie);
+    color: var(--color-texto-principal);
+    border: 1.5px solid var(--color-borde);
+    padding: 12px;
+    font-weight: 700;
+    font-size: 0.9rem;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+/* cajas de recinto y setlist */
+.detalle-paneles-grilla {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 20px;
+}
+
+.panel-box {
+    background-color: var(--color-superficie);
+    border: 1.5px solid var(--color-borde);
+    border-radius: 8px;
+    padding: 20px;
+}
+
+.panel-box__titulo {
+    font-size: 0.95rem;
+    font-weight: 800;
+    margin-bottom: 16px;
+    letter-spacing: 0.5px;
+}
+
+.horarios-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+    margin-bottom: 12px;
+}
+
+.horarios-grid__celda {
+    background-color: #1a2238;
+    border: 1px solid var(--color-borde);
+    padding: 10px 14px;
+    border-radius: 6px;
+}
+
+.horarios-grid__celda--completa {
+    grid-column: 1 / -1;
+}
+
+.horarios-grid__etiqueta {
+    display: block;
+    font-size: 0.75rem;
+    color: var(--color-texto-secundario);
+    font-weight: 600;
+}
+
+.horarios-grid__valor {
+    font-size: 0.95rem;
+    font-weight: 700;
+}
+
+.panel-box__texto-legal {
+    font-size: 0.8rem;
+    color: var(--color-texto-secundario);
+    line-height: 1.5;
+}
+
+.canciones-lista {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    list-style: none;
+}
+
+.canciones-lista__item {
+    background-color: #1a2238;
+    border: 1px solid var(--color-borde);
+    padding: 10px 14px;
+    border-radius: 6px;
+    font-size: 0.9rem;
+    font-weight: 600;
+}
+
+/* fan packs */
+.panel-box--completo {
+    width: 100%;
+}
+
+.pack-compra {
+    background-color: #1a2238;
+    border: 1px solid var(--color-borde);
+    border-radius: 6px;
+    padding: 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+}
+
+.pack-compra__cabecera {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+}
+
+.pack-compra__miniatura {
+    width: 70px;
+    height: 70px;
+    border: 1.5px dashed var(--color-borde);
+    border-radius: 6px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.8rem;
+    font-weight: 700;
+    color: var(--color-texto-secundario);
+    flex-shrink: 0;
+}
+
+.pack-compra__nombre {
+    font-size: 1rem;
+    font-weight: 800;
+    margin-bottom: 2px;
+}
+
+.pack-compra__descripcion {
+    font-size: 0.8rem;
+    color: var(--color-texto-secundario);
+}
+
+.pack-compra__form {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+}
+
+.pack-compra__select {
+    width: 100%;
+    padding: 10px;
+    background-color: var(--color-superficie);
+    border: 1px solid var(--color-borde);
+    border-radius: 6px;
+    color: #ffffff;
+    font-size: 0.9rem;
+}
+
+.pack-compra__pie {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.pack-compra__precio {
+    font-size: 1.3rem;
+    font-weight: 800;
+}
+
+.boton-pack-agregar {
+    background-color: var(--color-primario-activo);
+    color: #ffffff;
+    border: none;
+    padding: 10px 20px;
+    font-size: 0.9rem;
+    font-weight: 700;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+/* media query para escritorio */
+@media (min-width: 768px) {
+    .artistas-grilla {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 24px;
+    }
+
+    .detalle-hero__marco-foto {
+        height: 320px;
+    }
+
+    .detalle-paneles-grilla {
+        grid-template-columns: 1fr 1fr;
+        gap: 24px;
+    }
+}

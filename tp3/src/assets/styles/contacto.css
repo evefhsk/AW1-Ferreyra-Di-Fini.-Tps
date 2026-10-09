@@ -1,0 +1,241 @@
+/* vista contacto soporte y formulario */
+
+/* cabecera de la seccion */
+.contacto-intro {
+    margin-bottom: 24px;
+}
+
+.contacto-intro__titulo {
+    font-size: 2.2rem;
+    font-weight: 800;
+    margin-bottom: 6px;
+}
+
+.contacto-intro__bajada {
+    font-size: 0.95rem;
+    color: var(--color-texto-secundario);
+    line-height: 1.5;
+}
+
+/* mensaje de estado con role alert */
+.contacto-mensaje:empty {
+    display: none;
+}
+
+.contacto-mensaje {
+    padding: 12px 16px;
+    border-radius: 6px;
+    margin-bottom: 20px;
+    background-color: var(--color-superficie);
+    border: 1px solid var(--color-primario-activo);
+    font-size: 0.9rem;
+}
+
+/* caja del formulario */
+.seccion-contacto-form {
+    background-color: var(--color-superficie);
+    border: 1.5px solid var(--color-borde);
+    border-radius: 12px;
+    padding: 24px 20px;
+    margin-bottom: 24px;
+}
+
+.seccion-contacto-form__titulo {
+    font-size: 1.2rem;
+    font-weight: 800;
+    margin-bottom: 18px;
+}
+
+.contenedor-form {
+    width: 100%;
+}
+
+.formulario-contacto {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+/* grupos de etiqueta y campo */
+.campo-grupo {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.campo-grupo__label {
+    font-size: 0.85rem;
+    font-weight: 700;
+    color: var(--color-texto-principal);
+}
+
+.campo-grupo__input,
+.campo-grupo__select,
+.campo-grupo__textarea {
+    width: 100%;
+    padding: 10px 14px;
+    background-color: var(--color-fondo);
+    border: 1.5px solid var(--color-borde);
+    border-radius: 6px;
+    color: var(--color-texto-principal);
+    font-family: inherit;
+    font-size: 0.9rem;
+    outline: none;
+}
+
+.campo-grupo__input::placeholder,
+.campo-grupo__textarea::placeholder {
+    color: #64748b;
+}
+
+.campo-grupo__input:focus,
+.campo-grupo__select:focus,
+.campo-grupo__textarea:focus {
+    border-color: var(--color-primario-activo);
+}
+
+.campo-grupo__textarea {
+    resize: vertical;
+    min-height: 100px;
+}
+
+/* botones de envio y reset */
+.botones-contacto {
+    display: flex;
+    gap: 12px;
+    margin-top: 6px;
+}
+
+.boton-contacto {
+    flex: 1;
+    padding: 12px;
+    font-size: 0.9rem;
+    font-weight: 700;
+    border-radius: 6px;
+    cursor: pointer;
+    border: none;
+    text-align: center;
+}
+
+.boton-contacto--limpiar {
+    background-color: transparent;
+    border: 1.5px solid var(--color-borde);
+    color: var(--color-texto-secundario);
+}
+
+.boton-contacto--enviar {
+    background-color: var(--color-primario-activo);
+    color: #ffffff;
+}
+
+/* paneles inferiores de redes y ubicacion */
+.contacto-info-grilla {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.panel-box {
+    background-color: var(--color-superficie);
+    border: 1.5px solid var(--color-borde);
+    border-radius: 12px;
+    padding: 20px;
+}
+
+.panel-box__titulo {
+    font-size: 1.1rem;
+    font-weight: 800;
+    margin-bottom: 10px;
+}
+
+.panel-box__descripcion {
+    font-size: 0.9rem;
+    color: var(--color-texto-secundario);
+    margin-bottom: 14px;
+}
+
+/* lista de redes */
+.redes-lista {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    list-style: none;
+}
+
+.redes-lista__enlace {
+    color: #818cf8;
+    font-size: 0.9rem;
+    font-weight: 600;
+}
+
+.redes-lista__enlace:hover {
+    text-decoration: underline;
+}
+
+/* direccion y mapa */
+.contacto-direccion {
+    font-style: normal;
+    font-size: 0.85rem;
+    color: var(--color-texto-secundario);
+    margin-bottom: 12px;
+}
+
+.mapa-contenedor {
+    width: 100%;
+    height: 250px;
+    border-radius: 8px;
+    overflow: hidden;
+    border: 1px solid var(--color-borde);
+}
+
+.mapa-contenedor iframe {
+    width: 100%;
+    height: 100%;
+    border: 0;
+    display: block;
+}
+
+/* icono flotante de mensajeria segun apunte de clase */
+.mensajeria {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 20;
+    background-color: #25d366;
+    border-radius: 50%;
+    width: 46px;
+    height: 46px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
+}
+
+.mensajeria img {
+    width: 24px;
+    height: 24px;
+    display: block;
+}
+
+/* responsividad para pantallas de escritorio */
+@media (min-width: 768px) {
+    .contenedor-form {
+        max-width: 650px;
+        margin: 0 auto;
+    }
+
+    .contacto-info-grilla {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 24px;
+    }
+
+    .botones-contacto {
+        justify-content: flex-end;
+    }
+
+    .boton-contacto {
+        flex: 0 0 auto;
+        padding: 10px 24px;
+    }
+}

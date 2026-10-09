@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Contacto, sugerencias y soporte de la plataforma SoundDay.">
+    <title>SoundDay / Contacto</title>
+    <link rel="stylesheet" href="./assets/styles/style.css">
+    <link rel="stylesheet" href="./assets/styles/contacto.css">
+</head>
+
+<body class="pagina">
+    <header class="header">
+        <a class="header__logo-enlace" href="./index.html" aria-label="Ir al inicio">
+            <img class="header__logo-img" src="./assets/imagenes/logos/soundday_white.png" alt="Logo SoundDay">
+        </a>
+
+        <nav class="header__nav">
+            <a class="header__nav-enlace" href="./index.html">Inicio</a>
+            <a class="header__nav-enlace" href="./artistas.html">Artistas</a>
+            <a class="header__nav-enlace header__nav-enlace--activo" href="./contacto.html">Contacto</a>
+            <a class="header__nav-perfil" href="./perfil.html" aria-label="Ir al perfil">
+                <img class="header__perfil-img" src="./assets/imagenes/logos/usuario.png" alt="Ir al perfil">
+            </a>
+        </nav>
+    </header>
+
+    <main class="main">
+        <section class="contacto-intro">
+            <h1 class="contacto-intro__titulo">Contacto y Comunidad</h1>
+            <p class="contacto-intro__bajada">¿Tuviste algún problema en la plataforma o tenés ideas para sumar nuevas
+                funciones a SoundDay? Escribinos a través del formulario o por nuestras redes sociales.</p>
+        </section>
+
+        <!-- cuadro accesible para mensajes de estado con role alert -->
+        <div class="contacto-mensaje" id="id-contacto-dialogo" role="alert"></div>
+
+        <!-- formulario de soporte y propuestas -->
+        <section class="seccion-contacto-form" aria-labelledby="titulo-formulario">
+            <h2 class="seccion-contacto-form__titulo" id="titulo-formulario">Envianos tu mensaje o sugerencia</h2>
+
+            <div class="contenedor-form">
+                <form class="formulario-contacto" id="id-form-contacto" action="./contacto.html" method="post">
+                    <div class="campo-grupo">
+                        <label class="campo-grupo__label" for="idNombre">Nombre completo</label>
+                        <input class="campo-grupo__input" type="text" id="idNombre" name="nombre" minlength="3" required
+                            placeholder="Tu nombre">
+                    </div>
+
+                    <div class="campo-grupo">
+                        <label class="campo-grupo__label" for="idEmail">Correo electrónico</label>
+                        <input class="campo-grupo__input" type="email" id="idEmail" name="email" required
+                            placeholder="tucorreo@ejemplo.com">
+                    </div>
+
+                    <div class="campo-grupo">
+                        <label class="campo-grupo__label" for="idTelefono">Teléfono (opcional)</label>
+                        <input class="campo-grupo__input" type="tel" id="idTelefono" name="telefono"
+                            placeholder="Ej: 351 1234567">
+                    </div>
+
+                    <div class="campo-grupo">
+                        <label class="campo-grupo__label" for="idMotivo">Motivo del mensaje</label>
+                        <select class="campo-grupo__select" id="idMotivo" name="motivo" required>
+                            <option value="" disabled selected>Seleccioná una opción</option>
+                            <option value="reporte-error">Reportar un error técnico</option>
+                            <option value="sugerencia-app">Idea o sugerencia para la app</option>
+                            <option value="fan-pack">Consulta sobre Fan Packs / Pedidos</option>
+                            <option value="otro">Otro motivo</option>
+                        </select>
+                    </div>
+
+                    <div class="campo-grupo">
+                        <label class="campo-grupo__label" for="idMensaje">Mensaje o detalle de tu propuesta /
+                            error</label>
+                        <textarea class="campo-grupo__textarea" id="idMensaje" name="mensaje" rows="5" minlength="10"
+                            required placeholder="Escribí tu mensaje acá..."></textarea>
+                    </div>
+
+                    <div class="botones-contacto">
+                        <button class="boton-contacto boton-contacto--limpiar" type="reset">Limpiar</button>
+                        <button class="boton-contacto boton-contacto--enviar" type="submit">Enviar mensaje</button>
+                    </div>
+                </form>
+            </div>
+        </section>
+
+        <!-- bloques complementarios: redes y mapa -->
+        <div class="contacto-info-grilla">
+            <!-- redes sociales -->
+            <section class="panel-box" aria-labelledby="titulo-redes">
+                <h2 class="panel-box__titulo" id="titulo-redes">Nuestras Redes Sociales</h2>
+                <p class="panel-box__descripcion">Sumate a la comunidad, enterate de nuevos anuncios de giras y dejanos
+                    tus comentarios:</p>
+                <ul class="redes-lista">
+                    <li class="redes-lista__item">
+                        <a class="redes-lista__enlace" href="https://instagram.com/@soundday" target="_blank"
+                            rel="noopener noreferrer">Instagram: @soundday</a>
+                    </li>
+                    <li class="redes-lista__item">
+                        <a class="redes-lista__enlace" href="https://twitter.com/soundday" target="_blank"
+                            rel="noopener noreferrer">X (ex Twitter): @soundday</a>
+                    </li>
+                    <li class="redes-lista__item">
+                        <a class="redes-lista__enlace" href="https://tiktok.com/@soundday" target="_blank"
+                            rel="noopener noreferrer">TikTok: @soundday</a>
+                    </li>
+                </ul>
+            </section>
+
+            <!-- ubicacion y mapa embebido -->
+            <section class="panel-box" aria-labelledby="titulo-ubicacion">
+                <h2 class="panel-box__titulo" id="titulo-ubicacion">Dónde estamos</h2>
+                <address class="contacto-direccion">
+                    Avenida Presidente Figueroa Alcorta 1354, CABA
+                </address>
+                <div class="mapa-contenedor">
+                    <iframe
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3410.908186800139!2d-64.46665502502067!3d-31.250964888272854!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x942d7ba4512c1947%3A0xd7cd119f31be569e!2sFigueroa%20Alcorta%201354%2C%20X5166%20Cosqu%C3%ADn%2C%20C%C3%B3rdoba!5e0!3m2!1ses-419!2sar!4v1789756717785!5m2!1ses-419!2sar"
+                        loading="lazy" referrerpolicy="strict-origin-when-cross-origin"
+                        title="Mapa de ubicacion institucional">
+                    </iframe>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <p class="footer__copyright">© 2026 SoundDay.com.ar</p>
+        <ul class="footer__lista">
+            <li class="footer__item">
+                <a class="footer__enlace" href="https://instagram.com/soundday" target="_blank"
+                    rel="noopener noreferrer">
+                    @soundday
+                </a>
+            </li>
+            <li class="footer__item">
+                Av. Figueroa Alcorta 1354
+            </li>
+            <li class="footer__item">
+                <a class="footer__enlace" href="./contacto.html">Contacto</a>
+            </li>
+            <li class="mensajeria">
+                <a href="https://wa.me?tel=1111111" aria-label="enlace al whatsapp" target="_nueva"
+                    rel="noopener noreferrer">
+                    <img src="./assets/imagenes/iconos/mensaje.png" alt="icono mensajeria">
+                </a>
+            </li>
+        </ul>
+    </footer>
+</body>
+</html>
