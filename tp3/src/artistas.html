@@ -1,21 +1,25 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SoundDay</title>
+    <meta name="description"
+        content="Explora tus artistas favoritos, próximos shows y Fan Packs oficiales en SoundDay.">
+    <title>SoundDay / Artistas</title>
     <link rel="stylesheet" href="./assets/styles/style.css">
+    <link rel="stylesheet" href="./assets/styles/artistas.css">
 </head>
+
 <body class="pagina">
-    <!-- Encabezado principal -->
+    <!-- encabezado general compartido -->
     <header class="header">
         <a class="header__logo-enlace" href="./index.html" aria-label="Ir al inicio">
-            <img class="header__logo-img" src="./assets/imagenes/logos/soundday_white.png" alt="Logo SoundDay"> 
+            <img class="header__logo-img" src="./assets/imagenes/logos/soundday_white.png" alt="Logo SoundDay">
         </a>
 
         <nav class="header__nav">
             <a class="header__nav-enlace" href="./index.html">Inicio</a>
-            <!-- Enlace de artistas con la clase activa -->
             <a class="header__nav-enlace header__nav-enlace--activo" href="./artistas.html">Artistas</a>
             <a class="header__nav-enlace" href="./contacto.html">Contacto</a>
             <a class="header__nav-perfil" href="./perfil.html" aria-label="Ir al perfil">
@@ -25,199 +29,348 @@
     </header>
 
     <main class="main">
-        <h1>Explorador de Artistas</h1>
-        <p>Encontrá información actualizada sobre tus artistas favoritos, detalles de sus giras y Fan Packs oficiales.</p>
+        <!-- vista del catalogo de artistas -->
+        <div class="vista-catalogo" id="catalogo-seccion">
+            <section class="artistas-intro">
+                <h1 class="artistas-intro__titulo">Artistas</h1>
+                <p class="artistas-intro__bajada">Explora tus artistas favoritos, próximos shows y Fan Packs oficiales
+                </p>
+            </section>
 
-        <section aria-labelledby="titulo-explorador">
-            <h2 id="titulo-explorador">Filtros y Búsqueda</h2>
-            
-            <form action="#" method="get" role="search" id="form-filtro-artistas">
-                <div>
-                    <label for="buscar-artista">Buscar por nombre o gira:</label>
-                    <input type="search" id="buscar-artista" name="q" placeholder="Ej: Coldplay, BTS...">
+            <section class="seccion-busqueda" aria-labelledby="titulo-busqueda">
+                <h2 class="visually-hidden" id="titulo-busqueda">Buscar y filtrar artistas</h2>
+
+                <form class="buscador-form" action="#" method="get" role="search">
+                    <input class="buscador-form__input" type="search" id="buscar-artista" name="q"
+                        placeholder="Buscar por nombre, artista o tour...">
+
+                    <fieldset class="filtros-grupo">
+                        <legend class="filtros-grupo__titulo">Filtros:</legend>
+                        <label class="filtros-grupo__etiqueta filtros-grupo__etiqueta--activa">
+                            <input type="radio" name="genero" value="todos" checked>
+                            Todos
+                        </label>
+                        <label class="filtros-grupo__etiqueta">
+                            <input type="radio" name="genero" value="pop">
+                            Pop
+                        </label>
+                        <label class="filtros-grupo__etiqueta">
+                            <input type="radio" name="genero" value="rap">
+                            Rap
+                        </label>
+                        <label class="filtros-grupo__etiqueta">
+                            <input type="radio" name="genero" value="rock">
+                            Rock
+                        </label>
+                    </fieldset>
+                </form>
+            </section>
+
+            <section class="catalogo-artistas" aria-labelledby="titulo-catalogo">
+                <h2 class="visually-hidden" id="titulo-catalogo">Catálogo de Artistas</h2>
+
+                <div class="artistas-grilla" id="artistas-app" aria-live="polite">
+                    <!-- tarjeta 1: coldplay -->
+                    <article class="tarjeta-artista">
+                        <figure class="tarjeta-artista__marco-foto">
+                            <img class="tarjeta-artista__foto" src="./assets/imagenes/artistas/coldplay.jpeg"
+                                alt="Banda Coldplay">
+                            <figcaption class="visually-hidden">Coldplay</figcaption>
+                        </figure>
+                        <div class="tarjeta-artista__contenido">
+                            <h3 class="tarjeta-artista__nombre">Coldplay</h3>
+                            <p class="tarjeta-artista__tour">Tour: Music of the Spheres</p>
+                            <p class="tarjeta-artista__fecha">Próximo: 25/09 - 21:00</p>
+                        </div>
+                        <a class="tarjeta-artista__boton" href="#detalle-coldplay">Ver</a>
+                    </article>
+
+                    <!-- tarjeta 2: bts -->
+                    <article class="tarjeta-artista">
+                        <figure class="tarjeta-artista__marco-foto">
+                            <img class="tarjeta-artista__foto" src="./assets/imagenes/artistas/bts.jpeg"
+                                alt="Integrantes de BTS">
+                            <figcaption class="visually-hidden">BTS</figcaption>
+                        </figure>
+                        <div class="tarjeta-artista__contenido">
+                            <h3 class="tarjeta-artista__nombre">BTS</h3>
+                            <p class="tarjeta-artista__tour">Tour: ARIRANG World Tour</p>
+                            <p class="tarjeta-artista__fecha">Próximo: 12/11 - 21:00</p>
+                        </div>
+                        <a class="tarjeta-artista__boton" href="#detalle-bts">Ver</a>
+                    </article>
+
+                    <!-- tarjeta 3: the beatles -->
+                    <article class="tarjeta-artista">
+                        <figure class="tarjeta-artista__marco-foto">
+                            <img class="tarjeta-artista__foto" src="./assets/imagenes/artistas/thebeatles.jpeg"
+                                alt="The Beatles">
+                            <figcaption class="visually-hidden">The Beatles</figcaption>
+                        </figure>
+                        <div class="tarjeta-artista__contenido">
+                            <h3 class="tarjeta-artista__nombre">The Beatles</h3>
+                            <p class="tarjeta-artista__tour">Tour: Revival Historic Show</p>
+                            <p class="tarjeta-artista__fecha">Próximo: 25/09 - 21:00</p>
+                        </div>
+                        <a class="tarjeta-artista__boton" href="#detalle-thebeatles">Ver</a>
+                    </article>
                 </div>
+            </section>
+        </div>
 
-                <fieldset>
-                    <legend>Filtrar por género musical</legend>
-                    <label>
-                        <input type="radio" name="genero" value="todos" checked> Todos
-                    </label>
-                    <label>
-                        <input type="radio" name="genero" value="pop"> Pop
-                    </label>
-                    <label>
-                        <input type="radio" name="genero" value="rock"> Rock
-                    </label>
-                    <label>
-                        <input type="radio" name="genero" value="rap"> Rap
-                    </label>
-                    <label>
-                        <input type="radio" name="genero" value="urbano"> Urbano
-                    </label>
-                </fieldset>
-            </form>
-        </section>
+        <!-- detalle 1: coldplay -->
+        <section class="vista-detalle" id="detalle-coldplay" aria-labelledby="nombre-artista-coldplay">
+            <a class="boton-volver" href="#catalogo-seccion">
+                <span class="boton-volver__flecha">←</span> Volver al explorador de artistas
+            </a>
 
-        <section aria-labelledby="titulo-catalogo">
-            <h2 id="titulo-catalogo">Catálogo de Artistas</h2>
+            <article class="detalle-hero">
+                <figure class="detalle-hero__marco-foto">
+                    <img class="detalle-hero__foto" src="./assets/imagenes/artistas/coldplaytour.png"
+                        alt="Tour de Coldplay">
+                </figure>
+                <div class="detalle-hero__info">
+                    <h2 class="detalle-hero__nombre" id="nombre-artista-coldplay">Coldplay</h2>
+                    <p class="detalle-hero__descripcion">Gira internacional Music of the Spheres World Tour.</p>
+                    <p class="detalle-hero__recinto"><strong>Ubicación:</strong> Estadio River Plate</p>
+                    <p class="detalle-hero__fecha"><strong>Fecha:</strong> Próximo: 25/09 - 21:00 hs</p>
+                </div>
+                <div class="detalle-hero__acciones">
+                    <button class="boton-accion-negro" type="button">+ Seguir</button>
+                    <button class="boton-accion-borde" type="button">🔔 Alertas de Tour</button>
+                </div>
+            </article>
 
-            <div id="artistas-app" aria-live="polite">
-                <article class="tarjeta-artista">
-                    <figure>
-                        <img src="./assets/imagenes/artistas/coldplay.jpeg" alt="Banda Coldplay">
-                        <figcaption>Coldplay</figcaption>
-                    </figure>
-                    <div class="tarjeta-artista__info">
-                        <h3>Coldplay</h3>
-                        <p><strong>Gira:</strong> Music of the Spheres World Tour</p>
-                        <p><strong>Próxima fecha:</strong> 25 de Octubre - 21:00 hs</p>
+            <div class="detalle-paneles-grilla">
+                <article class="panel-box">
+                    <h3 class="panel-box__titulo">INFORMACIÓN DEL SHOW & RECINTO</h3>
+                    <div class="horarios-grid">
+                        <div class="horarios-grid__celda">
+                            <span class="horarios-grid__etiqueta">Puertas</span>
+                            <strong class="horarios-grid__valor">17:00 hs</strong>
+                        </div>
+                        <div class="horarios-grid__celda">
+                            <span class="horarios-grid__etiqueta">Show Principal</span>
+                            <strong class="horarios-grid__valor">21:00 hs</strong>
+                        </div>
+                        <div class="horarios-grid__celda horarios-grid__celda--completa">
+                            <span class="horarios-grid__etiqueta">Puntos de Acceso</span>
+                            <strong class="horarios-grid__valor">Puertas 1 a 4</strong>
+                        </div>
                     </div>
-                    <!-- Uso correcto de <a> para navegación interna mediante ancla -->
-                    <a href="#detalle-coldplay" class="boton-enlace">Ver ficha de artista</a>
+                    <p class="panel-box__texto-legal">
+                        <strong>Elementos permitidos:</strong> Riñoneras, botellas plásticas vacías, cargadores.<br>
+                        <strong>Retiro de Fan Packs:</strong> Stands oficiales en accesos desde las 16:00 hs.
+                    </p>
                 </article>
 
-                <article class="tarjeta-artista">
-                    <figure>
-                        <img src="./assets/imagenes/artistas/bts.jpeg" alt="Integrantes de BTS">
-                        <figcaption>BTS</figcaption>
-                    </figure>
-                    <div class="tarjeta-artista__info">
-                        <h3>BTS</h3>
-                        <p><strong>Gira:</strong> ARIRANG World Tour</p>
-                        <p><strong>Próxima fecha:</strong> 12 de Noviembre - 21:00 hs</p>
-                    </div>
-                    <!-- Se removió el role="button" redundante por ser un enlace de navegación válido -->
-                    <a href="#detalle-bts" class="boton-enlace">Ver ficha de artista</a>
+                <article class="panel-box">
+                    <h3 class="panel-box__titulo">SETLIST PROMEDIO DE LA GIRA</h3>
+                    <ol class="canciones-lista">
+                        <li class="canciones-lista__item">1. Higher Power</li>
+                        <li class="canciones-lista__item">2. Adventure of a Lifetime</li>
+                        <li class="canciones-lista__item">3. Paradise</li>
+                        <li class="canciones-lista__item">4. The Scientist</li>
+                    </ol>
                 </article>
             </div>
-        </section>
 
-        <section id="detalle-coldplay" aria-labelledby="nombre-artista-coldplay">
-            <header>
-                <a href="#titulo-catalogo" class="enlace-volver">← Volver al explorador de artistas</a>
-                <h2 id="nombre-artista-coldplay">Coldplay</h2>
-                <!-- Uso correcto de <button> para acción interactiva con JavaScript -->
-                <button type="button" id="btn-seguir-coldplay" aria-pressed="false">+ Seguir Artista</button>
-            </header>
-
-            <figure>
-                <img src="./assets/imagenes/artistas/coldplaytour.png" alt="Banner de tour de Coldplay">
-            </figure>
-
-            <article aria-labelledby="titulo-recinto-coldplay">
-                <h3 id="titulo-recinto-coldplay">Información del Recinto y Accesos</h3>
-                <ul>
-                    <li><strong>Recinto:</strong> Estadio River Plate (Buenos Aires, Argentina)</li>
-                    <li><strong>Fecha del concierto:</strong> 25 de Octubre de 2026</li>
-                    <li><strong>Horario de puertas:</strong> 17:00 hs</li>
-                    <li><strong>Inicio del espectáculo:</strong> 21:00 hs</li>
-                    <li><strong>Puntos de ingreso:</strong> Puertas 1 a 4</li>
-                    <li><strong>Elementos permitidos:</strong> Riñoneras, botellas plásticas vacías, baterías portátiles.</li>
-                </ul>
-            </article>
-
-            <article aria-labelledby="titulo-setlist-coldplay">
-                <h3 id="titulo-setlist-coldplay">Setlist Promedio de la Gira</h3>
-                <ol>
-                    <li>Higher Power</li>
-                    <li>Adventure of a Lifetime</li>
-                    <li>Paradise</li>
-                    <li>The Scientist</li>
-                    <li>Viva La Vida</li>
-                    <li>Yellow</li>
-                    <li>My Universe</li>
-                    <li>Fix You</li>
-                </ol>
-            </article>
-
-            <article aria-labelledby="titulo-fanpack-coldplay">
-                <h3 id="titulo-fanpack-coldplay">Fan Packs Oficiales</h3>
-                <figure>
-                    <img src="./assets/imagenes/fanpacks/coldplaypack.png" alt="Kit de Fan Pack oficial que incluye remera conmemorativa y credencial">
-                    <figcaption>Pack Experiencia Oficial - Coldplay</figcaption>
-                </figure>
-                <p>Incluye remera conmemorativa de la gira, credencial coleccionable y ecovaso oficial del tour.</p>
-                
-                <form action="#" method="post">
-                    <div>
-                        <label for="opcion-retiro-coldplay">Punto de retiro o entrega:</label>
-                        <select id="opcion-retiro-coldplay" name="retiro" required>
-                            <option value="estadio">Retiro en stands del estadio (Día del show desde 16:00 hs)</option>
-                            <option value="domicilio">Envío postal a domicilio previo al concierto</option>
-                        </select>
+            <article class="panel-box panel-box--completo">
+                <h3 class="panel-box__titulo">FAN PACKS OFICIALES</h3>
+                <div class="pack-compra">
+                    <div class="pack-compra__cabecera">
+                        <div class="pack-compra__miniatura">[PACK]</div>
+                        <div class="pack-compra__datos">
+                            <h4 class="pack-compra__nombre">Pack Experiencia Coldplay</h4>
+                            <p class="pack-compra__descripcion">Remera conmemorativa, credencial coleccionable y ecovaso
+                                oficial.</p>
+                        </div>
                     </div>
-                    <p><strong>Precio total:</strong> $35.000 ARS</p>
-                    <!-- Uso correcto de <button type="submit"> para formularios -->
-                    <button type="submit">Agregar al Carrito de Reservas</button>
-                </form>
+                    <form class="pack-compra__form" action="#" method="post">
+                        <select class="pack-compra__select" name="modalidad-retiro" required>
+                            <option value="estadio">Retiro: En estadio (Día del show)</option>
+                            <option value="domicilio">Envío postal a domicilio</option>
+                        </select>
+                        <div class="pack-compra__pie">
+                            <span class="pack-compra__precio">$35.000</span>
+                            <button class="boton-pack-agregar" type="submit">+ Agregar al Carrito</button>
+                        </div>
+                    </form>
+                </div>
             </article>
         </section>
 
-        <section id="detalle-bts" aria-labelledby="nombre-artista-bts">
-            <header>
-                <a href="#titulo-catalogo" class="enlace-volver">← Volver al explorador de artistas</a>
-                <h2 id="nombre-artista-bts">BTS</h2>
-                <button type="button" id="btn-seguir-bts" aria-pressed="false">+ Seguir Artista</button>
-            </header>
+        <!-- detalle 2: bts -->
+        <section class="vista-detalle" id="detalle-bts" aria-labelledby="nombre-artista-bts">
+            <a class="boton-volver" href="#catalogo-seccion">
+                <span class="boton-volver__flecha">←</span> Volver al explorador de artistas
+            </a>
 
-            <figure>
-                <img src="./assets/imagenes/artistas/btstour.jpg" alt="Banner de tour de BTS">
-            </figure>
-
-            <article aria-labelledby="titulo-recinto-bts">
-                <h3 id="titulo-recinto-bts">Información del Recinto y Accesos</h3>
-                <ul>
-                    <li><strong>Recinto:</strong> Campo Argentino de Polo (Buenos Aires, Argentina)</li>
-                    <li><strong>Fecha del concierto:</strong> 12 de Noviembre de 2026</li>
-                    <li><strong>Horario de puertas:</strong> 16:00 hs</li>
-                    <li><strong>Inicio del espectáculo:</strong> 21:00 hs</li>
-                    <li><strong>Puntos de ingreso:</strong> Accesos por Av. del Libertador y Av. Dorrego</li>
-                    <li><strong>Elementos permitidos:</strong> Army Bomb oficial, banners de papel, riñoneras.</li>
-                </ul>
-            </article>
-
-            <article aria-labelledby="titulo-setlist-bts">
-                <h3 id="titulo-setlist-bts">Setlist Promedio de la Gira</h3>
-                <ol>
-                    <li>Dynamite</li>
-                    <li>Butter</li>
-                    <li>Boy With Luv</li>
-                    <li>DNA</li>
-                    <li>Blood Sweat & Tears</li>
-                    <li>Fake Love</li>
-                    <li>Spring Day</li>
-                    <li>Yet To Come</li>
-                </ol>
-            </article>
-
-            <article aria-labelledby="titulo-fanpack-bts">
-                <h3 id="titulo-fanpack-bts">Fan Packs Oficiales</h3>
-                <figure>
-                    <img src="./assets/imagenes/fanpacks/btspack.png" alt="Kit de Fan Pack oficial de BTS con merchandising exclusivo">
-                    <figcaption>ARMY Tour Pack Oficial - BTS</figcaption>
+            <article class="detalle-hero">
+                <figure class="detalle-hero__marco-foto">
+                    <img class="detalle-hero__foto" src="./assets/imagenes/artistas/btstour.jpg" alt="Tour de BTS">
                 </figure>
-                <p>Incluye photocard exclusiva, remera conmemorativa del tour y lanyard oficial.</p>
-                
-                <form action="#" method="post">
-                    <div>
-                        <label for="opcion-retiro-bts">Punto de retiro o entrega:</label>
-                        <select id="opcion-retiro-bts" name="retiro" required>
-                            <option value="estadio">Retiro en stands del predio (Día del show desde 15:00 hs)</option>
-                            <option value="domicilio">Envío postal a domicilio previo al concierto</option>
-                        </select>
+                <div class="detalle-hero__info">
+                    <h2 class="detalle-hero__nombre" id="nombre-artista-bts">BTS</h2>
+                    <p class="detalle-hero__descripcion">Gira mundial oficial ARIRANG World Tour.</p>
+                    <p class="detalle-hero__recinto"><strong>Ubicación:</strong> Campo Argentino de Polo</p>
+                    <p class="detalle-hero__fecha"><strong>Fecha:</strong> Próximo: 12/11 - 21:00 hs</p>
+                </div>
+                <div class="detalle-hero__acciones">
+                    <button class="boton-accion-negro" type="button">+ Seguir</button>
+                    <button class="boton-accion-borde" type="button">🔔 Alertas de Tour</button>
+                </div>
+            </article>
+
+            <div class="detalle-paneles-grilla">
+                <article class="panel-box">
+                    <h3 class="panel-box__titulo">INFORMACIÓN DEL SHOW & RECINTO</h3>
+                    <div class="horarios-grid">
+                        <div class="horarios-grid__celda">
+                            <span class="horarios-grid__etiqueta">Puertas</span>
+                            <strong class="horarios-grid__valor">16:00 hs</strong>
+                        </div>
+                        <div class="horarios-grid__celda">
+                            <span class="horarios-grid__etiqueta">Show Principal</span>
+                            <strong class="horarios-grid__valor">21:00 hs</strong>
+                        </div>
+                        <div class="horarios-grid__celda horarios-grid__celda--completa">
+                            <span class="horarios-grid__etiqueta">Puntos de Acceso</span>
+                            <strong class="horarios-grid__valor">Av. del Libertador y Av. Dorrego</strong>
+                        </div>
                     </div>
-                    <p><strong>Precio total:</strong> $42.000 ARS</p>
-                    <button type="submit">Agregar al Carrito de Reservas</button>
-                </form>
+                    <p class="panel-box__texto-legal">
+                        <strong>Elementos permitidos:</strong> Army Bomb oficial, banners de papel, riñoneras.<br>
+                        <strong>Retiro de Fan Packs:</strong> Stands oficiales en accesos desde las 15:00 hs.
+                    </p>
+                </article>
+
+                <article class="panel-box">
+                    <h3 class="panel-box__titulo">SETLIST PROMEDIO DE LA GIRA</h3>
+                    <ol class="canciones-lista">
+                        <li class="canciones-lista__item">1. Dynamite</li>
+                        <li class="canciones-lista__item">2. Butter</li>
+                        <li class="canciones-lista__item">3. Boy With Luv</li>
+                        <li class="canciones-lista__item">4. Fake Love</li>
+                    </ol>
+                </article>
+            </div>
+
+            <article class="panel-box panel-box--completo">
+                <h3 class="panel-box__titulo">FAN PACKS OFICIALES</h3>
+                <div class="pack-compra">
+                    <div class="pack-compra__cabecera">
+                        <div class="pack-compra__miniatura">[PACK]</div>
+                        <div class="pack-compra__datos">
+                            <h4 class="pack-compra__nombre">ARMY Tour Pack Oficial</h4>
+                            <p class="pack-compra__descripcion">Photocard exclusiva, remera del tour ARIRANG y lanyard
+                                oficial.</p>
+                        </div>
+                    </div>
+                    <form class="pack-compra__form" action="#" method="post">
+                        <select class="pack-compra__select" name="modalidad-retiro" required>
+                            <option value="estadio">Retiro: En estadio (Día del show)</option>
+                            <option value="domicilio">Envío postal a domicilio</option>
+                        </select>
+                        <div class="pack-compra__pie">
+                            <span class="pack-compra__precio">$42.000</span>
+                            <button class="boton-pack-agregar" type="submit">+ Agregar al Carrito</button>
+                        </div>
+                    </form>
+                </div>
+            </article>
+        </section>
+
+        <!-- detalle 3: the beatles -->
+        <section class="vista-detalle" id="detalle-thebeatles" aria-labelledby="nombre-artista-thebeatles">
+            <a class="boton-volver" href="#catalogo-seccion">
+                <span class="boton-volver__flecha">←</span> Volver al explorador de artistas
+            </a>
+
+            <article class="detalle-hero">
+                <figure class="detalle-hero__marco-foto">
+                    <img class="detalle-hero__foto" src="./assets/imagenes/artistas/thebeatlestour.jpg"
+                        alt="The Beatles">
+                </figure>
+                <div class="detalle-hero__info">
+                    <h2 class="detalle-hero__nombre" id="nombre-artista-thebeatles">The Beatles</h2>
+                    <p class="detalle-hero__descripcion">Presentación conmemorativa histórica y show oficial.</p>
+                    <p class="detalle-hero__recinto"><strong>Ubicación:</strong> Estadio Kempes</p>
+                    <p class="detalle-hero__fecha"><strong>Fecha:</strong> Próximo: 25/09 - 21:00 hs</p>
+                </div>
+                <div class="detalle-hero__acciones">
+                    <button class="boton-accion-negro" type="button">+ Seguir</button>
+                    <button class="boton-accion-borde" type="button">🔔 Alertas de Tour</button>
+                </div>
+            </article>
+
+            <div class="detalle-paneles-grilla">
+                <article class="panel-box">
+                    <h3 class="panel-box__titulo">INFORMACIÓN DEL SHOW & RECINTO</h3>
+                    <div class="horarios-grid">
+                        <div class="horarios-grid__celda">
+                            <span class="horarios-grid__etiqueta">Puertas</span>
+                            <strong class="horarios-grid__valor">17:00 hs</strong>
+                        </div>
+                        <div class="horarios-grid__celda">
+                            <span class="horarios-grid__etiqueta">Show Principal</span>
+                            <strong class="horarios-grid__valor">21:00 hs</strong>
+                        </div>
+                        <div class="horarios-grid__celda horarios-grid__celda--completa">
+                            <span class="horarios-grid__etiqueta">Puntos de Acceso</span>
+                            <strong class="horarios-grid__valor">Portón Norte y Sur</strong>
+                        </div>
+                    </div>
+                    <p class="panel-box__texto-legal">
+                        <strong>Elementos permitidos:</strong> Riñoneras, banderas pequeñas sin mástil, cargadores.<br>
+                        <strong>Retiro de Fan Packs:</strong> Puntos de canje habilitados desde las 16:00 hs.
+                    </p>
+                </article>
+
+                <article class="panel-box">
+                    <h3 class="panel-box__titulo">SETLIST PROMEDIO DE LA GIRA</h3>
+                    <ol class="canciones-lista">
+                        <li class="canciones-lista__item">1. Come Together</li>
+                        <li class="canciones-lista__item">2. Let It Be</li>
+                        <li class="canciones-lista__item">3. Hey Jude</li>
+                        <li class="canciones-lista__item">4. Yesterday</li>
+                    </ol>
+                </article>
+            </div>
+
+            <article class="panel-box panel-box--completo">
+                <h3 class="panel-box__titulo">FAN PACKS OFICIALES</h3>
+                <div class="pack-compra">
+                    <div class="pack-compra__cabecera">
+                        <div class="pack-compra__miniatura">[PACK]</div>
+                        <div class="pack-compra__datos">
+                            <h4 class="pack-compra__nombre">Pack Abbey Road Memorial</h4>
+                            <p class="pack-compra__descripcion">Vinilo conmemorativo, remera vintage y póster de
+                                colección.</p>
+                        </div>
+                    </div>
+                    <form class="pack-compra__form" action="#" method="post">
+                        <select class="pack-compra__select" name="modalidad-retiro" required>
+                            <option value="estadio">Retiro: En estadio (Día del show)</option>
+                            <option value="domicilio">Envío postal a domicilio</option>
+                        </select>
+                        <div class="pack-compra__pie">
+                            <span class="pack-compra__precio">$48.000</span>
+                            <button class="boton-pack-agregar" type="submit">+ Agregar al Carrito</button>
+                        </div>
+                    </form>
+                </div>
             </article>
         </section>
     </main>
 
+    <!-- pie de pagina general -->
     <footer class="footer">
         <p class="footer__copyright">© 2026 SoundDay.com.ar</p>
         <ul class="footer__lista">
             <li class="footer__item">
-                <a class="footer__enlace" href="https://instagram.com/soundday" target="_blank" rel="noopener noreferrer">
+                <a class="footer__enlace" href="https://instagram.com/soundday" target="_blank"
+                    rel="noopener noreferrer">
                     @soundday
                 </a>
             </li>
@@ -228,11 +381,13 @@
                 <a class="footer__enlace" href="./contacto.html">Contacto</a>
             </li>
             <li class="mensajeria">
-                <a href="https://wa.me?tel=1111111" aria-label="enlace al whatsapp" target="_nueva" rel="noopener noreferrer">
-                    <img src="./assets/imagenes/iconos/mensajeria.svg" alt="icono mensajeria">
+                <a href="https://wa.me?tel=1111111" aria-label="enlace al whatsapp" target="_nueva"
+                    rel="noopener noreferrer">
+                    <img src="./assets/imagenes/iconos/mensaje.png" alt="icono mensajeria">
                 </a>
             </li>
         </ul>
     </footer>
 </body>
+
 </html>

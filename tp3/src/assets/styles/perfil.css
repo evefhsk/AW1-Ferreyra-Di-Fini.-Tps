@@ -12,15 +12,15 @@
 }
 
 /* Solución clave para evitar que el grid se desborde en móviles */
-.perfil-layout-principal > * {
-    min-width: 0; 
+.perfil-layout-principal>* {
+    min-width: 0;
 }
 
 /* Columna izquierda (Perfil fijo) */
 .perfil-columna-izquierda {
     display: flex;
     flex-direction: column;
-    position: sticky;
+    position: static;
     top: 20px;
     width: 100%;
     box-sizing: border-box;
@@ -41,9 +41,10 @@
     display: flex;
     flex-direction: column;
     gap: 25px;
-    margin-top: 10px;
+    margin-top: 25px;
     width: 100%;
     box-sizing: border-box;
+    clear: both;
 }
 
 /* Tarjeta o sección contenedora */
@@ -97,11 +98,11 @@
     height: 80px;
     border-radius: 50%;
     object-fit: cover;
-    margin-bottom: 8px;
-    border: 2px solid var(--color-primario-activo, #818cf8);
     display: block;
-    margin-left: auto;
-    margin-right: auto;
+    margin: 0 auto 12px auto;
+    align-self: center;
+    border: 2px solid var(--color-primario-activo, #818cf8);
+
 }
 
 .perfil-subtitulo {
@@ -366,9 +367,9 @@
         padding: 12px;
         gap: 20px;
     }
-    
+
     .perfil-columna-izquierda {
-        position: static; 
+        position: static;
     }
 
     .perfil-secciones-completas {
@@ -378,7 +379,8 @@
 
 @media (max-width: 576px) {
     .perfil-layout-principal {
-        padding: 8px; /* Márgenes seguros externos aún más compactos en celulares */
+        padding: 8px;
+        /* Márgenes seguros externos aún más compactos en celulares */
     }
 
     .perfil-evento-item {
