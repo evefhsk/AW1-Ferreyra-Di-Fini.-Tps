@@ -1,3 +1,4 @@
+
 /* vista contacto soporte y formulario */
 
 /* cabecera de la seccion */
@@ -115,6 +116,7 @@
     cursor: pointer;
     border: none;
     text-align: center;
+    transition: background-color 0.2s;
 }
 
 .boton-contacto--limpiar {
@@ -123,9 +125,17 @@
     color: var(--color-texto-secundario);
 }
 
+.boton-contacto--limpiar:hover {
+    background-color: var(--color-borde);
+}
+
 .boton-contacto--enviar {
     background-color: var(--color-primario-activo);
     color: #ffffff;
+}
+
+.boton-contacto--enviar:hover {
+    background-color: var(--color-primario);
 }
 
 /* paneles inferiores de redes y ubicacion */
@@ -160,6 +170,12 @@
     flex-direction: column;
     gap: 10px;
     list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.redes-lista__item {
+    margin: 0;
 }
 
 .redes-lista__enlace {
