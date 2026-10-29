@@ -310,7 +310,8 @@
 
 .perfil-grilla {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(min(100%, 180px), 220px));
+    justify-content: start;
     gap: 20px;
     width: 100%;
     margin: 20px 0 0;
@@ -318,8 +319,9 @@
     list-style: none;
     box-sizing: border-box;
 }
-
 .perfil-item-grid {
+    width: 100%;
+    max-width: 280px;
     min-width: 0;
     padding: 16px;
     border: 1px solid var(--color-borde, #34344a);
@@ -330,16 +332,19 @@
 }
 
 .perfil-item-grid figure {
+    width: 100%;
     margin: 0 0 12px;
 }
 
 .perfil-imagen-grid {
     display: block;
     width: 100%;
-    height: 150px;
-    margin-bottom: 8px;
+    aspect-ratio: 4 / 3;
+    height: auto;
+    margin: 0 auto 8px;
     border-radius: 8px;
     object-fit: cover;
+    object-position: center;
 }
 
 .perfil-figcaption {
@@ -354,29 +359,6 @@
 
 .perfil-item-grid .perfil-boton {
     margin-top: 8px;
-}
-
-.perfil-boton {
-    display: inline-block;
-    padding: 10px 18px;
-    border: none;
-    border-radius: 6px;
-    background-color: var(--color-primario, #6366f1);
-    color: #ffffff;
-    font-size: 0.9rem;
-    font-weight: 600;
-    text-align: center;
-    cursor: pointer;
-    transition: background-color 0.2s ease;
-}
-
-.perfil-boton:hover {
-    background-color: var(--color-primario-activo, #4f46e5);
-}
-
-.perfil-boton--pequeno {
-    padding: 6px 12px;
-    font-size: 0.85rem;
 }
 
 /* =========================================
@@ -422,8 +404,237 @@
     accent-color: var(--color-primario, #6366f1);
 }
 
+/* Oculta las secciones hasta que el usuario las seleccione */
+.seccion-oculta {
+    display: none;
+}
+
 /* =========================================
-   10. DISEÑO RESPONSIVO
+   10. DISEÑO DE LOS DETALLES DE EVENTOS
+   ========================================= */
+
+/* Contenedor de los detalles */
+.perfil-secciones-completas > .vista-detalle {
+    padding: 0;
+    border: none;
+    background: transparent;
+    box-shadow: none;
+    overflow: visible;
+}
+
+.perfil-secciones-completas > .vista-detalle::before {
+    display: none;
+}
+
+/* Botón para volver a los eventos */
+.boton-volver {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 20px;
+    color: var(--color-primario-activo, #818cf8);
+    font-size: 0.9rem;
+    font-weight: 600;
+    text-decoration: none;
+}
+
+.boton-volver:hover {
+    text-decoration: underline;
+}
+
+.boton-volver__flecha {
+    font-size: 1.2rem;
+}
+
+/* Tarjeta principal del evento */
+.detalle-hero {
+    display: grid;
+    grid-template-columns: minmax(200px, 300px) minmax(0, 1fr);
+    gap: 25px;
+    align-items: center;
+    width: 100%;
+    margin-bottom: 25px;
+    padding: 25px;
+    border: 1px solid var(--color-borde, #34344a);
+    border-radius: 12px;
+    background: var(--color-superficie, #1a1a2e);
+    box-shadow: 0 4px 12px #0000001a;
+    box-sizing: border-box;
+}
+
+.detalle-hero__marco-foto {
+    width: 100%;
+    margin: 0;
+    overflow: hidden;
+    border-radius: 10px;
+}
+
+.detalle-hero__foto {
+    display: block;
+    width: 100%;
+    aspect-ratio: 4 / 3;
+    object-fit: cover;
+    object-position: center;
+    border-radius: 10px;
+}
+
+.detalle-hero__info {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    min-width: 0;
+}
+
+.detalle-hero__nombre {
+    margin: 0;
+    color: var(--color-texto-principal, #ffffff);
+    font-size: 1.7rem;
+    font-weight: 700;
+    line-height: 1.3;
+}
+
+.detalle-hero__descripcion,
+.detalle-hero__recinto,
+.detalle-hero__fecha {
+    margin: 0;
+    color: var(--color-texto-secundario, #b8b8c8);
+    font-size: 0.9rem;
+    line-height: 1.6;
+}
+
+.detalle-hero__recinto strong,
+.detalle-hero__fecha strong {
+    color: var(--color-texto-principal, #ffffff);
+}
+
+.detalle-hero__acciones {
+    grid-column: 1 / -1;
+    padding-top: 15px;
+    border-top: 1px solid var(--color-borde, #34344a);
+}
+
+/* Paneles de información */
+.detalle-paneles-grilla {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 20px;
+    width: 100%;
+    margin-bottom: 20px;
+}
+
+.panel-box {
+    min-width: 0;
+    padding: 22px;
+    border: 1px solid var(--color-borde, #34344a);
+    border-radius: 12px;
+    background: var(--color-superficie, #1a1a2e);
+    box-shadow: 0 4px 12px #0000001a;
+    box-sizing: border-box;
+}
+
+.panel-box--completo {
+    width: 100%;
+}
+
+.panel-box__titulo {
+    margin: 0 0 18px;
+    padding-bottom: 12px;
+    border-bottom: 1px solid var(--color-borde, #34344a);
+    color: var(--color-texto-principal, #ffffff);
+    font-size: 1rem;
+    font-weight: 700;
+}
+
+.panel-box__texto-legal {
+    margin: 18px 0 0;
+    color: var(--color-texto-secundario, #b8b8c8);
+    font-size: 0.85rem;
+    line-height: 1.7;
+}
+
+.panel-box__texto-legal strong {
+    color: var(--color-texto-principal, #ffffff);
+}
+
+/* Horarios */
+.horarios-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 12px;
+}
+
+.horarios-grid__celda {
+    display: flex;
+    flex-direction: column;
+    gap: 7px;
+    min-width: 0;
+    padding: 14px;
+    border: 1px solid var(--color-borde, #34344a);
+    border-radius: 8px;
+    background-color: #00000020;
+    box-sizing: border-box;
+}
+
+.horarios-grid__celda--completa {
+    grid-column: 1 / -1;
+}
+
+.horarios-grid__etiqueta {
+    color: var(--color-texto-secundario, #b8b8c8);
+    font-size: 0.8rem;
+}
+
+.horarios-grid__valor {
+    color: var(--color-texto-principal, #ffffff);
+    font-size: 0.95rem;
+    line-height: 1.5;
+    overflow-wrap: anywhere;
+}
+
+/* Setlist */
+.canciones-lista {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    margin: 0;
+    padding-left: 25px;
+    color: var(--color-texto-secundario, #b8b8c8);
+}
+
+.canciones-lista__item {
+    padding: 12px 5px;
+    border-bottom: 1px solid var(--color-borde, #34344a);
+    font-size: 0.9rem;
+    line-height: 1.5;
+}
+
+.canciones-lista__item:last-child {
+    border-bottom: none;
+}
+
+/* Botón para agregar Fan Packs */
+.perfil-item-grid .perfil-boton {
+    display: inline-block;
+    margin-top: 8px;
+    padding: 8px 14px;
+    border: 1px solid var(--color-primario-activo, #818cf8);
+    border-radius: 6px;
+    background-color: var(--color-primario, #6366f1);
+    color: #ffffff;
+    font-size: 0.85rem;
+    font-weight: 600;
+    text-align: center;
+    text-decoration: none;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+
+.perfil-item-grid .perfil-boton:hover {
+    background-color: var(--color-primario-activo, #818cf8);
+}
+
+/* =========================================
+   11. DISEÑO RESPONSIVO
    ========================================= */
 
 @media (max-width: 900px) {
@@ -498,5 +709,45 @@
 @media (max-width: 380px) {
     .perfil-grilla {
         grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 900px) {
+    .detalle-hero {
+        grid-template-columns: 1fr;
+    }
+
+    .detalle-hero__marco-foto {
+        max-width: 450px;
+    }
+
+    .detalle-hero__acciones {
+        grid-column: 1;
+    }
+
+    .detalle-paneles-grilla {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 600px) {
+    .detalle-hero {
+        padding: 18px;
+    }
+
+    .detalle-hero__nombre {
+        font-size: 1.35rem;
+    }
+
+    .panel-box {
+        padding: 16px;
+    }
+
+    .horarios-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .horarios-grid__celda--completa {
+        grid-column: 1;
     }
 }
