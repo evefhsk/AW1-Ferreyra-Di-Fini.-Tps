@@ -1,9 +1,9 @@
-//Estructura de datos para el catálogo (fanpacks)
+// Estructura de datos para el catálogo de Fan Packs
 
 export const fanPacks = [
     {
         id: 1,
-        nombre: "Pack 1",
+        nombre: "ARMY Fan Pack",
         artista: "BTS",
         genero: "pop",
         precio: 35000,
@@ -14,11 +14,11 @@ export const fanPacks = [
     },
     {
         id: 2,
-        nombre: "Pack 2",
+        nombre: "The Beatles Fan Pack",
         artista: "The Beatles",
         genero: "rock",
         precio: 40000,
-        imagen: "./recursos/imagenes/fanpacks/coldplaypack.png",
+        imagen: "./recursos/imagenes/fanpacks/beatlespack2.png",
         descripcion: "Fan Pack de The Beatles.",
         contenido: "Productos conmemorativos para los fans de The Beatles.",
         modalidadRetiro: ["estadio", "domicilio"]

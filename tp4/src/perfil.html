@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="es">
 
@@ -6,15 +7,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Perfil de usuario de SoundDay.">
     <title>SoundDay / Perfil</title>
+
     <link rel="stylesheet" href="./recursos/estilos/estilos.css">
     <link rel="stylesheet" href="./recursos/estilos/perfil.css">
     <link rel="stylesheet" href="./recursos/estilos/artistas.css">
+
     <script type="module" src="./recursos/js/perfil.js"></script>
 </head>
 
 <body class="pagina">
 
-    <!-- Encabezado principal -->
+    <!-- ENCABEZADO PRINCIPAL -->
     <header class="encabezado-principal">
         <a class="encabezado-principal__logo-enlace" href="./index.html" aria-label="Ir al inicio">
             <img class="encabezado-principal__logo-img"
@@ -26,6 +29,7 @@
             <a class="encabezado-principal__nav-enlace" href="./index.html">Inicio</a>
             <a class="encabezado-principal__nav-enlace" href="./artistas.html">Artistas</a>
             <a class="encabezado-principal__nav-enlace" href="./contacto.html">Contacto</a>
+
             <a class="encabezado-principal__nav-perfil encabezado-principal__nav-perfil--activo"
                 href="./perfil.html" aria-label="Ir al perfil">
                 <img class="encabezado-principal__perfil-img"
@@ -36,17 +40,24 @@
     </header>
 
     <main class="contenido-principal">
+
         <div class="perfil-layout-principal">
 
-            <!-- COLUMNA IZQUIERDA: Información del perfil -->
+            <!-- COLUMNA IZQUIERDA: INFORMACIÓN DEL PERFIL -->
             <aside class="perfil-columna-izquierda">
+
                 <section class="perfil-seccion" aria-labelledby="titulo-perfil">
+
                     <article class="perfil-tarjeta">
+
                         <img class="perfil-avatar"
                             src="./recursos/imagenes/logos/usuario.png"
                             alt="Foto de perfil de Carla Rinaldi">
 
-                        <h1 class="perfil-subtitulo" id="titulo-perfil">Carla Rinaldi</h1>
+                        <h1 class="perfil-subtitulo" id="titulo-perfil">
+                            Carla Rinaldi
+                        </h1>
+
                         <p class="perfil-texto">carlarinaldi@gmail.com</p>
                         <p class="perfil-texto">Tel: 1111111</p>
                         <p class="perfil-texto">Nueva Córdoba</p>
@@ -57,21 +68,26 @@
                                     Artistas seguidos &gt;
                                 </a>
                             </li>
+
                             <li>
                                 <a class="perfil-enlace-menu" href="#detalles-fanpack">
                                     Ver Fan Packs disponibles &gt;
                                 </a>
                             </li>
                         </ul>
+
                     </article>
+
                 </section>
+
             </aside>
 
-            <!-- COLUMNA DERECHA: Eventos y reservas -->
+            <!-- COLUMNA DERECHA: EVENTOS Y RESERVAS -->
             <div class="perfil-columna-derecha">
 
-                <!-- Próximos eventos -->
-                <section class="perfil-seccion" id="eventos-perfil"
+                <!-- PRÓXIMOS EVENTOS -->
+                <section class="perfil-seccion"
+                    id="eventos-perfil"
                     aria-labelledby="titulo-proximos-eventos">
 
                     <h2 class="perfil-titulo-seccion" id="titulo-proximos-eventos">
@@ -79,7 +95,9 @@
                     </h2>
 
                     <div class="perfil-eventos-lista">
+
                         <article class="perfil-evento-item">
+
                             <div class="perfil-evento-info">
                                 <span class="perfil-evento-titulo">BTS</span>
                                 <span class="perfil-evento-detalle">Estadio Principal</span>
@@ -87,13 +105,16 @@
 
                             <div class="perfil-evento-acciones">
                                 <span class="perfil-evento-fecha">25/09 | 21:00 hs</span>
+
                                 <a href="#detalles-evento-bts" class="perfil-boton-tabla">
                                     Ver detalles
                                 </a>
                             </div>
+
                         </article>
 
                         <article class="perfil-evento-item">
+
                             <div class="perfil-evento-info">
                                 <span class="perfil-evento-titulo">Coldplay</span>
                                 <span class="perfil-evento-detalle">Recinto Cerrado</span>
@@ -101,22 +122,29 @@
 
                             <div class="perfil-evento-acciones">
                                 <span class="perfil-evento-fecha">04/10 | 20:30 hs</span>
+
                                 <a href="#detalles-evento-coldplay" class="perfil-boton-tabla">
                                     Ver detalles
                                 </a>
                             </div>
+
                         </article>
+
                     </div>
+
                 </section>
 
-                <!-- Fan Packs reservados -->
+                <!-- FAN PACKS RESERVADOS -->
                 <section class="perfil-seccion" aria-labelledby="titulo-mis-productos">
+
                     <h2 class="perfil-titulo-seccion" id="titulo-mis-productos">
                         Mis Fan Packs reservados
                     </h2>
 
                     <div class="perfil-tabla-contenedor">
+
                         <table class="perfil-tabla">
+
                             <thead>
                                 <tr>
                                     <th scope="col">Nombre producto</th>
@@ -128,18 +156,23 @@
                             </thead>
 
                             <tbody id="tabla-reservas">
-                                <!-- JavaScript genera las filas de reservas -->
+                                <!-- JavaScript genera las filas -->
                             </tbody>
+
                         </table>
+
                     </div>
+
                 </section>
+
             </div>
 
-            <!-- SECCIONES INFERIORES: Ocupan todo el ancho -->
+            <!-- SECCIONES INFERIORES -->
             <div class="perfil-secciones-completas">
 
-                <!-- Detalles del evento BTS -->
-                <section class="vista-detalle seccion-oculta" id="detalles-evento-bts"
+                <!-- DETALLES DEL EVENTO BTS -->
+                <section class="vista-detalle seccion-oculta"
+                    id="detalles-evento-bts"
                     aria-labelledby="titulo-detalles-evento-bts">
 
                     <a class="boton-volver" href="#eventos-perfil">
@@ -148,6 +181,7 @@
                     </a>
 
                     <article class="detalle-hero">
+
                         <figure class="detalle-hero__marco-foto">
                             <img class="detalle-hero__foto"
                                 src="./recursos/imagenes/artistas/btstour.jpg"
@@ -155,6 +189,7 @@
                         </figure>
 
                         <div class="detalle-hero__info">
+
                             <h2 class="detalle-hero__nombre" id="titulo-detalles-evento-bts">
                                 BTS — ARIRANG World Tour
                             </h2>
@@ -170,18 +205,25 @@
                             <p class="detalle-hero__fecha">
                                 <strong>Fecha:</strong> 25/09 — 21:00 hs
                             </p>
+
                         </div>
 
                         <div class="detalle-hero__acciones">
                             <span class="perfil-badge">Evento reservado</span>
                         </div>
+
                     </article>
 
                     <div class="detalle-paneles-grilla">
+
                         <article class="panel-box">
-                            <h3 class="panel-box__titulo">INFORMACIÓN DEL SHOW Y RECINTO</h3>
+
+                            <h3 class="panel-box__titulo">
+                                INFORMACIÓN DEL SHOW Y RECINTO
+                            </h3>
 
                             <div class="horarios-grid">
+
                                 <div class="horarios-grid__celda">
                                     <span class="horarios-grid__etiqueta">Puertas</span>
                                     <strong class="horarios-grid__valor">17:00 hs</strong>
@@ -196,6 +238,7 @@
                                     <span class="horarios-grid__etiqueta">Puntos de acceso</span>
                                     <strong class="horarios-grid__valor">Estadio Principal</strong>
                                 </div>
+
                             </div>
 
                             <p class="panel-box__texto-legal">
@@ -205,10 +248,14 @@
                                 <strong>Retiro de Fan Packs:</strong>
                                 Stands oficiales en los accesos desde las 15:00 hs.
                             </p>
+
                         </article>
 
                         <article class="panel-box">
-                            <h3 class="panel-box__titulo">SETLIST PROMEDIO DE LA GIRA</h3>
+
+                            <h3 class="panel-box__titulo">
+                                SETLIST PROMEDIO DE LA GIRA
+                            </h3>
 
                             <ol class="canciones-lista">
                                 <li class="canciones-lista__item">Dynamite</li>
@@ -216,18 +263,25 @@
                                 <li class="canciones-lista__item">Boy With Luv</li>
                                 <li class="canciones-lista__item">Fake Love</li>
                             </ol>
+
                         </article>
+
                     </div>
 
                     <article class="panel-box panel-box--completo">
+
                         <h3 class="panel-box__titulo">MI RESERVA</h3>
+
                         <p>Podés consultar acá la información de tu reserva.</p>
                         <p><strong>Estado:</strong> Reservado</p>
+
                     </article>
+
                 </section>
 
-                <!-- Detalles del evento Coldplay -->
-                <section class="vista-detalle seccion-oculta" id="detalles-evento-coldplay"
+                <!-- DETALLES DEL EVENTO COLDPLAY -->
+                <section class="vista-detalle seccion-oculta"
+                    id="detalles-evento-coldplay"
                     aria-labelledby="titulo-detalles-evento-coldplay">
 
                     <a class="boton-volver" href="#eventos-perfil">
@@ -236,6 +290,7 @@
                     </a>
 
                     <article class="detalle-hero">
+
                         <figure class="detalle-hero__marco-foto">
                             <img class="detalle-hero__foto"
                                 src="./recursos/imagenes/artistas/coldplaytour.png"
@@ -243,6 +298,7 @@
                         </figure>
 
                         <div class="detalle-hero__info">
+
                             <h2 class="detalle-hero__nombre" id="titulo-detalles-evento-coldplay">
                                 Coldplay — Music of the Spheres World Tour
                             </h2>
@@ -258,18 +314,25 @@
                             <p class="detalle-hero__fecha">
                                 <strong>Fecha:</strong> 04/10 — 20:30 hs
                             </p>
+
                         </div>
 
                         <div class="detalle-hero__acciones">
                             <span class="perfil-badge">Evento reservado</span>
                         </div>
+
                     </article>
 
                     <div class="detalle-paneles-grilla">
+
                         <article class="panel-box">
-                            <h3 class="panel-box__titulo">INFORMACIÓN DEL SHOW Y RECINTO</h3>
+
+                            <h3 class="panel-box__titulo">
+                                INFORMACIÓN DEL SHOW Y RECINTO
+                            </h3>
 
                             <div class="horarios-grid">
+
                                 <div class="horarios-grid__celda">
                                     <span class="horarios-grid__etiqueta">Puertas</span>
                                     <strong class="horarios-grid__valor">17:00 hs</strong>
@@ -284,6 +347,7 @@
                                     <span class="horarios-grid__etiqueta">Puntos de acceso</span>
                                     <strong class="horarios-grid__valor">Estadio River Plate</strong>
                                 </div>
+
                             </div>
 
                             <p class="panel-box__texto-legal">
@@ -293,10 +357,14 @@
                                 <strong>Retiro de Fan Packs:</strong>
                                 Stands oficiales en los accesos desde las 16:00 hs.
                             </p>
+
                         </article>
 
                         <article class="panel-box">
-                            <h3 class="panel-box__titulo">SETLIST PROMEDIO DE LA GIRA</h3>
+
+                            <h3 class="panel-box__titulo">
+                                SETLIST PROMEDIO DE LA GIRA
+                            </h3>
 
                             <ol class="canciones-lista">
                                 <li class="canciones-lista__item">Higher Power</li>
@@ -304,18 +372,25 @@
                                 <li class="canciones-lista__item">Paradise</li>
                                 <li class="canciones-lista__item">The Scientist</li>
                             </ol>
+
                         </article>
+
                     </div>
 
                     <article class="panel-box panel-box--completo">
+
                         <h3 class="panel-box__titulo">MI RESERVA</h3>
+
                         <p>Podés consultar acá la información de tu reserva.</p>
                         <p><strong>Estado:</strong> Reservado</p>
+
                     </article>
+
                 </section>
 
-                <!-- Artistas seguidos -->
-                <section class="perfil-seccion seccion-oculta" id="artistas-seguidos"
+                <!-- ARTISTAS SEGUIDOS -->
+                <section class="perfil-seccion seccion-oculta"
+                    id="artistas-seguidos"
                     aria-labelledby="titulo-artistas-seguidos">
 
                     <a class="boton-volver" href="#eventos-perfil">
@@ -328,7 +403,9 @@
                     </h2>
 
                     <form class="perfil-formulario-filtro" action="#" method="get">
+
                         <fieldset class="perfil-fieldset">
+
                             <legend class="perfil-legend">Filtrar por:</legend>
 
                             <label class="perfil-label-radio">
@@ -350,16 +427,20 @@
                                 <input type="radio" name="filtro-artista" value="rap">
                                 Rap
                             </label>
+
                         </fieldset>
+
                     </form>
 
                     <ul class="perfil-grilla" id="grilla-artistas">
-                        <!-- JavaScript genera los artistas seguidos -->
+                        <!-- JavaScript genera los artistas -->
                     </ul>
+
                 </section>
 
-                <!-- Catálogo de Fan Packs -->
-                <section class="perfil-seccion seccion-oculta" id="detalles-fanpack"
+                <!-- CATÁLOGO DE FAN PACKS -->
+                <section class="perfil-seccion seccion-oculta"
+                    id="detalles-fanpack"
                     aria-labelledby="titulo-fanpack">
 
                     <a class="boton-volver" href="#eventos-perfil">
@@ -372,7 +453,9 @@
                     </h2>
 
                     <form class="perfil-formulario-filtro" action="#" method="get">
+
                         <fieldset class="perfil-fieldset">
+
                             <legend class="perfil-legend">Filtrar por:</legend>
 
                             <label class="perfil-label-radio">
@@ -394,23 +477,143 @@
                                 <input type="radio" name="filtro-pack" value="rap">
                                 Rap
                             </label>
+
                         </fieldset>
+
                     </form>
 
-                    <div class="perfil-grilla" id="grilla-fanpacks">
+                    <ul class="perfil-grilla" id="grilla-fanpacks">
                         <!-- JavaScript genera los Fan Packs y sus botones -->
+                    </ul>
+
+                </section>
+
+                <!-- DETALLE DEL FAN PACK SELECCIONADO -->
+                <section class="vista-detalle seccion-oculta"
+                    id="vista-detalle-fanpack"
+                    aria-labelledby="titulo-detalle-fanpack">
+
+                    <a class="boton-volver" href="#detalles-fanpack">
+                        <span class="boton-volver__flecha" aria-hidden="true">←</span>
+                        Volver al catálogo
+                    </a>
+
+                    <h2 class="perfil-titulo-seccion" id="titulo-detalle-fanpack">
+                        Detalle del Fan Pack
+                    </h2>
+
+                    <!-- PRESENTACIÓN PRINCIPAL -->
+                    <article class="detalle-hero detalle-hero--fanpack">
+
+                        <figure class="detalle-hero__marco-foto">
+
+                            <img
+                                class="detalle-hero__foto"
+                                id="imagen-detalle-fanpack"
+                                src="./recursos/imagenes/fanpacks/btspack.png"
+                                alt="Imagen del Fan Pack seleccionado">
+
+                        </figure>
+
+                        <div class="detalle-hero__info">
+
+                            <p class="detalle-hero__recinto" id="artista-detalle-fanpack">
+                                Artista
+                            </p>
+
+                            <h3 class="detalle-hero__nombre" id="nombre-detalle-fanpack">
+                                Nombre del Fan Pack
+                            </h3>
+
+                            <p class="detalle-hero__descripcion" id="descripcion-detalle-fanpack">
+                                Descripción del Fan Pack seleccionado.
+                            </p>
+
+                            <p class="detalle-hero__fecha" id="precio-detalle-fanpack">
+                                Precio
+                            </p>
+
+                            <div class="detalle-hero__acciones">
+
+                                <button
+                                    class="perfil-boton boton-agregar-detalle"
+                                    id="boton-agregar-detalle-fanpack"
+                                    type="button">
+                                    + Agregar a mis reservas
+                                </button>
+
+                            </div>
+
+                        </div>
+
+                    </article>
+
+                    <!-- INFORMACIÓN COMPLEMENTARIA -->
+                    <div class="detalle-paneles-grilla">
+
+                        <article class="panel-box">
+
+                            <h3 class="panel-box__titulo">
+                                CONTENIDO DEL FAN PACK
+                            </h3>
+
+                            <p class="panel-box__texto-legal" id="contenido-productos-fanpack">
+                                Aquí se mostrarán los productos incluidos en el Fan Pack.
+                            </p>
+
+                        </article>
+
+                        <article class="panel-box">
+
+                            <h3 class="panel-box__titulo">
+                                MODALIDAD DE RETIRO
+                            </h3>
+
+                            <p class="panel-box__texto-legal" id="modalidad-retiro-fanpack">
+                                Aquí se mostrarán las modalidades de retiro disponibles.
+                            </p>
+
+                        </article>
+
                     </div>
+
+                    <!-- ESTADO DE LA RESERVA -->
+                    <article class="panel-box panel-box--completo">
+
+                        <h3 class="panel-box__titulo">MI RESERVA</h3>
+
+                        <p class="panel-box__texto-legal">
+                            Podés agregar este Fan Pack a tus reservas y consultar
+                            la cantidad y el precio final en la tabla de tu perfil.
+                        </p>
+
+                        <p>
+                            <strong>Estado:</strong>
+
+                            <span class="perfil-badge" id="estado-reserva-fanpack">
+                                Disponible
+                            </span>
+                        </p>
+
+                    </article>
+
                 </section>
 
             </div>
+
         </div>
+
     </main>
 
-    <!-- Pie principal -->
+    <!-- PIE PRINCIPAL -->
     <footer class="pie-principal">
-        <p class="pie-principal__copyright">© 2026 SoundDay.com.ar</p>
+
+        <p class="pie-principal__copyright">
+            © 2026 SoundDay.com.ar
+        </p>
 
         <ul class="pie-principal__lista">
+
             <li class="pie-principal__item">
                 <a class="pie-principal__enlace"
                     href="https://instagram.com/soundday"
@@ -425,18 +628,24 @@
             </li>
 
             <li class="pie-principal__item">
-                <a class="pie-principal__enlace" href="./contacto.html">Contacto</a>
+                <a class="pie-principal__enlace" href="./contacto.html">
+                    Contacto
+                </a>
             </li>
 
             <li class="mensajeria">
-                <a href="https://wa.me?tel=1111111"
+                <a href="https://wa.me/1111111"
                     aria-label="Enlace al WhatsApp"
                     target="_blank"
                     rel="noopener noreferrer">
-                    <img src="./recursos/imagenes/iconos/mensaje.png" alt="Icono de mensajería">
+                    <img
+                        src="./recursos/imagenes/iconos/mensaje.png"
+                        alt="Icono de mensajería">
                 </a>
             </li>
+
         </ul>
+
     </footer>
 
 </body>

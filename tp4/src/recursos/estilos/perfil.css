@@ -278,7 +278,7 @@
 }
 
 /* =========================================
-   7. DETALLES DE EVENTOS
+   7. LISTAS
    ========================================= */
 
 .perfil-lista {
@@ -319,6 +319,7 @@
     list-style: none;
     box-sizing: border-box;
 }
+
 .perfil-item-grid {
     width: 100%;
     max-width: 280px;
@@ -359,6 +360,26 @@
 
 .perfil-item-grid .perfil-boton {
     margin-top: 8px;
+}
+
+/* Botones del catálogo */
+
+.perfil-item-grid .perfil-boton {
+    display: inline-block;
+    padding: 8px 14px;
+    border: 1px solid var(--color-primario-activo, #818cf8);
+    border-radius: 6px;
+    background-color: var(--color-primario, #6366f1);
+    color: #ffffff;
+    font-size: 0.85rem;
+    font-weight: 600;
+    text-align: center;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+
+.perfil-item-grid .perfil-boton:hover {
+    background-color: var(--color-primario-activo, #818cf8);
 }
 
 /* =========================================
@@ -405,16 +426,19 @@
 }
 
 /* Oculta las secciones hasta que el usuario las seleccione */
+
 .seccion-oculta {
     display: none;
 }
 
 /* =========================================
-   10. DISEÑO DE LOS DETALLES DE EVENTOS
+   10. DETALLES DE EVENTOS Y FAN PACKS
    ========================================= */
 
-/* Contenedor de los detalles */
+/* Contenedor general de las vistas de detalle */
+
 .perfil-secciones-completas > .vista-detalle {
+    width: 100%;
     padding: 0;
     border: none;
     background: transparent;
@@ -426,7 +450,8 @@
     display: none;
 }
 
-/* Botón para volver a los eventos */
+/* Botón para volver */
+
 .boton-volver {
     display: inline-flex;
     align-items: center;
@@ -446,7 +471,12 @@
     font-size: 1.2rem;
 }
 
-/* Tarjeta principal del evento */
+/* =========================================
+   11. PRESENTACIÓN PRINCIPAL DEL DETALLE
+   ========================================= */
+
+/* Tarjeta principal: imagen a la izquierda e información a la derecha */
+
 .detalle-hero {
     display: grid;
     grid-template-columns: minmax(200px, 300px) minmax(0, 1fr);
@@ -507,13 +537,94 @@
     color: var(--color-texto-principal, #ffffff);
 }
 
+/* Acciones de la presentación */
+
 .detalle-hero__acciones {
     grid-column: 1 / -1;
     padding-top: 15px;
     border-top: 1px solid var(--color-borde, #34344a);
 }
 
-/* Paneles de información */
+/* =========================================
+   12. DETALLE ESPECÍFICO DEL FAN PACK
+   ========================================= */
+
+/* Imagen del producto */
+
+.detalle-hero--fanpack .detalle-hero__marco-foto {
+    max-width: 300px;
+    justify-self: center;
+}
+
+.detalle-hero--fanpack .detalle-hero__foto {
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    object-fit: contain;
+    background-color: #00000020;
+}
+
+/* Nombre del artista */
+
+#artista-detalle-fanpack {
+    margin: 0;
+    color: var(--color-primario-activo, #818cf8);
+    font-size: 0.95rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+/* Nombre del producto */
+
+#nombre-detalle-fanpack {
+    margin: 0;
+    color: var(--color-texto-principal, #ffffff);
+    font-size: 1.8rem;
+    line-height: 1.3;
+}
+
+/* Descripción */
+
+#descripcion-detalle-fanpack {
+    margin: 0;
+    color: var(--color-texto-secundario, #b8b8c8);
+    font-size: 0.95rem;
+    line-height: 1.7;
+}
+
+/* Precio */
+
+#precio-detalle-fanpack {
+    margin: 8px 0;
+    color: var(--color-primario-activo, #818cf8);
+    font-size: 1.6rem;
+    font-weight: 700;
+}
+
+/* Botón para agregar a reservas */
+
+#boton-agregar-detalle-fanpack {
+    display: inline-block;
+    padding: 12px 20px;
+    border: 1px solid var(--color-primario-activo, #818cf8);
+    border-radius: 8px;
+    background-color: var(--color-primario, #6366f1);
+    color: #ffffff;
+    font-size: 0.9rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: background-color 0.2s ease, transform 0.2s ease;
+}
+
+#boton-agregar-detalle-fanpack:hover {
+    background-color: var(--color-primario-activo, #818cf8);
+    transform: translateY(-2px);
+}
+
+/* =========================================
+   13. PANELES DE INFORMACIÓN
+   ========================================= */
+
 .detalle-paneles-grilla {
     display: grid;
     grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -556,7 +667,16 @@
     color: var(--color-texto-principal, #ffffff);
 }
 
-/* Horarios */
+/* Estado de la reserva */
+
+#estado-reserva-fanpack {
+    margin-left: 8px;
+}
+
+/* =========================================
+   14. INFORMACIÓN DE HORARIOS
+   ========================================= */
+
 .horarios-grid {
     display: grid;
     grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -591,7 +711,10 @@
     overflow-wrap: anywhere;
 }
 
-/* Setlist */
+/* =========================================
+   15. SETLIST
+   ========================================= */
+
 .canciones-lista {
     display: flex;
     flex-direction: column;
@@ -612,32 +735,12 @@
     border-bottom: none;
 }
 
-/* Botón para agregar Fan Packs */
-.perfil-item-grid .perfil-boton {
-    display: inline-block;
-    margin-top: 8px;
-    padding: 8px 14px;
-    border: 1px solid var(--color-primario-activo, #818cf8);
-    border-radius: 6px;
-    background-color: var(--color-primario, #6366f1);
-    color: #ffffff;
-    font-size: 0.85rem;
-    font-weight: 600;
-    text-align: center;
-    text-decoration: none;
-    cursor: pointer;
-    transition: background-color 0.2s ease;
-}
-
-.perfil-item-grid .perfil-boton:hover {
-    background-color: var(--color-primario-activo, #818cf8);
-}
-
 /* =========================================
-   11. DISEÑO RESPONSIVO
+   16. DISEÑO RESPONSIVO
    ========================================= */
 
 @media (max-width: 900px) {
+
     .perfil-layout-principal {
         grid-template-columns: 1fr;
         gap: 20px;
@@ -657,9 +760,18 @@
     .perfil-columna-izquierda {
         max-width: 100%;
     }
+
+    .detalle-hero {
+        grid-template-columns: minmax(180px, 250px) minmax(0, 1fr);
+    }
+
+    .detalle-paneles-grilla {
+        grid-template-columns: 1fr;
+    }
 }
 
 @media (max-width: 600px) {
+
     .perfil-layout-principal {
         padding: 15px 12px;
         gap: 18px;
@@ -704,21 +816,20 @@
         padding: 9px 7px;
         font-size: 0.8rem;
     }
-}
 
-@media (max-width: 380px) {
-    .perfil-grilla {
-        grid-template-columns: 1fr;
-    }
-}
+    /* Detalles en celulares */
 
-@media (max-width: 900px) {
     .detalle-hero {
         grid-template-columns: 1fr;
+        padding: 18px;
     }
 
     .detalle-hero__marco-foto {
-        max-width: 450px;
+        max-width: 100%;
+    }
+
+    .detalle-hero__nombre {
+        font-size: 1.35rem;
     }
 
     .detalle-hero__acciones {
@@ -727,16 +838,6 @@
 
     .detalle-paneles-grilla {
         grid-template-columns: 1fr;
-    }
-}
-
-@media (max-width: 600px) {
-    .detalle-hero {
-        padding: 18px;
-    }
-
-    .detalle-hero__nombre {
-        font-size: 1.35rem;
     }
 
     .panel-box {
@@ -749,5 +850,31 @@
 
     .horarios-grid__celda--completa {
         grid-column: 1;
+    }
+
+    /* Detalle del Fan Pack en celulares */
+
+    .detalle-hero--fanpack .detalle-hero__marco-foto {
+        width: 100%;
+        max-width: 320px;
+    }
+
+    #nombre-detalle-fanpack {
+        font-size: 1.4rem;
+    }
+
+    #precio-detalle-fanpack {
+        font-size: 1.4rem;
+    }
+
+    #boton-agregar-detalle-fanpack {
+        width: 100%;
+    }
+}
+
+@media (max-width: 380px) {
+
+    .perfil-grilla {
+        grid-template-columns: 1fr;
     }
 }
