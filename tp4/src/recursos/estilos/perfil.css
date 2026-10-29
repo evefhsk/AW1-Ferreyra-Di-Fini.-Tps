@@ -735,6 +735,10 @@
     border-bottom: none;
 }
 
+#eventos-perfil .boton {
+    margin-top: 15px;
+}
+
 /* =========================================
    16. DISEÑO RESPONSIVO
    ========================================= */
@@ -871,6 +875,7 @@
         width: 100%;
     }
 }
+
 
 @media (max-width: 380px) {
 

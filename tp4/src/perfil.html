@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="es">
 
@@ -8,10 +7,13 @@
     <meta name="description" content="Perfil de usuario de SoundDay.">
     <title>SoundDay / Perfil</title>
 
+    <!-- Hojas de estilos -->
     <link rel="stylesheet" href="./recursos/estilos/estilos.css">
     <link rel="stylesheet" href="./recursos/estilos/perfil.css">
     <link rel="stylesheet" href="./recursos/estilos/artistas.css">
+    <link rel="stylesheet" href="./recursos/estilos/index.css">
 
+    <!-- Archivo JavaScript del perfil -->
     <script type="module" src="./recursos/js/perfil.js"></script>
 </head>
 
@@ -19,6 +21,7 @@
 
     <!-- ENCABEZADO PRINCIPAL -->
     <header class="encabezado-principal">
+
         <a class="encabezado-principal__logo-enlace" href="./index.html" aria-label="Ir al inicio">
             <img class="encabezado-principal__logo-img"
                 src="./recursos/imagenes/logos/soundday_white.png"
@@ -26,17 +29,22 @@
         </a>
 
         <nav class="encabezado-principal__nav" aria-label="Navegación principal">
+
             <a class="encabezado-principal__nav-enlace" href="./index.html">Inicio</a>
             <a class="encabezado-principal__nav-enlace" href="./artistas.html">Artistas</a>
             <a class="encabezado-principal__nav-enlace" href="./contacto.html">Contacto</a>
 
             <a class="encabezado-principal__nav-perfil encabezado-principal__nav-perfil--activo"
                 href="./perfil.html" aria-label="Ir al perfil">
+
                 <img class="encabezado-principal__perfil-img"
                     src="./recursos/imagenes/logos/usuario.png"
                     alt="Perfil">
+
             </a>
+
         </nav>
+
     </header>
 
     <main class="contenido-principal">
@@ -63,6 +71,7 @@
                         <p class="perfil-texto">Nueva Córdoba</p>
 
                         <ul class="perfil-lista-enlaces">
+
                             <li>
                                 <a class="perfil-enlace-menu" href="#artistas-seguidos">
                                     Artistas seguidos &gt;
@@ -74,6 +83,7 @@
                                     Ver Fan Packs disponibles &gt;
                                 </a>
                             </li>
+
                         </ul>
 
                     </article>
@@ -94,43 +104,17 @@
                         Mis próximos eventos
                     </h2>
 
-                    <div class="perfil-eventos-lista">
-
-                        <article class="perfil-evento-item">
-
-                            <div class="perfil-evento-info">
-                                <span class="perfil-evento-titulo">BTS</span>
-                                <span class="perfil-evento-detalle">Estadio Principal</span>
-                            </div>
-
-                            <div class="perfil-evento-acciones">
-                                <span class="perfil-evento-fecha">25/09 | 21:00 hs</span>
-
-                                <a href="#detalles-evento-bts" class="perfil-boton-tabla">
-                                    Ver detalles
-                                </a>
-                            </div>
-
-                        </article>
-
-                        <article class="perfil-evento-item">
-
-                            <div class="perfil-evento-info">
-                                <span class="perfil-evento-titulo">Coldplay</span>
-                                <span class="perfil-evento-detalle">Recinto Cerrado</span>
-                            </div>
-
-                            <div class="perfil-evento-acciones">
-                                <span class="perfil-evento-fecha">04/10 | 20:30 hs</span>
-
-                                <a href="#detalles-evento-coldplay" class="perfil-boton-tabla">
-                                    Ver detalles
-                                </a>
-                            </div>
-
-                        </article>
-
+                    <div class="perfil-eventos-lista" id="lista-eventos-guardados">
+                        <!-- JavaScript genera los eventos guardados o el mensaje -->
                     </div>
+
+                    <!-- Acceso al módulo reutilizable de eventos -->
+                    <a href="#seccion-eventos" class="boton boton--primario">
+                        Explorar eventos
+                    </a>
+
+                    <!-- MÓDULO REUTILIZABLE DE EVENTOS -->
+                    <div id="contenedor-modulo-eventos"></div>
 
                 </section>
 
