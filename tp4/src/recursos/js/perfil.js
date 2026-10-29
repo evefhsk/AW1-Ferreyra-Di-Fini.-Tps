@@ -6,7 +6,7 @@ import {
     obtenerFavoritos,
     alternarFavorito,
     inicializarModuloEventos
-} from "./eventos.js";
+} from "./eventosMusicales.js";
 
 
 // ==================================================
