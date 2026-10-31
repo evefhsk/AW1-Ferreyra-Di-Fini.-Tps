@@ -1,32 +1,76 @@
 
-// =========================================
-// 1. ARREGLO DE EVENTOS
-// =========================================
+// ARREGLO DE EVENTOS
 
-// Almacena los eventos disponibles
 export const eventos = [
     {
         id: 1,
         artista: "The Beatles",
         recinto: "Estadio Kempes",
         fecha: "25/09",
-        interesados: 2500
+        interesados: 2500,
+        imagen: "./recursos/imagenes/artistas/thebeatlestour.jpg",
+
+        detalles: {
+            aperturaPuertas: "17:00",
+            inicioShow: "21:00",
+
+            accesos: [
+                "Portón Norte",
+                "Portón Sur"
+            ],
+
+            elementosPermitidos: [
+                "Riñoneras",
+                "Banderas pequeñas sin mástil",
+                "Cargadores portátiles"
+            ],
+
+            retiroFanPack: "Desde las 16:00",
+
+            setlist: [
+                "Come Together",
+                "Let It Be",
+                "Hey Jude",
+                "Yesterday"
+            ]
+        }
     },
+
     {
         id: 2,
         artista: "BTS",
         recinto: "Vélez",
         fecha: "09/11",
-        interesados: 2300
+        interesados: 2300,
+        imagen: "./recursos/imagenes/artistas/btstour.jpg",
+
+        detalles: {
+            aperturaPuertas: null,
+            inicioShow: null,
+
+            accesos: [],
+
+            elementosPermitidos: [
+                "Army Bomb oficial",
+                "Banners de papel",
+                "Riñoneras"
+            ],
+
+            retiroFanPack: null,
+
+            setlist: [
+                "Dynamite",
+                "Butter",
+                "Boy With Luv",
+                "Fake Love"
+            ]
+        }
     }
 ];
 
 
-// =========================================
-// 2. GESTIÓN DE FAVORITOS
-// =========================================
+// OBTENER LOS EVENTOS FAVORITOS DEL USUARIO
 
-// Recupera los eventos favoritos almacenados
 export function obtenerFavoritos() {
     const favoritosGuardados = localStorage.getItem("eventosFavoritos");
 
@@ -34,21 +78,15 @@ export function obtenerFavoritos() {
         return [];
     }
 
-    try {
-        const favoritos = JSON.parse(favoritosGuardados);
-
-        return Array.isArray(favoritos)
-            ? favoritos.map(Number)
-            : [];
-
-    } catch (error) {
-        console.error("Error al recuperar los favoritos:", error);
-        return [];
-    }
+    return favoritosGuardados
+        .split(",")
+        .map(Number)
+        .filter(id => !isNaN(id));
 }
 
 
-// Comprueba si un evento está guardado
+// COMPROBAR SI UN EVENTO ESTÁ GUARDADO
+
 export function estaGuardado(id) {
     const favoritos = obtenerFavoritos();
 
@@ -56,7 +94,8 @@ export function estaGuardado(id) {
 }
 
 
-// Guarda o elimina un evento de favoritos
+// GUARDAR O ELIMINAR UN EVENTO DE FAVORITOS
+
 export function alternarFavorito(id) {
     const favoritos = obtenerFavoritos();
     const identificador = Number(id);
@@ -68,28 +107,22 @@ export function alternarFavorito(id) {
         favoritos.splice(indiceFavorito, 1);
     }
 
-    // Guardar los cambios en localStorage
-    localStorage.setItem("eventosFavoritos", JSON.stringify(favoritos));
+    localStorage.setItem("eventosFavoritos", favoritos.join(","));
 
-    // Avisar a otras partes de la página que cambiaron los favoritos
     window.dispatchEvent(new Event("favoritosActualizados"));
 
     return favoritos;
 }
 
 
-// =========================================
-// 3. INICIALIZACIÓN DEL MÓDULO
-// =========================================
+// INICIALIZAR EL MÓDULO DE EVENTOS
 
-// Inicializa el módulo de eventos en el contenedor indicado
 export function inicializarModuloEventos(contenedor) {
 
     if (!contenedor) {
         return;
     }
 
-    // Generar el HTML del módulo
     contenedor.innerHTML = `
         <section class="seccion-filtro"
             id="seccion-eventos"
@@ -160,11 +193,6 @@ export function inicializarModuloEventos(contenedor) {
         </section>
     `;
 
-
-    // =========================================
-    // 4. SELECTORES DEL DOM
-    // =========================================
-
     const seccionBusqueda = contenedor.querySelector("#seccion-eventos");
 
     const inputBusqueda = contenedor.querySelector("#buscar-evento");
@@ -180,12 +208,9 @@ export function inicializarModuloEventos(contenedor) {
     );
 
 
-    // =========================================
-    // 5. MOSTRAR EL MÓDULO
-    // =========================================
+    // MOSTRAR EL MÓDULO
 
     function mostrarModuloEventos() {
-
         seccionBusqueda.hidden = false;
 
         seccionBusqueda.scrollIntoView({
@@ -194,9 +219,7 @@ export function inicializarModuloEventos(contenedor) {
     }
 
 
-    // =========================================
-    // 6. RENDERIZAR EVENTOS
-    // =========================================
+    // RENDERIZAR TARJETAS DE EVENTOS
 
     function renderizarEventos(listaEventos) {
 
@@ -244,6 +267,14 @@ export function inicializarModuloEventos(contenedor) {
                         ${guardado ? "Quitar de guardados" : "Guardar evento"}
                     </button>
 
+                    <button
+                        class="boton boton--secundario boton-ver-detalle-evento"
+                        type="button"
+                        data-evento-id="${evento.id}"
+                    >
+                        Ver detalles
+                    </button>
+
                 </article>
             `;
         });
@@ -254,9 +285,7 @@ export function inicializarModuloEventos(contenedor) {
     }
 
 
-    // =========================================
-    // 7. APLICAR FILTROS
-    // =========================================
+    // FILTRAR Y ORDENAR EVENTOS
 
     function aplicarFiltros() {
 
@@ -312,24 +341,22 @@ export function inicializarModuloEventos(contenedor) {
     }
 
 
-    // =========================================
-    // 8. EVENTOS DEL BUSCADOR Y LOS FILTROS
-    // =========================================
+    // ESCUCHAR BUSCADOR Y FILTROS
 
-    // Detectar cuando se escribe en el buscador
     inputBusqueda.addEventListener("input", aplicarFiltros);
 
-    // Detectar cuando se cambia el filtro
     filtros.forEach((filtro) => {
         filtro.addEventListener("change", aplicarFiltros);
     });
 
 
-    // =========================================
-    // 9. GUARDAR O QUITAR FAVORITOS
-    // =========================================
+    // GESTIONAR FAVORITOS
 
     grillaResultados.addEventListener("click", (evento) => {
+
+        if (!(evento.target instanceof Element)) {
+            return;
+        }
 
         const boton = evento.target.closest(".boton-favorito");
 
@@ -341,17 +368,43 @@ export function inicializarModuloEventos(contenedor) {
 
         alternarFavorito(id);
 
-        // Actualizar los resultados y el texto del botón
         aplicarFiltros();
     });
 
 
-    // =========================================
-    // 10. NAVEGACIÓN HACIA EL MÓDULO
-    // =========================================
+    // ABRIR DETALLES DEL EVENTO
 
-    // Permitir abrir el módulo desde cualquier enlace de la página
+    grillaResultados.addEventListener("click", (evento) => {
+
+        if (!(evento.target instanceof Element)) {
+            return;
+        }
+
+        const botonDetalle = evento.target.closest(
+            ".boton-ver-detalle-evento"
+        );
+
+        if (!botonDetalle) {
+            return;
+        }
+
+        const id = botonDetalle.dataset.eventoId;
+
+        contenedor.dispatchEvent(
+            new CustomEvent("abrirDetalleEvento", {
+                detail: { id }
+            })
+        );
+    });
+
+
+    // ABRIR EL MÓDULO DESDE EL ENLACE
+
     document.addEventListener("click", (evento) => {
+
+        if (!(evento.target instanceof Element)) {
+            return;
+        }
 
         const enlace = evento.target.closest(
             'a[href="#seccion-eventos"]'
@@ -367,9 +420,7 @@ export function inicializarModuloEventos(contenedor) {
     });
 
 
-    // Si se ingresa directamente con el identificador en la URL
     if (window.location.hash === "#seccion-eventos") {
         mostrarModuloEventos();
     }
 }
-

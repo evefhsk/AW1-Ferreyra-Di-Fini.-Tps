@@ -1,7 +1,4 @@
-
-/* =========================================
-   1. ESTRUCTURA PRINCIPAL
-   ========================================= */
+/* 1. ESTRUCTURA PRINCIPAL */
 
 .perfil-layout-principal {
     display: grid;
@@ -38,21 +35,19 @@
     min-width: 0;
 }
 
-/* =========================================
-   2. SECCIONES Y TARJETAS
-   ========================================= */
+/* 2. SECCIONES Y TARJETAS */
 
 .perfil-seccion {
     position: relative;
     width: 100%;
     min-width: 0;
     padding: 25px;
-    box-sizing: border-box;
-    background: var(--color-superficie, #1a1a2e);
-    border: 1px solid var(--color-borde, #34344a);
+    background: var(--color-superficie, #12172b);
+    border: 1px solid var(--color-borde, #1e2540);
     border-radius: 12px;
     box-shadow: 0 4px 12px #0000001a;
     overflow-wrap: anywhere;
+    box-sizing: border-box;
 }
 
 .perfil-seccion::before {
@@ -62,7 +57,7 @@
     left: 0;
     width: 5px;
     height: 100%;
-    background-color: var(--color-primario-activo, #818cf8);
+    background-color: var(--color-primario-activo, #4f46e5);
 }
 
 .perfil-tarjeta {
@@ -72,31 +67,29 @@
     gap: 12px;
     width: 100%;
     padding: 10px 0;
-    box-sizing: border-box;
     text-align: center;
+    box-sizing: border-box;
 }
 
 .perfil-tarjeta .perfil-texto {
     overflow-wrap: anywhere;
 }
 
-/* =========================================
-   3. INFORMACIÓN DEL PERFIL
-   ========================================= */
+/* 3. INFORMACIÓN DEL PERFIL */
 
 .perfil-avatar {
     display: block;
     width: 100px;
     height: 100px;
     margin: 0 auto 8px;
-    border: 3px solid var(--color-primario-activo, #818cf8);
+    border: 3px solid var(--color-primario-activo, #4f46e5);
     border-radius: 50%;
     object-fit: cover;
 }
 
 .perfil-subtitulo {
     margin: 0;
-    color: var(--color-texto-principal, #ffffff);
+    color: var(--color-texto-principal, #f8fafc);
     font-size: 1.2rem;
     font-weight: 700;
 }
@@ -108,12 +101,12 @@
 
 .perfil-texto {
     margin: 0 0 8px;
-    color: var(--color-texto-secundario, #b8b8c8);
+    color: var(--color-texto-secundario, #94a3b8);
     font-size: 0.9rem;
     line-height: 1.5;
 }
 
-/* Enlaces rápidos del perfil */
+/* Enlaces rápidos */
 
 .perfil-lista-enlaces {
     display: flex;
@@ -122,7 +115,7 @@
     width: 100%;
     margin: 15px 0 0;
     padding: 18px 0 0;
-    border-top: 1px solid var(--color-borde, #34344a);
+    border-top: 1px solid var(--color-borde, #1e2540);
     list-style: none;
     text-align: left;
     box-sizing: border-box;
@@ -130,33 +123,28 @@
 
 .perfil-enlace-menu {
     display: block;
-    color: var(--color-primario-activo, #818cf8);
+    color: var(--color-primario-activo, #4f46e5);
     font-size: 0.9rem;
     font-weight: 600;
-    text-decoration: none;
 }
 
 .perfil-enlace-menu:hover {
     text-decoration: underline;
 }
 
-/* =========================================
-   4. TÍTULOS
-   ========================================= */
+/* 4. TÍTULOS */
 
 .perfil-titulo-seccion {
     margin: 0 0 20px;
     padding-bottom: 12px;
-    border-bottom: 1px solid var(--color-borde, #34344a);
-    color: var(--color-texto-principal, #ffffff);
+    border-bottom: 1px solid var(--color-borde, #1e2540);
+    color: var(--color-texto-principal, #f8fafc);
     font-size: 1.25rem;
     font-weight: 700;
     line-height: 1.4;
 }
 
-/* =========================================
-   5. PRÓXIMOS EVENTOS
-   ========================================= */
+/* 5. EVENTOS GUARDADOS */
 
 .perfil-eventos-lista {
     display: flex;
@@ -171,7 +159,7 @@
     gap: 15px;
     width: 100%;
     padding: 15px 0;
-    border-bottom: 1px solid var(--color-borde, #34344a);
+    border-bottom: 1px solid var(--color-borde, #1e2540);
     box-sizing: border-box;
 }
 
@@ -188,13 +176,13 @@
 }
 
 .perfil-evento-titulo {
-    color: var(--color-texto-principal, #ffffff);
+    color: var(--color-texto-principal, #f8fafc);
     font-size: 1rem;
     font-weight: 700;
 }
 
 .perfil-evento-detalle {
-    color: var(--color-texto-secundario, #b8b8c8);
+    color: var(--color-texto-secundario, #94a3b8);
     font-size: 0.85rem;
 }
 
@@ -207,15 +195,48 @@
 }
 
 .perfil-evento-fecha {
-    color: var(--color-primario-activo, #818cf8);
+    color: var(--color-primario-activo, #4f46e5);
     font-size: 0.9rem;
     font-weight: 600;
     text-align: right;
 }
 
-/* =========================================
-   6. TABLA DE RESERVAS
-   ========================================= */
+/* Botones de eventos */
+
+.boton-ver-detalle-evento,
+.boton-quitar-evento {
+    display: inline-block;
+    padding: 8px 14px;
+    border-radius: 6px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    text-align: center;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+
+.boton-ver-detalle-evento {
+    border: 1px solid var(--color-primario-activo, #4f46e5);
+    background-color: var(--color-primario, #4338ca);
+    color: #ffffff;
+}
+
+.boton-ver-detalle-evento:hover {
+    background-color: var(--color-primario-activo, #4f46e5);
+}
+
+.boton-quitar-evento {
+    border: 1px solid #dc2626;
+    background-color: transparent;
+    color: #f87171;
+}
+
+.boton-quitar-evento:hover {
+    background-color: #dc2626;
+    color: #ffffff;
+}
+
+/* 6. TABLA DE RESERVAS */
 
 .perfil-tabla-contenedor {
     width: 100%;
@@ -232,27 +253,27 @@
 .perfil-tabla th,
 .perfil-tabla td {
     padding: 12px 8px;
-    border-bottom: 1px solid var(--color-borde, #34344a);
+    border-bottom: 1px solid var(--color-borde, #1e2540);
     font-size: 0.9rem;
     vertical-align: middle;
 }
 
 .perfil-tabla th {
-    color: var(--color-texto-principal, #ffffff);
+    color: var(--color-texto-principal, #f8fafc);
     font-weight: 700;
 }
 
 .perfil-tabla td {
-    color: var(--color-texto-secundario, #b8b8c8);
+    color: var(--color-texto-secundario, #94a3b8);
 }
 
 .perfil-badge {
     display: inline-block;
     padding: 5px 10px;
-    border: 1px solid var(--color-primario-activo, #818cf8);
+    border: 1px solid var(--color-primario-activo, #4f46e5);
     border-radius: 6px;
     background-color: #6366f126;
-    color: var(--color-primario-activo, #818cf8);
+    color: var(--color-primario-activo, #4f46e5);
     font-size: 0.8rem;
     font-weight: 600;
     white-space: nowrap;
@@ -261,14 +282,13 @@
 .perfil-boton-tabla {
     display: inline-block;
     padding: 7px 12px;
-    border: 1px solid var(--color-borde, #34344a);
+    border: 1px solid var(--color-borde, #1e2540);
     border-radius: 6px;
     background-color: #ffffff0d;
-    color: var(--color-texto-principal, #ffffff);
+    color: var(--color-texto-principal, #f8fafc);
     font-size: 0.85rem;
     font-weight: 600;
     text-align: center;
-    text-decoration: none;
     cursor: pointer;
     transition: background-color 0.2s ease;
 }
@@ -277,9 +297,7 @@
     background-color: #ffffff1a;
 }
 
-/* =========================================
-   7. LISTAS
-   ========================================= */
+/* 7. LISTAS */
 
 .perfil-lista {
     display: flex;
@@ -292,7 +310,7 @@
 
 .perfil-item {
     padding-bottom: 10px;
-    border-bottom: 1px solid var(--color-borde, #34344a);
+    border-bottom: 1px solid var(--color-borde, #1e2540);
 }
 
 .perfil-item:last-child {
@@ -304,9 +322,7 @@
     margin-bottom: 0;
 }
 
-/* =========================================
-   8. GRILLA DE ARTISTAS Y FAN PACKS
-   ========================================= */
+/* 8. GRILLA DE ARTISTAS Y FAN PACKS */
 
 .perfil-grilla {
     display: grid;
@@ -325,7 +341,7 @@
     max-width: 280px;
     min-width: 0;
     padding: 16px;
-    border: 1px solid var(--color-borde, #34344a);
+    border: 1px solid var(--color-borde, #1e2540);
     border-radius: 10px;
     background-color: #00000020;
     text-align: center;
@@ -349,7 +365,7 @@
 }
 
 .perfil-figcaption {
-    color: var(--color-texto-principal, #ffffff);
+    color: var(--color-texto-principal, #f8fafc);
     font-size: 0.95rem;
     font-weight: 700;
 }
@@ -359,17 +375,12 @@
 }
 
 .perfil-item-grid .perfil-boton {
-    margin-top: 8px;
-}
-
-/* Botones del catálogo */
-
-.perfil-item-grid .perfil-boton {
     display: inline-block;
+    margin-top: 8px;
     padding: 8px 14px;
-    border: 1px solid var(--color-primario-activo, #818cf8);
+    border: 1px solid var(--color-primario-activo, #4f46e5);
     border-radius: 6px;
-    background-color: var(--color-primario, #6366f1);
+    background-color: var(--color-primario, #4338ca);
     color: #ffffff;
     font-size: 0.85rem;
     font-weight: 600;
@@ -379,17 +390,14 @@
 }
 
 .perfil-item-grid .perfil-boton:hover {
-    background-color: var(--color-primario-activo, #818cf8);
+    background-color: var(--color-primario-activo, #4f46e5);
 }
 
-/* =========================================
-   9. FILTROS
-   ========================================= */
+/* 9. FILTROS */
 
 .perfil-formulario-filtro {
     width: 100%;
     margin-bottom: 15px;
-    box-sizing: border-box;
 }
 
 .perfil-fieldset {
@@ -400,14 +408,14 @@
     width: 100%;
     margin: 0;
     padding: 12px;
-    border: 1px solid var(--color-borde, #34344a);
+    border: 1px solid var(--color-borde, #1e2540);
     border-radius: 8px;
     box-sizing: border-box;
 }
 
 .perfil-legend {
     padding: 0 5px;
-    color: var(--color-texto-principal, #ffffff);
+    color: var(--color-texto-principal, #f8fafc);
     font-size: 0.9rem;
     font-weight: 700;
 }
@@ -416,26 +424,22 @@
     display: inline-flex;
     align-items: center;
     gap: 5px;
-    color: var(--color-texto-secundario, #b8b8c8);
+    color: var(--color-texto-secundario, #94a3b8);
     font-size: 0.85rem;
     cursor: pointer;
 }
 
 .perfil-label-radio input {
-    accent-color: var(--color-primario, #6366f1);
+    accent-color: var(--color-primario, #4338ca);
 }
 
-/* Oculta las secciones hasta que el usuario las seleccione */
+/* Ocultar secciones */
 
 .seccion-oculta {
     display: none;
 }
 
-/* =========================================
-   10. DETALLES DE EVENTOS Y FAN PACKS
-   ========================================= */
-
-/* Contenedor general de las vistas de detalle */
+/* 10. ESTRUCTURA GENERAL DE DETALLES */
 
 .perfil-secciones-completas > .vista-detalle {
     width: 100%;
@@ -450,14 +454,14 @@
     display: none;
 }
 
-/* Botón para volver */
+/* Botón volver */
 
 .boton-volver {
     display: inline-flex;
     align-items: center;
     gap: 8px;
     margin-bottom: 20px;
-    color: var(--color-primario-activo, #818cf8);
+    color: var(--color-primario-activo, #4f46e5);
     font-size: 0.9rem;
     font-weight: 600;
     text-decoration: none;
@@ -471,11 +475,10 @@
     font-size: 1.2rem;
 }
 
-/* =========================================
-   11. PRESENTACIÓN PRINCIPAL DEL DETALLE
-   ========================================= */
+/* 11. PRESENTACIÓN PRINCIPAL COMPARTIDA */
 
-/* Tarjeta principal: imagen a la izquierda e información a la derecha */
+/* Esta estructura se utiliza tanto para eventos
+   como para detalles de Fan Packs. */
 
 .detalle-hero {
     display: grid;
@@ -485,9 +488,9 @@
     width: 100%;
     margin-bottom: 25px;
     padding: 25px;
-    border: 1px solid var(--color-borde, #34344a);
+    border: 1px solid var(--color-borde, #1e2540);
     border-radius: 12px;
-    background: var(--color-superficie, #1a1a2e);
+    background: var(--color-superficie, #12172b);
     box-shadow: 0 4px 12px #0000001a;
     box-sizing: border-box;
 }
@@ -503,9 +506,9 @@
     display: block;
     width: 100%;
     aspect-ratio: 4 / 3;
+    border-radius: 10px;
     object-fit: cover;
     object-position: center;
-    border-radius: 10px;
 }
 
 .detalle-hero__info {
@@ -517,7 +520,7 @@
 
 .detalle-hero__nombre {
     margin: 0;
-    color: var(--color-texto-principal, #ffffff);
+    color: var(--color-texto-principal, #f8fafc);
     font-size: 1.7rem;
     font-weight: 700;
     line-height: 1.3;
@@ -527,29 +530,29 @@
 .detalle-hero__recinto,
 .detalle-hero__fecha {
     margin: 0;
-    color: var(--color-texto-secundario, #b8b8c8);
+    color: var(--color-texto-secundario, #94a3b8);
     font-size: 0.9rem;
     line-height: 1.6;
 }
 
 .detalle-hero__recinto strong,
 .detalle-hero__fecha strong {
-    color: var(--color-texto-principal, #ffffff);
+    color: var(--color-texto-principal, #f8fafc);
 }
 
-/* Acciones de la presentación */
+/* Acciones compartidas */
 
 .detalle-hero__acciones {
     grid-column: 1 / -1;
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 12px;
     padding-top: 15px;
-    border-top: 1px solid var(--color-borde, #34344a);
+    border-top: 1px solid var(--color-borde, #1e2540);
 }
 
-/* =========================================
-   12. DETALLE ESPECÍFICO DEL FAN PACK
-   ========================================= */
-
-/* Imagen del producto */
+/* 12. DETALLE ESPECÍFICO DEL FAN PACK */
 
 .detalle-hero--fanpack .detalle-hero__marco-foto {
     max-width: 300px;
@@ -563,52 +566,45 @@
     background-color: #00000020;
 }
 
-/* Nombre del artista */
-
 #artista-detalle-fanpack {
     margin: 0;
-    color: var(--color-primario-activo, #818cf8);
+    color: var(--color-primario-activo, #4f46e5);
     font-size: 0.95rem;
     font-weight: 700;
     text-transform: uppercase;
     letter-spacing: 1px;
 }
 
-/* Nombre del producto */
-
 #nombre-detalle-fanpack {
     margin: 0;
-    color: var(--color-texto-principal, #ffffff);
+    color: var(--color-texto-principal, #f8fafc);
     font-size: 1.8rem;
     line-height: 1.3;
 }
 
-/* Descripción */
-
 #descripcion-detalle-fanpack {
     margin: 0;
-    color: var(--color-texto-secundario, #b8b8c8);
+    color: var(--color-texto-secundario, #94a3b8);
     font-size: 0.95rem;
     line-height: 1.7;
 }
 
-/* Precio */
-
 #precio-detalle-fanpack {
     margin: 8px 0;
-    color: var(--color-primario-activo, #818cf8);
+    color: var(--color-primario-activo, #4f46e5);
     font-size: 1.6rem;
     font-weight: 700;
 }
 
-/* Botón para agregar a reservas */
+/* Botones de acciones del Fan Pack */
 
-#boton-agregar-detalle-fanpack {
+#boton-agregar-detalle-fanpack,
+#vista-detalle-fanpack .boton-quitar-pack {
     display: inline-block;
     padding: 12px 20px;
-    border: 1px solid var(--color-primario-activo, #818cf8);
+    border: 1px solid var(--color-primario-activo, #4f46e5);
     border-radius: 8px;
-    background-color: var(--color-primario, #6366f1);
+    background-color: var(--color-primario, #4338ca);
     color: #ffffff;
     font-size: 0.9rem;
     font-weight: 700;
@@ -616,14 +612,17 @@
     transition: background-color 0.2s ease, transform 0.2s ease;
 }
 
-#boton-agregar-detalle-fanpack:hover {
-    background-color: var(--color-primario-activo, #818cf8);
+#boton-agregar-detalle-fanpack:hover,
+#vista-detalle-fanpack .boton-quitar-pack:hover {
+    background-color: var(--color-primario-activo, #4f46e5);
     transform: translateY(-2px);
 }
 
-/* =========================================
-   13. PANELES DE INFORMACIÓN
-   ========================================= */
+#estado-reserva-fanpack {
+    margin-left: 8px;
+}
+
+/* 13. PANELES DE INFORMACIÓN COMPARTIDOS */
 
 .detalle-paneles-grilla {
     display: grid;
@@ -636,46 +635,39 @@
 .panel-box {
     min-width: 0;
     padding: 22px;
-    border: 1px solid var(--color-borde, #34344a);
+    border: 1px solid var(--color-borde, #1e2540);
     border-radius: 12px;
-    background: var(--color-superficie, #1a1a2e);
+    background: var(--color-superficie, #12172b);
     box-shadow: 0 4px 12px #0000001a;
     box-sizing: border-box;
 }
 
 .panel-box--completo {
+    grid-column: 1 / -1;
     width: 100%;
 }
 
 .panel-box__titulo {
     margin: 0 0 18px;
     padding-bottom: 12px;
-    border-bottom: 1px solid var(--color-borde, #34344a);
-    color: var(--color-texto-principal, #ffffff);
+    border-bottom: 1px solid var(--color-borde, #1e2540);
+    color: var(--color-texto-principal, #f8fafc);
     font-size: 1rem;
     font-weight: 700;
 }
 
 .panel-box__texto-legal {
     margin: 18px 0 0;
-    color: var(--color-texto-secundario, #b8b8c8);
+    color: var(--color-texto-secundario, #94a3b8);
     font-size: 0.85rem;
     line-height: 1.7;
 }
 
 .panel-box__texto-legal strong {
-    color: var(--color-texto-principal, #ffffff);
+    color: var(--color-texto-principal, #f8fafc);
 }
 
-/* Estado de la reserva */
-
-#estado-reserva-fanpack {
-    margin-left: 8px;
-}
-
-/* =========================================
-   14. INFORMACIÓN DE HORARIOS
-   ========================================= */
+/* 14. INFORMACIÓN DE HORARIOS Y DATOS */
 
 .horarios-grid {
     display: grid;
@@ -689,7 +681,7 @@
     gap: 7px;
     min-width: 0;
     padding: 14px;
-    border: 1px solid var(--color-borde, #34344a);
+    border: 1px solid var(--color-borde, #1e2540);
     border-radius: 8px;
     background-color: #00000020;
     box-sizing: border-box;
@@ -700,20 +692,18 @@
 }
 
 .horarios-grid__etiqueta {
-    color: var(--color-texto-secundario, #b8b8c8);
+    color: var(--color-texto-secundario, #94a3b8);
     font-size: 0.8rem;
 }
 
 .horarios-grid__valor {
-    color: var(--color-texto-principal, #ffffff);
+    color: var(--color-texto-principal, #f8fafc);
     font-size: 0.95rem;
     line-height: 1.5;
     overflow-wrap: anywhere;
 }
 
-/* =========================================
-   15. SETLIST
-   ========================================= */
+/* 15. LISTAS DE CANCIONES E INFORMACIÓN */
 
 .canciones-lista {
     display: flex;
@@ -721,12 +711,12 @@
     gap: 0;
     margin: 0;
     padding-left: 25px;
-    color: var(--color-texto-secundario, #b8b8c8);
+    color: var(--color-texto-secundario, #94a3b8);
 }
 
 .canciones-lista__item {
     padding: 12px 5px;
-    border-bottom: 1px solid var(--color-borde, #34344a);
+    border-bottom: 1px solid var(--color-borde, #1e2540);
     font-size: 0.9rem;
     line-height: 1.5;
 }
@@ -735,13 +725,104 @@
     border-bottom: none;
 }
 
+/* 16. DISEÑO DE DETALLES DINÁMICOS DE EVENTOS */
+
+/* Los eventos reutilizan los paneles y tarjetas
+   del detalle de Fan Pack. */
+
+.detalle-evento-contenedor {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    width: 100%;
+}
+
+.detalle-evento-panel {
+    width: 100%;
+    padding: 22px;
+    border: 1px solid var(--color-borde, #1e2540);
+    border-radius: 12px;
+    background: var(--color-superficie, #12172b);
+    box-shadow: 0 4px 12px #0000001a;
+    box-sizing: border-box;
+}
+
+.detalle-evento-titulo {
+    margin: 0 0 18px;
+    padding-bottom: 12px;
+    border-bottom: 1px solid var(--color-borde, #1e2540);
+    color: var(--color-texto-principal, #f8fafc);
+    font-size: 1rem;
+    font-weight: 700;
+}
+
+.detalle-evento-dato {
+    display: flex;
+    flex-direction: column;
+    gap: 7px;
+    padding: 12px 0;
+    border-bottom: 1px solid var(--color-borde, #1e2540);
+}
+
+.detalle-evento-dato:last-child {
+    border-bottom: none;
+}
+
+.detalle-evento-dato strong {
+    color: var(--color-texto-principal, #f8fafc);
+    font-size: 0.9rem;
+}
+
+.detalle-evento-dato span {
+    color: var(--color-texto-secundario, #94a3b8);
+    font-size: 0.9rem;
+    line-height: 1.6;
+}
+
+.detalle-evento-lista {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin: 0;
+    padding-left: 22px;
+    list-style: disc;
+    color: var(--color-texto-secundario, #94a3b8);
+}
+
+.detalle-evento-lista li {
+    padding-left: 4px;
+    font-size: 0.9rem;
+    line-height: 1.6;
+}
+
+.boton-volver-eventos {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 20px;
+    padding: 9px 15px;
+    border: 1px solid var(--color-primario-activo, #4f46e5);
+    border-radius: 6px;
+    background-color: transparent;
+    color: var(--color-primario-activo, #4f46e5);
+    font-size: 0.9rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.boton-volver-eventos:hover {
+    background-color: var(--color-primario-activo, #4f46e5);
+    color: #ffffff;
+}
+
+/* 17. BOTONES GENERALES DE LA VISTA */
+
 #eventos-perfil .boton {
     margin-top: 15px;
 }
 
-/* =========================================
-   16. DISEÑO RESPONSIVO
-   ========================================= */
+/* 18. DISEÑO RESPONSIVO */
 
 @media (max-width: 900px) {
 
@@ -796,6 +877,7 @@
 
     .perfil-evento-acciones {
         justify-content: flex-start;
+        width: 100%;
     }
 
     .perfil-evento-fecha {
@@ -821,7 +903,7 @@
         font-size: 0.8rem;
     }
 
-    /* Detalles en celulares */
+    /* Detalles compartidos */
 
     .detalle-hero {
         grid-template-columns: 1fr;
@@ -838,13 +920,15 @@
 
     .detalle-hero__acciones {
         grid-column: 1;
+        align-items: flex-start;
     }
 
     .detalle-paneles-grilla {
         grid-template-columns: 1fr;
     }
 
-    .panel-box {
+    .panel-box,
+    .detalle-evento-panel {
         padding: 16px;
     }
 
@@ -856,7 +940,7 @@
         grid-column: 1;
     }
 
-    /* Detalle del Fan Pack en celulares */
+    /* Detalle del Fan Pack */
 
     .detalle-hero--fanpack .detalle-hero__marco-foto {
         width: 100%;
@@ -871,11 +955,18 @@
         font-size: 1.4rem;
     }
 
-    #boton-agregar-detalle-fanpack {
+    #boton-agregar-detalle-fanpack,
+    #vista-detalle-fanpack .boton-quitar-pack {
         width: 100%;
     }
-}
 
+    /* Botones de eventos */
+
+    .boton-ver-detalle-evento,
+    .boton-quitar-evento {
+        flex: 1;
+    }
+}
 
 @media (max-width: 380px) {
 
