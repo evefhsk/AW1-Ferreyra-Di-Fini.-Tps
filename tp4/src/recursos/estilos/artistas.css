@@ -1,18 +1,11 @@
 
-.visually-hidden {
-    position: absolute;
-    width: 1px;
-    height: 1px;
-    padding: 0;
-    margin: -1px;
-    overflow: hidden;
-    clip: rect(0, 0, 0, 0);
-    white-space: nowrap;
-    border: 0;
-}
+/* =========================================
+   CABECERA Y BUSCADOR
+   ========================================= */
 
-/* --- Cabecera y Buscador --- */
-.artistas-intro { margin-bottom: 20px; }
+.artistas-intro {
+    margin-bottom: 20px;
+}
 
 .artistas-intro__titulo {
     font-size: 2.2rem;
@@ -26,7 +19,9 @@
     line-height: 1.5;
 }
 
-.seccion-busqueda { margin-bottom: 25px; }
+.seccion-busqueda {
+    margin-bottom: 25px;
+}
 
 .buscador-form {
     display: flex;
@@ -45,10 +40,19 @@
     outline: none;
 }
 
-.buscador-form__input:focus { border-color: var(--color-primario-activo); }
-.buscador-form__input::placeholder { color: #64748b; }
+.buscador-form__input:focus {
+    border-color: var(--color-primario-activo);
+}
 
-/* --- Filtros --- */
+.buscador-form__input::placeholder {
+    color: #64748b;
+}
+
+
+/* =========================================
+   FILTROS
+   ========================================= */
+
 .filtros-grupo {
     border: none;
     padding: 0;
@@ -94,7 +98,11 @@
     outline-offset: 3px;
 }
 
-/* --- Grilla de Artistas (Mobile First) --- */
+
+/* =========================================
+   GRILLA DE ARTISTAS
+   ========================================= */
+
 .artistas-grilla {
     display: grid;
     grid-template-columns: 1fr;
@@ -170,39 +178,21 @@
     color: #ffffff;
 }
 
-/* --- Acciones Específicas de Detalle --- */
-.boton-accion-negro {
-    width: 100%;
-    background-color: #000000;
-    color: #ffffff;
-    border: 1.5px solid var(--color-borde);
-    padding: 12px;
-    font-weight: 800;
-    font-size: 0.9rem;
-    border-radius: 6px;
-    cursor: pointer;
-    transition: background-color 0.2s;
-}
-.boton-accion-negro:hover { background-color: var(--color-primario-activo); }
 
-.boton-accion-borde {
-    width: 100%;
-    background-color: var(--color-superficie);
-    color: var(--color-texto-principal);
-    border: 1.5px solid var(--color-borde);
-    padding: 12px;
-    font-weight: 700;
-    font-size: 0.9rem;
-    border-radius: 6px;
-    cursor: pointer;
-    transition: background-color 0.2s, border-color 0.2s;
-}
-.boton-accion-borde:hover {
-    background-color: var(--color-fondo);
-    border-color: var(--color-primario-activo);
+/* =========================================
+   FAN PACKS OFICIALES
+   ========================================= */
+
+/* Grilla donde se muestran todos los Fan Packs */
+
+#lista-fanpacks-artista {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 16px;
 }
 
-/* --- Fan Packs en Detalle --- */
+/* Tarjeta individual del Fan Pack */
+
 .pack-compra {
     background-color: #1a2238;
     border: 1px solid var(--color-borde);
@@ -213,11 +203,15 @@
     gap: 14px;
 }
 
+/* Cabecera de la tarjeta */
+
 .pack-compra__cabecera {
     display: flex;
     align-items: center;
     gap: 14px;
 }
+
+/* Imagen del Fan Pack */
 
 .pack-compra__miniatura {
     width: 70px;
@@ -231,9 +225,21 @@
     font-weight: 700;
     color: var(--color-texto-secundario);
     flex-shrink: 0;
+    overflow: hidden;
 }
 
-.pack-compra__datos { min-width: 0; }
+.pack-compra__miniatura img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    border-radius: 6px;
+}
+
+/* Datos del Fan Pack */
+
+.pack-compra__datos {
+    min-width: 0;
+}
 
 .pack-compra__nombre {
     font-size: 1rem;
@@ -246,6 +252,8 @@
     color: var(--color-texto-secundario);
     line-height: 1.5;
 }
+
+/* Formulario de compra */
 
 .pack-compra__form {
     display: flex;
@@ -262,6 +270,8 @@
     color: var(--color-texto-principal);
     font-size: 0.9rem;
 }
+
+/* Precio y botón */
 
 .pack-compra__pie {
     display: flex;
@@ -287,21 +297,29 @@
     cursor: pointer;
     transition: background-color 0.2s;
 }
-.boton-pack-agregar:hover { background-color: var(--color-primario); }
 
-/* --- Media Query Específica de Artistas --- */
+.boton-pack-agregar:hover {
+    background-color: var(--color-primario);
+}
+
+
+/* =========================================
+   DISEÑO RESPONSIVE
+   ========================================= */
+
 @media (min-width: 768px) {
+
+    /* Catálogo de artistas */
+
     .artistas-grilla {
         grid-template-columns: repeat(3, 1fr);
         gap: 24px;
     }
 
-    .detalle-hero__acciones {
-        flex-direction: row;
+    /* Fan Packs: dos columnas */
+
+    #lista-fanpacks-artista {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
     }
 
-    .boton-accion-negro,
-    .boton-accion-borde {
-        flex: 1;
-    }
 }
