@@ -1,0 +1,559 @@
+
+/* =========================================
+   ESTILOS GENERALES
+   ========================================= */
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+:root {
+    --color-fondo: #0a0d1a;
+    --color-superficie: #12172b;
+    --color-borde: #1e2540;
+    --color-primario: #4338ca;
+    --color-primario-activo: #4f46e5;
+    --color-texto-principal: #f8fafc;
+    --color-texto-secundario: #94a3b8;
+    --fuente-base: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+}
+
+html {
+    font-family: var(--fuente-base);
+    font-size: 16px;
+    background-color: var(--color-fondo);
+    color: var(--color-texto-principal);
+}
+
+body {
+    background-color: var(--color-fondo);
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+ul {
+    list-style: none;
+}
+
+
+/* =========================================
+   ACCESIBILIDAD
+   ========================================= */
+
+.visually-hidden {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+}
+
+
+/* =========================================
+   BOTONES GENERALES
+   ========================================= */
+
+.boton {
+    display: inline-block;
+    padding: 10px 18px;
+    border-radius: 6px;
+    font-size: 0.95rem;
+    font-weight: 600;
+    text-align: center;
+    cursor: pointer;
+    border: none;
+    transition: background-color 0.2s;
+}
+
+.boton--primario {
+    background-color: var(--color-primario);
+    color: #ffffff;
+    align-self: flex-start;
+}
+
+.boton--primario:hover {
+    background-color: var(--color-primario-activo);
+}
+
+.boton--secundario {
+    background-color: transparent;
+    border: 1px solid var(--color-primario-activo);
+    color: #818cf8;
+    width: 100%;
+    margin-top: 12px;
+}
+
+.boton--secundario:hover {
+    background-color: var(--color-primario-activo);
+    color: #ffffff;
+}
+
+.boton-accion-negro {
+    width: 100%;
+    background-color: #000000;
+    color: #ffffff;
+    border: 1.5px solid var(--color-borde);
+    padding: 12px;
+    font-weight: 800;
+    font-size: 0.9rem;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.boton-accion-negro:hover {
+    background-color: var(--color-primario-activo);
+}
+
+.boton-accion-borde {
+    width: 100%;
+    background-color: var(--color-superficie);
+    color: var(--color-texto-principal);
+    border: 1.5px solid var(--color-borde);
+    padding: 12px;
+    font-weight: 700;
+    font-size: 0.9rem;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background-color 0.2s, border-color 0.2s;
+}
+
+.boton-accion-borde:hover {
+    background-color: var(--color-fondo);
+    border-color: var(--color-primario-activo);
+}
+
+
+/* =========================================
+   NAVEGACIÓN Y VISTAS (SPA)
+   ========================================= */
+
+.seccion-oculta {
+    display: none !important;
+}
+
+.vista-detalle {
+    width: 100%;
+    margin-top: 25px;
+}
+
+.boton-volver {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 20px;
+    padding: 9px 15px;
+    border: 1px solid var(--color-borde);
+    border-radius: 6px;
+    background-color: transparent;
+    color: var(--color-texto-secundario);
+    font-size: 0.9rem;
+    font-weight: 600;
+    text-decoration: none;
+    transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.boton-volver:hover {
+    background-color: var(--color-superficie);
+    color: var(--color-texto-principal);
+}
+
+.boton-volver__flecha {
+    font-size: 1.1rem;
+}
+
+.perfil-titulo-seccion {
+    margin-bottom: 20px;
+    color: var(--color-texto-principal);
+    font-size: 1.5rem;
+    font-weight: 700;
+}
+
+
+/* =========================================
+   PANELES Y DETALLES
+   ========================================= */
+
+.detalle-hero {
+    display: grid;
+    grid-template-columns: minmax(200px, 300px) minmax(0, 1fr);
+    gap: 25px;
+    align-items: center;
+    width: 100%;
+    margin-bottom: 25px;
+    padding: 25px;
+    border: 1px solid var(--color-borde);
+    border-radius: 12px;
+    background: var(--color-superficie);
+    box-shadow: 0 4px 12px #0000001a;
+}
+
+.detalle-hero__marco-foto {
+    width: 100%;
+    margin: 0;
+    overflow: hidden;
+    border-radius: 10px;
+}
+
+.detalle-hero__foto {
+    display: block;
+    width: 100%;
+    aspect-ratio: 4 / 3;
+    border-radius: 10px;
+    object-fit: cover;
+    object-position: center;
+}
+
+.detalle-hero__info {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    min-width: 0;
+}
+
+.detalle-hero__nombre {
+    margin: 0;
+    color: var(--color-texto-principal);
+    font-size: 1.7rem;
+    font-weight: 700;
+    line-height: 1.3;
+}
+
+.detalle-hero__descripcion,
+.detalle-hero__recinto,
+.detalle-hero__fecha {
+    margin: 0;
+    color: var(--color-texto-secundario);
+    font-size: 0.9rem;
+    line-height: 1.6;
+}
+
+.detalle-hero__acciones {
+    grid-column: 1 / -1;
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 12px;
+    padding-top: 15px;
+    border-top: 1px solid var(--color-borde);
+}
+
+.detalle-paneles-grilla {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 20px;
+    width: 100%;
+    margin-bottom: 20px;
+}
+
+.panel-box {
+    min-width: 0;
+    padding: 22px;
+    border: 1px solid var(--color-borde);
+    border-radius: 12px;
+    background: var(--color-superficie);
+    box-shadow: 0 4px 12px #0000001a;
+}
+
+.panel-box--completo {
+    grid-column: 1 / -1;
+}
+
+.panel-box__titulo {
+    margin: 0 0 18px;
+    padding-bottom: 12px;
+    border-bottom: 1px solid var(--color-borde);
+    color: var(--color-texto-principal);
+    font-size: 1rem;
+    font-weight: 700;
+}
+
+.panel-box__texto-legal {
+    margin: 0;
+    color: var(--color-texto-secundario);
+    font-size: 0.9rem;
+    line-height: 1.6;
+    overflow-wrap: anywhere;
+}
+
+
+/* =========================================
+   HORARIOS
+   ========================================= */
+
+.horarios-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 15px;
+}
+
+.horarios-grid__celda {
+    display: flex;
+    flex-direction: column;
+    gap: 7px;
+    min-width: 0;
+    padding: 12px;
+    border: 1px solid var(--color-borde);
+    border-radius: 8px;
+}
+
+.horarios-grid__celda--completa {
+    grid-column: 1 / -1;
+}
+
+.horarios-grid__etiqueta {
+    color: var(--color-texto-secundario);
+    font-size: 0.85rem;
+}
+
+.horarios-grid__valor {
+    color: var(--color-texto-principal);
+    font-size: 0.95rem;
+    overflow-wrap: anywhere;
+}
+
+
+/* =========================================
+   LISTA DE CANCIONES
+   ========================================= */
+
+.canciones-lista {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    margin: 0;
+    padding: 0;
+    color: var(--color-texto-secundario);
+    list-style: none;
+}
+
+.canciones-lista__item {
+    padding: 12px 5px;
+    border-bottom: 1px solid var(--color-borde);
+    font-size: 0.9rem;
+    line-height: 1.5;
+}
+
+.canciones-lista__item:last-child {
+    border-bottom: none;
+}
+
+
+/* =========================================
+   CABECERA PRINCIPAL
+   ========================================= */
+
+.encabezado-principal {
+    background-color: var(--color-superficie);
+    border-bottom: 1px solid var(--color-borde);
+    padding: 12px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.encabezado-principal__logo-enlace {
+    font-size: 1.3rem;
+    font-weight: 700;
+    color: #818cf8;
+}
+
+.encabezado-principal__logo-img {
+    height: 75px;
+    display: block;
+}
+
+.encabezado-principal__nav {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.encabezado-principal__nav-enlace {
+    font-size: 0.9rem;
+    color: var(--color-texto-secundario);
+    padding: 6px 12px;
+    border-radius: 6px;
+}
+
+.encabezado-principal__nav-enlace--activo {
+    background-color: var(--color-primario-activo);
+    color: #ffffff;
+}
+
+.encabezado-principal__nav-perfil {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    width: 38px;
+    height: 38px;
+}
+
+.encabezado-principal__nav-perfil--activo {
+    background-color: var(--color-primario-activo, #4f46e5);
+}
+
+.encabezado-principal__perfil-img {
+    height: 24px;
+}
+
+
+/* =========================================
+   CONTENIDO PRINCIPAL
+   ========================================= */
+
+.contenido-principal {
+    flex: 1;
+    width: 100%;
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+
+/* =========================================
+   PIE DE PÁGINA
+   ========================================= */
+
+.pie-principal {
+    background-color: var(--color-fondo);
+    border-top: 1px solid var(--color-borde);
+    padding: 24px 20px;
+    font-size: 0.85rem;
+    color: var(--color-texto-secundario);
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    align-items: center;
+    text-align: center;
+}
+
+.pie-principal__lista {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.pie-principal .mensajeria {
+    list-style: none;
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 1000;
+}
+
+.pie-principal .mensajeria a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--color-primario, #6366f1);
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    transition: transform 0.2s ease, background-color 0.2s ease;
+}
+
+.pie-principal .mensajeria a:hover {
+    transform: scale(1.1);
+    background-color: var(--color-primario-activo, #4f46e5);
+}
+
+.pie-principal .mensajeria img {
+    width: 26px;
+    height: 26px;
+    object-fit: contain;
+}
+
+
+/* =========================================
+   DISEÑO RESPONSIVE GENERAL
+   ========================================= */
+
+@media (min-width: 768px) {
+
+    .encabezado-principal {
+        padding: 14px 40px;
+    }
+
+    .pie-principal {
+        flex-direction: row;
+        justify-content: space-between;
+        padding: 20px 40px;
+    }
+
+    .pie-principal__lista {
+        flex-direction: row;
+        gap: 20px;
+    }
+
+    .detalle-hero {
+        grid-template-columns: minmax(200px, 300px) minmax(0, 1fr);
+    }
+
+    .detalle-paneles-grilla {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .detalle-hero__acciones {
+        flex-direction: row;
+    }
+
+    .boton-accion-negro,
+    .boton-accion-borde {
+        flex: 1;
+    }
+}
+
+@media (max-width: 900px) {
+
+    .detalle-hero {
+        grid-template-columns: minmax(180px, 250px) minmax(0, 1fr);
+    }
+
+    .detalle-paneles-grilla {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 600px) {
+
+    .detalle-hero {
+        grid-template-columns: 1fr;
+        padding: 18px;
+    }
+
+    .detalle-hero__marco-foto {
+        max-width: 100%;
+    }
+
+    .detalle-hero__nombre {
+        font-size: 1.35rem;
+    }
+
+    .panel-box {
+        padding: 16px;
+    }
+
+    .boton-volver {
+        width: 100%;
+        justify-content: center;
+    }
+
+    .horarios-grid {
+        grid-template-columns: 1fr;
+    }
+}

@@ -1,0 +1,385 @@
+
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SoundDay/Inicio</title>
+
+    <!-- Hojas de estilos -->
+    <link rel="stylesheet" href="./recursos/estilos/estilos.css">
+    <link rel="stylesheet" href="./recursos/estilos/index.css">
+
+    <script type="module" src="./recursos/js/index.js"></script>
+</head>
+
+<body class="pagina">
+
+    <!-- Encabezado principal -->
+    <header class="encabezado-principal">
+
+        <a class="encabezado-principal__logo-enlace" href="./index.html" aria-label="Ir al inicio">
+            <img
+                class="encabezado-principal__logo-img"
+                src="./recursos/imagenes/logos/soundday_white.png"
+                alt="Logo SoundDay"
+            >
+        </a>
+
+        <nav class="encabezado-principal__nav">
+
+            <a
+                class="encabezado-principal__nav-enlace encabezado-principal__nav-enlace--activo"
+                href="./index.html"
+            >
+                Inicio
+            </a>
+
+            <a class="encabezado-principal__nav-enlace" href="./artistas.html">
+                Artistas
+            </a>
+
+            <a class="encabezado-principal__nav-enlace" href="./contacto.html">
+                Contacto
+            </a>
+
+            <a
+                class="encabezado-principal__nav-perfil"
+                href="./perfil.html"
+                aria-label="Ir al perfil"
+            >
+                <img
+                    class="encabezado-principal__perfil-img"
+                    src="./recursos/imagenes/logos/usuario.png"
+                    alt="Ir al perfil"
+                >
+            </a>
+
+        </nav>
+
+    </header>
+
+
+    <!-- Contenido principal -->
+    <main class="contenido-principal">
+
+        <!-- Banner de bienvenida -->
+        <section class="banner-principal">
+
+            <h1 class="banner-principal__titulo">
+                Bienvenido a SoundDay
+            </h1>
+
+            <p class="banner-principal__subtitulo">
+                Descubre y planifica tus próximos shows
+            </p>
+
+        </section>
+
+
+        <!-- Sección Noticias y Novedades -->
+        <section class="seccion-noticias" aria-labelledby="titulo-novedades">
+
+            <h2 class="seccion-noticias__titulo" id="titulo-novedades">
+                Anuncios y noticias destacadas
+            </h2>
+
+            <div class="seccion-noticias__grilla">
+
+                <article class="tarjeta">
+
+                    <p class="tarjeta__descripcion">
+                        Exclusivo show a las 21:00 hs el 25/09. ¡No te lo pierdas!
+                    </p>
+
+                    <p class="tarjeta__texto">
+                        Consulta los horarios del recinto, accesos y reserva tus fan packs antes de la fecha del show.
+                    </p>
+
+                    <a class="boton boton--primario" href="#seccion-eventos">
+                        Ver eventos top
+                    </a>
+
+                </article>
+
+
+                <article class="tarjeta">
+
+                    <p class="tarjeta__descripcion">
+                        Nuevas fechas confirmadas de giras oficiales
+                    </p>
+
+                    <p class="tarjeta__texto">
+                        Revisa las sedes programadas, recintos confirmados y repertorios en vivo de esta temporada.
+                    </p>
+
+                    <a class="boton boton--primario" href="./artistas.html">
+                        Ver artistas del momento
+                    </a>
+
+                </article>
+
+            </div>
+
+        </section>
+
+
+        <!-- Módulo reutilizable de eventos -->
+        <div id="contenedor-modulo-eventos"></div>
+
+
+        <!-- =========================================
+             DETALLE DEL EVENTO SELECCIONADO
+             ========================================= -->
+
+        <section
+            class="vista-detalle seccion-oculta"
+            id="detalles-evento"
+            aria-labelledby="titulo-detalle-evento"
+        >
+
+            <!-- Botón para volver -->
+            <a class="boton-volver"
+                href="#seccion-eventos">
+
+                <span class="boton-volver__flecha"
+                    aria-hidden="true">
+                    ←
+                </span>
+
+                Volver a eventos
+
+            </a>
+
+
+            <h2 class="perfil-titulo-seccion"
+                id="titulo-detalle-evento">
+                Detalle del evento
+            </h2>
+
+
+            <!-- PRESENTACIÓN PRINCIPAL -->
+
+            <article class="detalle-hero detalle-hero--fanpack">
+
+                <figure class="detalle-hero__marco-foto">
+
+                    <img
+                        id="imagen-detalle-evento"
+                        class="detalle-hero__foto"
+                        src="./recursos/imagenes/artistas/thebeatlestour.jpg"
+                        alt="Imagen del evento seleccionado"
+                    >
+
+                </figure>
+
+
+                <div class="detalle-hero__info">
+
+                    <p
+                        class="detalle-hero__recinto"
+                        id="artista-detalle-evento"
+                    >
+                        Artista
+                    </p>
+
+                    <h3
+                        class="detalle-hero__nombre"
+                        id="nombre-detalle-evento"
+                    >
+                        Nombre del evento
+                    </h3>
+
+                    <p
+                        class="detalle-hero__descripcion"
+                        id="descripcion-detalle-evento"
+                    >
+                        Descripción del evento seleccionado.
+                    </p>
+
+                    <p
+                        class="detalle-hero__fecha"
+                        id="fecha-detalle-evento"
+                    >
+                        Fecha del evento
+                    </p>
+
+                </div>
+
+            </article>
+
+
+            <!-- INFORMACIÓN COMPLEMENTARIA -->
+
+            <div class="detalle-paneles-grilla">
+
+
+                <!-- INFORMACIÓN DEL SHOW Y RECINTO -->
+
+                <article class="panel-box">
+
+                    <h3 class="panel-box__titulo">
+                        INFORMACIÓN DEL SHOW Y RECINTO
+                    </h3>
+
+                    <div class="horarios-grid">
+
+                        <div class="horarios-grid__celda">
+
+                            <span class="horarios-grid__etiqueta">
+                                Apertura de puertas
+                            </span>
+
+                            <strong
+                                class="horarios-grid__valor"
+                                id="apertura-puertas-evento"
+                            >
+                                -
+                            </strong>
+
+                        </div>
+
+
+                        <div class="horarios-grid__celda">
+
+                            <span class="horarios-grid__etiqueta">
+                                Inicio del show
+                            </span>
+
+                            <strong
+                                class="horarios-grid__valor"
+                                id="inicio-show-evento"
+                            >
+                                -
+                            </strong>
+
+                        </div>
+
+
+                        <div class="horarios-grid__celda horarios-grid__celda--completa">
+
+                            <span class="horarios-grid__etiqueta">
+                                Puntos de acceso
+                            </span>
+
+                            <strong
+                                class="horarios-grid__valor"
+                                id="accesos-evento"
+                            >
+                                -
+                            </strong>
+
+                        </div>
+
+                    </div>
+
+
+                    <p class="panel-box__texto-legal"
+                        id="elementos-permitidos-evento">
+
+                        <strong>Elementos permitidos:</strong>
+                        Información no disponible.
+
+                    </p>
+
+                </article>
+
+
+                <!-- SETLIST -->
+
+                <article class="panel-box">
+
+                    <h3 class="panel-box__titulo">
+                        SETLIST PROMEDIO DE LA GIRA
+                    </h3>
+
+                    <ol
+                        class="canciones-lista"
+                        id="setlist-evento"
+                    >
+
+                        <!-- JavaScript genera las canciones -->
+
+                    </ol>
+
+                </article>
+
+
+                <!-- RETIRO DE FAN PACK -->
+
+                <article class="panel-box panel-box--completo">
+
+                    <h3 class="panel-box__titulo">
+                        RETIRO DE FAN PACK
+                    </h3>
+
+                    <p class="panel-box__texto-legal"
+                        id="retiro-fanpack-evento">
+
+                        Información sobre el retiro del Fan Pack.
+
+                    </p>
+
+                </article>
+
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <!-- Pie de página -->
+    <footer class="pie-principal">
+
+        <p class="pie-principal__copyright">
+            © 2026 SoundDay.com.ar
+        </p>
+
+        <ul class="pie-principal__lista">
+
+            <li class="pie-principal__item">
+                <a
+                    class="pie-principal__enlace"
+                    href="https://instagram.com/soundday"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                >
+                    @soundday
+                </a>
+            </li>
+
+            <li class="pie-principal__item">
+                Av. Figueroa Alcorta 1354
+            </li>
+
+            <li class="pie-principal__item">
+                <a class="pie-principal__enlace" href="./contacto.html">
+                    Contacto
+                </a>
+            </li>
+
+            <li class="mensajeria">
+                <a
+                    href="https://wa.me?tel=1111111"
+                    aria-label="Enlace al WhatsApp"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                >
+                    <img
+                        src="./recursos/imagenes/iconos/mensaje.png"
+                        alt="Icono de mensajería"
+                    >
+                </a>
+            </li>
+
+        </ul>
+
+    </footer>
+
+</body>
+
+</html>
+

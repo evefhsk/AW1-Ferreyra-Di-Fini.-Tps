@@ -1,0 +1,347 @@
+
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Explora tus artistas favoritos, próximos shows y Fan Packs oficiales en SoundDay.">
+    <title>SoundDay / Artistas</title>
+    <link rel="stylesheet" href="./recursos/estilos/estilos.css">
+    <link rel="stylesheet" href="./recursos/estilos/artistas.css">
+</head>
+
+<body class="pagina">
+
+    <!-- Encabezado general compartido -->
+    <header class="encabezado-principal">
+
+        <a class="encabezado-principal__logo-enlace" href="./index.html" aria-label="Ir al inicio">
+            <img class="encabezado-principal__logo-img" src="./recursos/imagenes/logos/soundday_white.png" alt="Logo SoundDay">
+        </a>
+
+        <nav class="encabezado-principal__nav">
+            <a class="encabezado-principal__nav-enlace" href="./index.html">Inicio</a>
+
+            <a class="encabezado-principal__nav-enlace encabezado-principal__nav-enlace--activo" href="./artistas.html">
+                Artistas
+            </a>
+
+            <a class="encabezado-principal__nav-enlace" href="./contacto.html">Contacto</a>
+
+            <a class="encabezado-principal__nav-perfil" href="./perfil.html" aria-label="Ir al perfil">
+                <img class="encabezado-principal__perfil-img" src="./recursos/imagenes/logos/usuario.png" alt="Ir al perfil">
+            </a>
+        </nav>
+
+    </header>
+
+    <main class="contenido-principal">
+
+        <!-- VISTA DEL CATÁLOGO DE ARTISTAS -->
+        <div class="vista-catalogo" id="catalogo-seccion">
+
+            <section class="artistas-intro">
+                <h1 class="artistas-intro__titulo">Artistas</h1>
+
+                <p class="artistas-intro__bajada">
+                    Explora tus artistas favoritos, próximos shows y Fan Packs oficiales
+                </p>
+            </section>
+
+            <!-- BUSCADOR Y FILTROS -->
+            <section class="seccion-busqueda" aria-labelledby="titulo-busqueda">
+
+                <h2 class="visually-hidden" id="titulo-busqueda">
+                    Buscar y filtrar artistas
+                </h2>
+
+                <form class="buscador-form" action="#" method="get" role="search">
+
+                    <input
+                        class="buscador-form__input"
+                        type="search"
+                        id="buscar-artista"
+                        name="q"
+                        placeholder="Buscar por nombre, artista o tour..."
+                        aria-label="Buscar artistas"
+                    >
+
+                    <fieldset class="filtros-grupo">
+
+                        <legend class="filtros-grupo__titulo">Filtros:</legend>
+
+                        <label class="filtros-grupo__etiqueta filtros-grupo__etiqueta--activa">
+                            <input type="radio" name="genero" value="todos" checked>
+                            Todos
+                        </label>
+
+                        <label class="filtros-grupo__etiqueta">
+                            <input type="radio" name="genero" value="pop">
+                            Pop
+                        </label>
+
+                        <label class="filtros-grupo__etiqueta">
+                            <input type="radio" name="genero" value="rap">
+                            Rap
+                        </label>
+
+                        <label class="filtros-grupo__etiqueta">
+                            <input type="radio" name="genero" value="rock">
+                            Rock
+                        </label>
+
+                    </fieldset>
+
+                </form>
+
+            </section>
+
+            <!-- CATÁLOGO DINÁMICO DE ARTISTAS -->
+            <section class="catalogo-artistas" aria-labelledby="titulo-catalogo">
+
+                <h2 class="visually-hidden" id="titulo-catalogo">
+                    Catálogo de Artistas
+                </h2>
+
+                <div class="artistas-grilla" id="artistas-app" aria-live="polite">
+                    <!-- JavaScript inyecta las tarjetas dinámicamente -->
+                </div>
+
+            </section>
+
+        </div>
+
+
+        <!-- VISTA DEL DETALLE DEL ARTISTA -->
+        <section
+            class="vista-detalle seccion-oculta"
+            id="detalle-artista"
+            aria-labelledby="titulo-detalle-artista"
+        >
+
+            <!-- BOTÓN PARA VOLVER -->
+            <a class="boton-volver" href="#catalogo-seccion">
+
+                <span class="boton-volver__flecha" aria-hidden="true">←</span>
+
+                Volver al explorador de artistas
+
+            </a>
+
+
+            <!-- INFORMACIÓN PRINCIPAL DEL ARTISTA -->
+            <article class="detalle-hero">
+
+                <figure class="detalle-hero__marco-foto">
+
+                    <img
+                        class="detalle-hero__foto"
+                        id="detalle-artista-imagen"
+                        src=""
+                        alt="Imagen del artista"
+                    >
+
+                </figure>
+
+                <div class="detalle-hero__info">
+
+                    <h2 class="detalle-hero__nombre" id="detalle-artista-nombre">
+                        Nombre del Artista
+                    </h2>
+
+                    <p class="detalle-hero__descripcion" id="detalle-artista-descripcion">
+                        Descripción de la gira.
+                    </p>
+
+                    <p class="detalle-hero__recinto">
+                        <strong>Ubicación:</strong>
+                        <span id="detalle-artista-recinto">Recinto</span>
+                    </p>
+
+                    <p class="detalle-hero__fecha">
+                        <strong>Fecha:</strong>
+                        <span id="detalle-artista-fecha">Fecha y hora</span>
+                    </p>
+
+                </div>
+
+                <!-- ACCIONES DEL ARTISTA -->
+                <div class="detalle-hero__acciones">
+
+                    <button class="boton-accion-negro" type="button">
+                        + Seguir
+                    </button>
+
+                    <button class="boton-accion-borde" type="button">
+                        🔔 Alertas de Tour
+                    </button>
+
+                </div>
+
+            </article>
+
+
+            <!-- PANELES DE INFORMACIÓN -->
+            <div class="detalle-paneles-grilla">
+
+                <!-- INFORMACIÓN DEL SHOW -->
+                <article class="panel-box">
+
+                    <h3 class="panel-box__titulo">
+                        INFORMACIÓN DEL SHOW Y RECINTO
+                    </h3>
+
+                    <div class="horarios-grid">
+
+                        <div class="horarios-grid__celda">
+
+                            <span class="horarios-grid__etiqueta">
+                                Puertas
+                            </span>
+
+                            <strong class="horarios-grid__valor" id="detalle-artista-puertas">
+                                --:-- hs
+                            </strong>
+
+                        </div>
+
+                        <div class="horarios-grid__celda">
+
+                            <span class="horarios-grid__etiqueta">
+                                Show Principal
+                            </span>
+
+                            <strong class="horarios-grid__valor" id="detalle-artista-inicio">
+                                --:-- hs
+                            </strong>
+
+                        </div>
+
+                        <div class="horarios-grid__celda horarios-grid__celda--completa">
+
+                            <span class="horarios-grid__etiqueta">
+                                Puntos de Acceso
+                            </span>
+
+                            <strong class="horarios-grid__valor" id="detalle-artista-accesos">
+                                Accesos
+                            </strong>
+
+                        </div>
+
+                    </div>
+
+                    <p class="panel-box__texto-legal">
+
+                        <strong>Elementos permitidos:</strong>
+                        <span id="detalle-artista-elementos">
+                            Lista de elementos
+                        </span>
+
+                        <br>
+
+                        <strong>Retiro de Fan Packs:</strong>
+                        Stands oficiales en accesos.
+
+                    </p>
+
+                </article>
+
+
+                <!-- SETLIST -->
+                <article class="panel-box">
+
+                    <h3 class="panel-box__titulo">
+                        SETLIST PROMEDIO DE LA GIRA
+                    </h3>
+
+                    <ol class="canciones-lista" id="detalle-artista-setlist">
+                        <!-- JavaScript inyecta las canciones -->
+                    </ol>
+
+                </article>
+
+            </div>
+
+
+            <!-- SECCIÓN DINÁMICA DE TODOS LOS FAN PACKS -->
+            <article
+                class="panel-box panel-box--completo"
+                id="contenedor-fanpack-dinamico"
+            >
+
+                <h3 class="panel-box__titulo">
+                    FAN PACKS OFICIALES
+                </h3>
+
+                <!-- JavaScript genera todos los Fan Packs del artista -->
+                <div id="lista-fanpacks-artista">
+
+                </div>
+
+            </article>
+
+        </section>
+
+    </main>
+
+
+    <!-- PIE DE PÁGINA GENERAL -->
+    <footer class="pie-principal">
+
+        <p class="pie-principal__copyright">
+            © 2026 SoundDay.com.ar
+        </p>
+
+        <ul class="pie-principal__lista">
+
+            <li class="pie-principal__item">
+
+                <a
+                    class="pie-principal__enlace"
+                    href="https://instagram.com/soundday"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                >
+                    @soundday
+                </a>
+
+            </li>
+
+            <li class="pie-principal__item">
+                Av. Figueroa Alcorta 1354
+            </li>
+
+            <li class="pie-principal__item">
+
+                <a class="pie-principal__enlace" href="./contacto.html">
+                    Contacto
+                </a>
+
+            </li>
+
+            <li class="mensajeria">
+
+                <a
+                    href="https://wa.me?tel=1111111"
+                    aria-label="Enlace a WhatsApp"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                >
+                    <img src="./recursos/imagenes/iconos/mensaje.png" alt="Icono de mensajería">
+                </a>
+
+            </li>
+
+        </ul>
+
+    </footer>
+
+
+    <!-- Script principal de la vista Artistas -->
+    <script type="module" src="./recursos/js/artistas.js"></script>
+
+</body>
+
+</html>
