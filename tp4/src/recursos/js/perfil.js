@@ -1,3 +1,4 @@
+// recursos/js/perfil.js
 
 import { fanPacks } from "./catalogo.js";
 
@@ -18,8 +19,7 @@ import {
 } from "./detalleCatalogo.js";
 
 
-// 1. ARTISTAS QUE SIGUE EL USUARIO
-
+// 1. ARTISTAS QUE SIGUE EL USUARIO (Array maestro de referencia)
 const artistasSeguidos = [
     {
         id: 1,
@@ -43,39 +43,23 @@ const artistasSeguidos = [
 
 
 // 2. VARIABLES Y ELEMENTOS DEL HTML
-
 const reservas = [];
 
-const filtrosArtistas = document.querySelectorAll(
-    'input[name="filtro-artista"]'
-);
-
-const filtrosPacks = document.querySelectorAll(
-    'input[name="filtro-pack"]'
-);
+const filtrosArtistas = document.querySelectorAll('input[name="filtro-artista"]');
+const filtrosPacks = document.querySelectorAll('input[name="filtro-pack"]');
 
 const grillaArtistas = document.querySelector("#grilla-artistas");
 const grillaFanPacks = document.querySelector("#grilla-fanpacks");
 const tablaReservas = document.querySelector("#tabla-reservas");
-
-const listaEventosGuardados = document.querySelector(
-    "#lista-eventos-guardados"
-);
-
-const contenedorEventos = document.querySelector(
-    "#contenedor-modulo-eventos"
-);
+const listaEventosGuardados = document.querySelector("#lista-eventos-guardados");
+const contenedorEventos = document.querySelector("#contenedor-modulo-eventos");
 
 const seccionesOcultables = document.querySelectorAll(
-    "#artistas-seguidos, " +
-    "#detalles-fanpack, " +
-    "#detalles-evento, " +
-    "#vista-detalle-fanpack"
+    "#artistas-seguidos, #detalles-fanpack, #detalles-evento, #vista-detalle-fanpack"
 );
 
 
 // 3. NAVEGACIÓN ENTRE SECCIONES
-
 function ocultarSecciones() {
     seccionesOcultables.forEach((seccion) => {
         seccion.style.display = "none";
@@ -88,94 +72,83 @@ function mostrarSeccion(seccion) {
         console.error("No se encontró la sección.");
         return;
     }
-
     ocultarSecciones();
-
     seccion.style.display = "block";
     seccion.classList.remove("seccion-oculta");
-
-    seccion.scrollIntoView({
-        behavior: "smooth",
-        block: "start"
-    });
+    seccion.scrollIntoView({ behavior: "smooth", block: "start" });
 }
 
 function volverAlPerfil() {
     ocultarSecciones();
-
     window.location.hash = "eventos-perfil";
-
     const eventosPerfil = document.querySelector("#eventos-perfil");
-
     if (eventosPerfil) {
-        eventosPerfil.scrollIntoView({
-            behavior: "smooth",
-            block: "start"
-        });
+        eventosPerfil.scrollIntoView({ behavior: "smooth", block: "start" });
     }
 }
 
 
-// 4. RENDERIZAR ARTISTAS SEGUIDOS
-
+// 4. RENDERIZAR ARTISTAS SEGUIDOS (CONEXIÓN REAL CON LOCALSTORAGE)
 function renderizarArtistas() {
-    const filtro = document.querySelector(
-        'input[name="filtro-artista"]:checked'
-    );
+    const filtro = document.querySelector('input[name="filtro-artista"]:checked');
 
     if (!filtro || !grillaArtistas) {
         return;
     }
 
+    // 1. Obtener los nombres de los artistas que el usuario realmente siguió en artistas.html
+    const nombresSeguidos = JSON.parse(localStorage.getItem("artistasSeguidos")) || [];
+
+    // 2. Filtrar el array maestro: debe estar en localStorage Y coincidir con el género seleccionado
     const artistasFiltrados = artistasSeguidos.filter((artista) => {
-        return filtro.value === "todos" ||
-            artista.genero === filtro.value;
+        const estaSeguido = nombresSeguidos.includes(artista.nombre);
+        const coincideGenero = filtro.value === "todos" || artista.genero === filtro.value;
+        
+        return estaSeguido && coincideGenero;
     });
 
+    // 3. Manejar la vista cuando no hay resultados (UX mejorada)
     if (artistasFiltrados.length === 0) {
+        const mensaje = nombresSeguidos.length === 0 
+            ? "Aún no seguís a ningún artista. ¡Explorá el catálogo para agregarlos! 🎸" 
+            : "No hay artistas seguidos en este género.";
+        
         grillaArtistas.innerHTML = `
-            <li class="perfil-mensaje-vacio">
-                No hay artistas seguidos en este género.
+            <li class="perfil-mensaje-vacio" style="grid-column: 1 / -1; text-align: center; padding: 30px; color: var(--color-texto-secundario); font-size: 1.1rem;">
+                ${mensaje}
             </li>
         `;
-
         return;
     }
 
+    // 4. Renderizar solo los artistas que el usuario sigue
     grillaArtistas.innerHTML = artistasFiltrados.map((artista) => `
         <li class="perfil-item-grid">
-
             <figure>
                 <img
                     class="perfil-imagen-grid"
                     src="${artista.imagen}"
                     alt="Foto de ${artista.nombre}"
                 >
-
                 <figcaption class="perfil-figcaption">
                     ${artista.nombre}
                 </figcaption>
             </figure>
-
         </li>
     `).join("");
 }
 
 
 // 5. RENDERIZAR CATÁLOGO DE FAN PACKS
-
 function renderizarFanPacks() {
-    const filtro = document.querySelector(
-        'input[name="filtro-pack"]:checked'
-    );
+    const filtro = document.querySelector('input[name="filtro-pack"]:checked');
 
     if (!filtro || !grillaFanPacks) {
         return;
     }
 
     const packsFiltrados = fanPacks.filter((pack) => {
-        return filtro.value === "todos" ||
-            pack.genero === filtro.value;
+        return filtro.value === "todos" || pack.genero === filtro.value;
     });
 
     if (packsFiltrados.length === 0) {
@@ -184,7 +157,6 @@ function renderizarFanPacks() {
                 No hay Fan Packs disponibles en este género.
             </li>
         `;
-
         return;
     }
 
@@ -195,71 +167,31 @@ function renderizarFanPacks() {
 
         return `
             <li class="perfil-item-grid">
-
                 <figure>
-                    <img
-                        class="perfil-imagen-grid"
-                        src="${pack.imagen}"
-                        alt="Fan Pack de ${pack.artista}"
-                    >
+                    <img class="perfil-imagen-grid" src="${pack.imagen}" alt="Fan Pack de ${pack.artista}">
                 </figure>
-
-                <h3 class="perfil-subtitulo perfil-subtitulo--pequeno">
-                    ${pack.nombre}
-                </h3>
-
-                <p class="perfil-texto">
-                    Artista: ${pack.artista}
-                </p>
-
-                <p class="perfil-texto">
-                    ${pack.descripcion}
-                </p>
-
-                <p class="perfil-texto">
-                    Precio: $${pack.precio.toLocaleString("es-AR")}
-                </p>
-
-                <button
-                    class="perfil-boton perfil-boton--pequeno boton-ver-detalle"
-                    type="button"
-                    data-pack-id="${pack.id}"
-                >
+                <h3 class="perfil-subtitulo perfil-subtitulo--pequeno">${pack.nombre}</h3>
+                <p class="perfil-texto">Artista: ${pack.artista}</p>
+                <p class="perfil-texto">${pack.descripcion}</p>
+                <p class="perfil-texto">Precio: $${pack.precio.toLocaleString("es-AR")}</p>
+                <button class="perfil-boton perfil-boton--pequeno boton-ver-detalle" type="button" data-pack-id="${pack.id}">
                     Ver detalles
                 </button>
-
                 ${reservaExistente ? `
                     <div class="contenedor-acciones-carrito">
-                        <span class="perfil-texto">
-                            Reservado (${reservaExistente.cantidad} un.)
-                        </span>
-
-                        <button
-                            class="perfil-boton perfil-boton--pequeno boton-agregar-pack"
-                            type="button"
-                            data-pack-id="${pack.id}"
-                        >
+                        <span class="perfil-texto">Reservado (${reservaExistente.cantidad} un.)</span>
+                        <button class="perfil-boton perfil-boton--pequeno boton-agregar-pack" type="button" data-pack-id="${pack.id}">
                             Agregar otra unidad
                         </button>
-
-                        <button
-                            class="perfil-boton perfil-boton--pequeno boton-quitar-pack"
-                            type="button"
-                            data-pack-id="${pack.id}"
-                        >
+                        <button class="perfil-boton perfil-boton--pequeno boton-quitar-pack" type="button" data-pack-id="${pack.id}">
                             Sacar de carrito
                         </button>
                     </div>
                 ` : `
-                    <button
-                        class="perfil-boton perfil-boton--pequeno boton-agregar-pack"
-                        type="button"
-                        data-pack-id="${pack.id}"
-                    >
+                    <button class="perfil-boton perfil-boton--pequeno boton-agregar-pack" type="button" data-pack-id="${pack.id}">
                         + Agregar
                     </button>
                 `}
-
             </li>
         `;
     }).join("");
@@ -267,20 +199,14 @@ function renderizarFanPacks() {
 
 
 // 6. AGREGAR FAN PACK A LAS RESERVAS
-
 function agregarFanPack(id) {
-    const pack = fanPacks.find((item) => {
-        return item.id === Number(id);
-    });
-
+    const pack = fanPacks.find((item) => item.id === Number(id));
     if (!pack) {
         console.error("No se encontró el Fan Pack:", id);
         return;
     }
 
-    const reservaExistente = reservas.find((reserva) => {
-        return reserva.id === pack.id;
-    });
+    const reservaExistente = reservas.find((reserva) => reserva.id === pack.id);
 
     if (reservaExistente) {
         reservaExistente.cantidad++;
@@ -295,98 +221,58 @@ function agregarFanPack(id) {
 
     renderizarReservas();
     renderizarFanPacks();
-
     actualizarVistaDetalle(pack.id, reservas);
 }
 
 
 // 7. QUITAR FAN PACK DE LAS RESERVAS
-
 function quitarFanPack(id) {
-    const pack = fanPacks.find((item) => {
-        return item.id === Number(id);
-    });
-
+    const pack = fanPacks.find((item) => item.id === Number(id));
     if (!pack) {
         console.error("No se encontró el Fan Pack:", id);
         return;
     }
 
-    const indiceReserva = reservas.findIndex((reserva) => {
-        return reserva.id === pack.id;
-    });
-
+    const indiceReserva = reservas.findIndex((reserva) => reserva.id === pack.id);
     if (indiceReserva !== -1) {
         reservas.splice(indiceReserva, 1);
     }
 
     renderizarReservas();
     renderizarFanPacks();
-
     actualizarVistaDetalle(pack.id, reservas);
 }
 
 
 // 8. RENDERIZAR TABLA DE RESERVAS
-
 function renderizarReservas() {
-    if (!tablaReservas) {
-        return;
-    }
+    if (!tablaReservas) return;
 
     if (reservas.length === 0) {
         tablaReservas.innerHTML = `
             <tr>
                 <td colspan="5">
-
-                    <p>
-                        Todavía no tenés Fan Packs reservados.
-                    </p>
-
-                    <a
-                        href="#detalles-fanpack"
-                        class="perfil-boton-tabla"
-                    >
-                        Ver Fan Packs disponibles
-                    </a>
-
+                    <p>Todavía no tenés Fan Packs reservados.</p>
+                    <a href="#detalles-fanpack" class="perfil-boton-tabla">Ver Fan Packs disponibles</a>
                 </td>
             </tr>
         `;
-
         return;
     }
 
     tablaReservas.innerHTML = reservas.map((reserva) => {
         const precioFinal = reserva.precio * reserva.cantidad;
-
         return `
             <tr>
-
                 <td>${reserva.nombre}</td>
-
                 <td>${reserva.cantidad}</td>
-
+                <td>$${precioFinal.toLocaleString("es-AR")}</td>
+                <td><span class="perfil-badge">Reservado</span></td>
                 <td>
-                    $${precioFinal.toLocaleString("es-AR")}
-                </td>
-
-                <td>
-                    <span class="perfil-badge">
-                        Reservado
-                    </span>
-                </td>
-
-                <td>
-                    <button
-                        type="button"
-                        class="perfil-boton-tabla boton-ver-pack-reservado"
-                        data-pack-id="${reserva.id}"
-                    >
+                    <button type="button" class="perfil-boton-tabla boton-ver-pack-reservado" data-pack-id="${reserva.id}">
                         Ver pack
                     </button>
                 </td>
-
             </tr>
         `;
     }).join("");
@@ -394,72 +280,38 @@ function renderizarReservas() {
 
 
 // 9. RENDERIZAR PRÓXIMOS EVENTOS GUARDADOS
-
 function renderizarEventosGuardados() {
-    if (!listaEventosGuardados) {
-        return;
-    }
+    if (!listaEventosGuardados) return;
 
     const favoritos = obtenerFavoritos();
-
-    const eventosGuardados = eventos.filter((evento) => {
-        return favoritos.includes(Number(evento.id));
-    });
+    const eventosGuardados = eventos.filter((evento) => favoritos.includes(Number(evento.id)));
 
     if (eventosGuardados.length === 0) {
-        listaEventosGuardados.innerHTML = `
-            <p class="perfil-mensaje-vacio">
-                Todavía no guardaste ningún evento.
-            </p>
-        `;
-
+        listaEventosGuardados.innerHTML = `<p class="perfil-mensaje-vacio">Todavía no guardaste ningún evento.</p>`;
         return;
     }
 
     listaEventosGuardados.innerHTML = eventosGuardados.map((evento) => `
         <article class="perfil-evento-item">
-
             <div class="perfil-evento-info">
-                <span class="perfil-evento-titulo">
-                    ${evento.artista}
-                </span>
-
-                <span class="perfil-evento-detalle">
-                    ${evento.recinto}
-                </span>
+                <span class="perfil-evento-titulo">${evento.artista}</span>
+                <span class="perfil-evento-detalle">${evento.recinto}</span>
             </div>
-
             <div class="perfil-evento-acciones">
-
-                <span class="perfil-evento-fecha">
-                    ${evento.fecha}
-                </span>
-
-                <button
-                    type="button"
-                    class="perfil-boton-tabla boton-ver-detalle-evento"
-                    data-evento-id="${evento.id}"
-                >
+                <span class="perfil-evento-fecha">${evento.fecha}</span>
+                <button type="button" class="perfil-boton-tabla boton-ver-detalle-evento" data-evento-id="${evento.id}">
                     Ver detalles
                 </button>
-
-                <button
-                    type="button"
-                    class="perfil-boton-tabla boton-quitar-evento"
-                    data-evento-id="${evento.id}"
-                >
+                <button type="button" class="perfil-boton-tabla boton-quitar-evento" data-evento-id="${evento.id}">
                     Quitar de guardados
                 </button>
-
             </div>
-
         </article>
     `).join("");
 }
 
 
 // 10. CONFIGURAR FILTROS
-
 filtrosArtistas.forEach((filtro) => {
     filtro.addEventListener("change", renderizarArtistas);
 });
@@ -470,58 +322,32 @@ filtrosPacks.forEach((filtro) => {
 
 
 // 11. MANEJAR BOTONES Y ENLACES
-
 document.addEventListener("click", (evento) => {
-
-    if (!(evento.target instanceof Element)) {
-        return;
-    }
+    if (!(evento.target instanceof Element)) return;
 
     // VER DETALLES DESDE EL CATÁLOGO
     const botonDetalle = evento.target.closest(".boton-ver-detalle");
-
     if (botonDetalle) {
-        abrirDetalleFanPack(
-            botonDetalle.dataset.packId,
-            reservas,
-            mostrarSeccion
-        );
-
+        abrirDetalleFanPack(botonDetalle.dataset.packId, reservas, mostrarSeccion);
         return;
     }
 
     // VER PACK DESDE LA TABLA DE RESERVAS
-    const botonVerPack = evento.target.closest(
-        ".boton-ver-pack-reservado"
-    );
-
+    const botonVerPack = evento.target.closest(".boton-ver-pack-reservado");
     if (botonVerPack) {
-        abrirDetalleFanPack(
-            botonVerPack.dataset.packId,
-            reservas,
-            mostrarSeccion
-        );
-
+        abrirDetalleFanPack(botonVerPack.dataset.packId, reservas, mostrarSeccion);
         return;
     }
 
     // VER DETALLES DE UN EVENTO
-    const botonDetalleEvento = evento.target.closest(
-        ".boton-ver-detalle-evento"
-    );
-
+    const botonDetalleEvento = evento.target.closest(".boton-ver-detalle-evento");
     if (botonDetalleEvento) {
-        abrirDetalleEvento(
-            botonDetalleEvento.dataset.eventoId,
-            mostrarSeccion
-        );
-
+        abrirDetalleEvento(botonDetalleEvento.dataset.eventoId, mostrarSeccion);
         return;
     }
 
     // AGREGAR FAN PACK
     const botonAgregar = evento.target.closest(".boton-agregar-pack");
-
     if (botonAgregar) {
         agregarFanPack(botonAgregar.dataset.packId);
         return;
@@ -529,79 +355,60 @@ document.addEventListener("click", (evento) => {
 
     // SACAR FAN PACK
     const botonQuitarPack = evento.target.closest(".boton-quitar-pack");
-
     if (botonQuitarPack) {
         quitarFanPack(botonQuitarPack.dataset.packId);
         return;
     }
 
     // QUITAR EVENTO DE FAVORITOS
-    const botonQuitarEvento = evento.target.closest(
-        ".boton-quitar-evento"
-    );
-
+    const botonQuitarEvento = evento.target.closest(".boton-quitar-evento");
     if (botonQuitarEvento) {
         const id = Number(botonQuitarEvento.dataset.eventoId);
-
         alternarFavorito(id);
         return;
     }
 
     // MANEJAR ENLACES
     const enlace = evento.target.closest("a");
-
-    if (!enlace) {
-        return;
-    }
+    if (!enlace) return;
 
     const destino = enlace.getAttribute("href");
+    const destinosPermitidos = ["#artistas-seguidos", "#detalles-fanpack", "#detalles-evento", "#eventos-perfil"];
 
-    const destinosPermitidos = [
-        "#artistas-seguidos",
-        "#detalles-fanpack",
-        "#detalles-evento",
-        "#eventos-perfil"
-    ];
-
-    if (!destinosPermitidos.includes(destino)) {
-        return;
-    }
+    if (!destinosPermitidos.includes(destino)) return;
 
     evento.preventDefault();
-
     const seccion = document.querySelector(destino);
-
     if (!seccion) {
         console.error("No se encontró la sección:", destino);
         return;
     }
 
     mostrarSeccion(seccion);
-
     window.location.hash = destino;
 });
 
 
-// 12. SINCRONIZAR LOS EVENTOS FAVORITOS
-
+// 12. SINCRONIZAR LOS EVENTOS FAVORITOS Y ARTISTAS SEGUIDOS
 window.addEventListener("favoritosActualizados", () => {
     renderizarEventosGuardados();
 });
 
+// TOQUE DE ORO: Escuchar cambios en localStorage para actualizar la grilla en tiempo real
 window.addEventListener("storage", (evento) => {
     if (evento.key === "eventosFavoritos") {
         renderizarEventosGuardados();
+    }
+    if (evento.key === "artistasSeguidos") {
+        renderizarArtistas();
     }
 });
 
 
 // 13. INICIALIZACIÓN
-
 ocultarSecciones();
-
 renderizarArtistas();
 renderizarFanPacks();
 renderizarReservas();
 renderizarEventosGuardados();
-
 inicializarModuloEventos(contenedorEventos);

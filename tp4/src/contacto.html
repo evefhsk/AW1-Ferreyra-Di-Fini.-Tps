@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="es">
 
@@ -46,7 +45,8 @@
             </h2>
 
             <div class="contenedor-form">
-                <form class="formulario-contacto" id="id-form-contacto" action="./contacto.html" method="post">
+                <!-- El action="#" es una buena práctica cuando JS maneja el envío -->
+                <form class="formulario-contacto" id="id-form-contacto" action="#" method="post">
                     <div class="campo-grupo">
                         <label class="campo-grupo__label" for="idNombre">Nombre completo</label>
                         <input class="campo-grupo__input" type="text" id="idNombre" name="nombre" minlength="3"
@@ -169,6 +169,8 @@
             </li>
         </ul>
     </footer>
+
+    <script type="module" src="./recursos/js/contacto.js"></script>
 </body>
 
 </html>

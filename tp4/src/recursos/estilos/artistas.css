@@ -1,6 +1,4 @@
 
-/* vista artistas catalogo y detalle spa */
-
 .visually-hidden {
     position: absolute;
     width: 1px;
@@ -13,29 +11,8 @@
     border: 0;
 }
 
-/* comportamiento spa con target */
-.vista-detalle {
-    display: none;
-}
-
-/* muestra la ficha si coincide el id en el ancla */
-.vista-detalle:target {
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-}
-
-/* oculta el catalogo cuando se abre el detalle de cualquier artista */
-body:has(#detalle-coldplay:target) .vista-catalogo,
-body:has(#detalle-bts:target) .vista-catalogo,
-body:has(#detalle-thebeatles:target) .vista-catalogo {
-    display: none;
-}
-
-/* cabecera y buscador */
-.artistas-intro {
-    margin-bottom: 20px;
-}
+/* --- Cabecera y Buscador --- */
+.artistas-intro { margin-bottom: 20px; }
 
 .artistas-intro__titulo {
     font-size: 2.2rem;
@@ -49,9 +26,7 @@ body:has(#detalle-thebeatles:target) .vista-catalogo {
     line-height: 1.5;
 }
 
-.seccion-busqueda {
-    margin-bottom: 25px;
-}
+.seccion-busqueda { margin-bottom: 25px; }
 
 .buscador-form {
     display: flex;
@@ -70,15 +45,10 @@ body:has(#detalle-thebeatles:target) .vista-catalogo {
     outline: none;
 }
 
-.buscador-form__input:focus {
-    border-color: var(--color-primario-activo);
-}
+.buscador-form__input:focus { border-color: var(--color-primario-activo); }
+.buscador-form__input::placeholder { color: #64748b; }
 
-.buscador-form__input::placeholder {
-    color: #64748b;
-}
-
-/* botones de filtros */
+/* --- Filtros --- */
 .filtros-grupo {
     border: none;
     padding: 0;
@@ -124,7 +94,7 @@ body:has(#detalle-thebeatles:target) .vista-catalogo {
     outline-offset: 3px;
 }
 
-/* grilla de artistas mobile first */
+/* --- Grilla de Artistas (Mobile First) --- */
 .artistas-grilla {
     display: grid;
     grid-template-columns: 1fr;
@@ -200,80 +170,7 @@ body:has(#detalle-thebeatles:target) .vista-catalogo {
     color: #ffffff;
 }
 
-/* ficha de detalle del artista */
-.boton-volver {
-    display: inline-flex;
-    align-items: center;
-    gap: 6px;
-    font-size: 0.95rem;
-    font-weight: 700;
-    color: var(--color-texto-principal);
-    margin-bottom: 15px;
-}
-
-.boton-volver:hover {
-    color: var(--color-primario-activo);
-}
-
-.boton-volver__flecha {
-    font-size: 1.2rem;
-}
-
-.detalle-hero {
-    background-color: var(--color-superficie);
-    border: 1.5px solid var(--color-borde);
-    border-radius: 14px;
-    padding: 20px;
-    display: flex;
-    flex-direction: column;
-    gap: 14px;
-}
-
-.detalle-hero__marco-foto {
-    width: 100%;
-    height: 240px;
-    background-color: #1a2238;
-    border: 1.5px solid var(--color-borde);
-    border-radius: 10px;
-    overflow: hidden;
-    margin: 0;
-}
-
-.detalle-hero__foto {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    display: block;
-}
-
-.detalle-hero__info {
-    display: flex;
-    flex-direction: column;
-    gap: 6px;
-}
-
-.detalle-hero__nombre {
-    font-size: 1.6rem;
-    font-weight: 800;
-}
-
-.detalle-hero__descripcion {
-    font-size: 0.9rem;
-    color: var(--color-texto-secundario);
-}
-
-.detalle-hero__recinto,
-.detalle-hero__fecha {
-    font-size: 0.9rem;
-}
-
-.detalle-hero__acciones {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-    margin-top: 6px;
-}
-
+/* --- Acciones Específicas de Detalle --- */
 .boton-accion-negro {
     width: 100%;
     background-color: #000000;
@@ -286,10 +183,7 @@ body:has(#detalle-thebeatles:target) .vista-catalogo {
     cursor: pointer;
     transition: background-color 0.2s;
 }
-
-.boton-accion-negro:hover {
-    background-color: var(--color-primario-activo);
-}
+.boton-accion-negro:hover { background-color: var(--color-primario-activo); }
 
 .boton-accion-borde {
     width: 100%;
@@ -303,93 +197,12 @@ body:has(#detalle-thebeatles:target) .vista-catalogo {
     cursor: pointer;
     transition: background-color 0.2s, border-color 0.2s;
 }
-
 .boton-accion-borde:hover {
     background-color: var(--color-fondo);
     border-color: var(--color-primario-activo);
 }
 
-/* cajas de recinto y setlist */
-.detalle-paneles-grilla {
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: 20px;
-}
-
-.panel-box {
-    background-color: var(--color-superficie);
-    border: 1.5px solid var(--color-borde);
-    border-radius: 8px;
-    padding: 20px;
-}
-
-.panel-box__titulo {
-    font-size: 0.95rem;
-    font-weight: 800;
-    margin-bottom: 16px;
-    letter-spacing: 0.5px;
-}
-
-.horarios-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 10px;
-    margin-bottom: 12px;
-}
-
-.horarios-grid__celda {
-    background-color: #1a2238;
-    border: 1px solid var(--color-borde);
-    padding: 10px 14px;
-    border-radius: 6px;
-}
-
-.horarios-grid__celda--completa {
-    grid-column: 1 / -1;
-}
-
-.horarios-grid__etiqueta {
-    display: block;
-    font-size: 0.75rem;
-    color: var(--color-texto-secundario);
-    font-weight: 600;
-    margin-bottom: 4px;
-}
-
-.horarios-grid__valor {
-    font-size: 0.95rem;
-    font-weight: 700;
-}
-
-.panel-box__texto-legal {
-    font-size: 0.8rem;
-    color: var(--color-texto-secundario);
-    line-height: 1.5;
-}
-
-.canciones-lista {
-    display: flex;
-    flex-direction: column;
-    gap: 8px;
-    list-style: none;
-    padding: 0;
-    margin: 0;
-}
-
-.canciones-lista__item {
-    background-color: #1a2238;
-    border: 1px solid var(--color-borde);
-    padding: 10px 14px;
-    border-radius: 6px;
-    font-size: 0.9rem;
-    font-weight: 600;
-}
-
-/* fan packs */
-.panel-box--completo {
-    width: 100%;
-}
-
+/* --- Fan Packs en Detalle --- */
 .pack-compra {
     background-color: #1a2238;
     border: 1px solid var(--color-borde);
@@ -420,9 +233,7 @@ body:has(#detalle-thebeatles:target) .vista-catalogo {
     flex-shrink: 0;
 }
 
-.pack-compra__datos {
-    min-width: 0;
-}
+.pack-compra__datos { min-width: 0; }
 
 .pack-compra__nombre {
     font-size: 1rem;
@@ -476,41 +287,21 @@ body:has(#detalle-thebeatles:target) .vista-catalogo {
     cursor: pointer;
     transition: background-color 0.2s;
 }
+.boton-pack-agregar:hover { background-color: var(--color-primario); }
 
-.boton-pack-agregar:hover {
-    background-color: var(--color-primario);
-}
-
-/* media query para escritorio */
+/* --- Media Query Específica de Artistas --- */
 @media (min-width: 768px) {
     .artistas-grilla {
         grid-template-columns: repeat(3, 1fr);
         gap: 24px;
     }
 
-    .detalle-hero {
-        display: grid;
-        grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
-        align-items: center;
-        gap: 20px;
-    }
-
-    .detalle-hero__marco-foto {
-        height: 320px;
-    }
-
     .detalle-hero__acciones {
-        grid-column: 1 / -1;
         flex-direction: row;
     }
 
     .boton-accion-negro,
     .boton-accion-borde {
         flex: 1;
-    }
-
-    .detalle-paneles-grilla {
-        grid-template-columns: 1fr 1fr;
-        gap: 24px;
     }
 }
